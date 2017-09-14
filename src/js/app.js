@@ -43,8 +43,8 @@ xr.get('https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiA
 
     console.log(data.english[0]);
     var compiledHTML = compileHTML(data);
-    document.querySelector(".gv-grid-view").innerHTML = compiledHTML.grid;
-    document.querySelector(".gv-list-view").innerHTML = compiledHTML.list;
+    document.querySelector(".gv-grid-view-inner").innerHTML = compiledHTML.grid;
+    document.querySelector(".gv-list-view-inner").innerHTML = compiledHTML.list;
     addListeners();
     //updatePageDate();
     //upDatePageView(data);
