@@ -2,10 +2,28 @@
             {{#each english}}
             <div class="gv-list-entry" id="list-entry_{{index}}" data-index="{{index}}">
 
-                <!-- INSERT LIST STUFF HERE -->
+                    <div class="gv-list-entry-inner" id="gv-list-entry-inner_{{index}}" data-index="{{index}}">
+                            <div class="gv-list-entry-header">
 
-                LIST ITEM {{index}}
+                                    <div class="gv-list-image-container">
+                                            <img class="gv-list-image" src="" />
+                                            <div class="gv-list-image-flag"></div>
+                                    </div>
 
+                                    <div class="gv-list-title"><span class="gv-list-flag">Flag{{Country}}</span>{{Name}}</div>
+                                    <div class="gv-list-entry-info">
+                                            <div class="gv-list-country gv-list-info-row">Country<span>{{Country}}</span></div>
+                                            <div class="gv-list-club gv-list-info-row">Club<span>{{Club}}</span></div>
+                                            <div class="gv-list-position gv-list-info-row">Position<span>{{Position}}</span></div>
+                                            <div class="gv-list-born gv-list-info-row">Born<span>{{DOB}}</span></div>
+                                    </div>
+                                    <div class="gv-list-pitch-graphic">Pitch{{Position}}</div>
+                            </div>
+                            <div class="gv-list-entry-body-text">
+                                <div class="gv-list-entry-description">{{Description}}</div>
+                            </div>
+    
+                    </div>
             </div>
 	                <!-- {{#each objArr}} 
 	                	{{> detailItem }}

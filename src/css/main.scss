@@ -34,7 +34,7 @@ $background-lightgrey: #f4f4f4;
     margin: 0 !important;
     //background-color: $multimedia-support-4;
     background-color: #ebebeb;
-    overflow:hidden;
+    //overflow:hidden;
     @include mq(desktop){
         overflow:visible;
     }
@@ -66,7 +66,7 @@ $background-lightgrey: #f4f4f4;
 .gv-list-view {
     position: relative;
     width: 100%;
-    height: 100%;
+    //height: 100%;
     min-height: 100vh;
     background-color: $background-lightgrey;
 
@@ -76,6 +76,111 @@ $background-lightgrey: #f4f4f4;
         @include mq(desktop){
             margin: 0 auto;
             width: 740px;
+        }
+
+        .gv-list-entry {
+
+            .gv-list-entry-inner {
+
+                .gv-list-entry-header {
+                    position: relative;
+                    min-height: 185px;
+                    width: 100%;
+                    background-color: $background-grey;
+                    color: #fff;
+                    vertical-align: top;
+
+                    .gv-list-image-container {
+                        padding: 5px;
+                        height: 140px;
+                        position: relative;
+
+                        @include mq(desktop){
+                        position: absolute;
+                        width: 240px;
+                        height: 175px;
+                        top: 5px;
+                        left: 5px;
+                        padding: 0;
+                        }
+
+                        .gv-list-image {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: #ff0000;
+                        }
+
+                        .gv-list-image-flag {
+                            position: absolute;
+                            bottom: 5px;
+                            left: 5px;
+                            height: 30px;
+                            width: 30px;
+                            background: #fff;
+                            z-index: 800;
+                            border-radius: 50%;
+                            @include mq(desktop){
+                                display: none;
+                            }
+                        }
+
+                    }
+
+                    .gv-list-title {
+                        padding: 5px;
+                        @include mq(desktop){
+                        position: absolute;
+                        background-color: #0000ff;
+                        width: 300px;
+                        height: 55px;
+                        top: 5px;
+                        left: 260px;
+                        padding: 0;
+                        }
+                    }
+
+                    .gv-list-entry-info {
+                        padding: 5px;
+                        @include mq(desktop){
+                        position: absolute;
+                        background-color: #ffff00;
+                        height: 120px;
+                        width: 300px;
+                        top: 60px;
+                        left: 260px;
+                        padding: 0;
+                        }
+                    }
+                    .gv-list-pitch-graphic {
+                        display: none;
+                        @include mq(desktop){
+                        display: block;
+                        position: absolute;
+                        background-color: #00ff00;
+                        height: 70px;
+                        width: 122px;
+                        top: 60px;
+                        right: 20px;
+                        }
+                    }
+                }
+
+                .gv-list-entry-body-text {
+                    padding: 0 20px;
+                }
+            }
+
+
+
+
+
+
+
+
+
         }
     }
 }
@@ -95,7 +200,7 @@ $background-lightgrey: #f4f4f4;
         left: 50px;
     }
     //transform: translateX(100vw);
-    //z-index: 1000;
+    z-index: 1000;
     &.open{
    
         transform: translateX(0);
@@ -124,7 +229,11 @@ $background-lightgrey: #f4f4f4;
     }
 
     .gv-grid-view-inner {
-        margin: 0 15px;
+        margin: 20px 15px;
+
+        @include mq(desktop){
+            margin: 20px 70px;
+        }
     }
 
     .gv-grid {
@@ -132,19 +241,28 @@ $background-lightgrey: #f4f4f4;
         width: -webkit-calc(100% + 5px);
         width: -moz-calc(100% + 5px);
         width: calc(100% + 5px);
-        //margin: 0 0 0 15px;
+
         @include mq(desktop){
-            //margin: 0 0 0 15px;
+            width: 108%;
+            width: -webkit-calc(100% + 20px);
+            width: -moz-calc(100% + 20px);
+            width: calc(100% + 20px);
         }
     }
 
     .gv-grid-cell {
         position: relative;
-        width : 50%;
-        height: 200px;
+        width : 50%; // 2 in row mobile default
+        padding-bottom: 50%;
+        height: auto;
         margin-bottom: 12px;
         box-sizing: content-box;
         float: left;
+        height: 120px;
+        @include mq(desktop){
+            width : 20%; // 5 in row desktop default
+            padding-bottom: 20%;
+        }
 
         .gv-grid-cell-inner {
             position: absolute;
@@ -154,17 +272,71 @@ $background-lightgrey: #f4f4f4;
             bottom: 0px;
             background: #767676;
             cursor: pointer;
+            border-top: 1px solid $accent-green;
+
+            @include mq(desktop){
+                right: 20px;
+            }
+
+            .gv-grid-cell-image-container {
+                width: 100%;
+                position: relative;
+                background: #ff0000;
+                padding-bottom: 100%;
+                pointer-events: none;
+
+                .gv-grid-cell-image {
+                }
+
+
+                .gv-grid-cell-flag {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 5px;
+                    height: 30px;
+                    width: 30px;
+                    background: #fff;
+                    z-index: 9999999999;
+                    border-radius: 50%;
+                }
+            }
+
+            .gv-cell-info {
+
+                padding: 15px;
+                text-align: center;
+                pointer-events: none;
+
+            .gv-cell-number {
+
+            }
+
+            .gv-cell-title {
+
+            }
+
+            .gv-cell-subtitle {
+                
+            }
+
+        }
+
+        }
 
         &.disabled {
             
         }
 
         &:hover {
-            background: #767676;
+            //background: #767676;
         }
 
-        }
+        
     }
+}
+
+.gv-hide {
+    display: none;
 }
 
 

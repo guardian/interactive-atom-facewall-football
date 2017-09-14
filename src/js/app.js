@@ -61,6 +61,7 @@ function cleanData(dataIn) {
         for (var i=0;i<dataIn[key].length;i++) {
             obj = dataIn[key][i];
             obj.index = i;
+            obj.Rank = dataIn[key][i].Rank || i + 1;
             arr.push(obj);
             //console.log(i);
         }
@@ -118,12 +119,12 @@ function addListeners() {
       // clear the timeout
       clearTimeout(resizeTimeout);
       // start timing for event "completion"
-      resizeTimeout = setTimeout(resizeUpdate, 250);
+      resizeTimeout = setTimeout(updateOnResize, 250);
     });
 
     window.onbeforeunload = function(){ window.scrollTo(0,0); } //resets scroll on load
 
-    Scrolling(window, scrollUpdate);  // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
+    Scrolling(window, updateOnScroll());  // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
 
     //rightPane = document.getElementById("right-wrap");
     //Scrolling(rightPane, updateViewAfterScroll);
@@ -144,9 +145,42 @@ function updateOnResize() {
 function updateOnGridClick( e ) {
     if (e.target !== e.currentTarget) {
         var clickedIndex = parseInt(e.target.dataset.index);
-        alert(clickedIndex);
-    }
-    e.stopPropagation();
+        e.stopPropagation();
+        console.log(clickedIndex);
+        toggleView();
+
+//         // default options
+//         const options = {
+//             // duration of the scroll per 1000px, default 500
+//             speed: 500,
+           
+//             // minimum duration of the scroll
+//             minDuration: 250,
+           
+//             // maximum duration of the scroll
+//             maxDuration: 1500,
+           
+//             // DOM element to scroll, default window
+//             // Pass a reference to a DOM object
+//             // Example: document.querySelector('#element-to-scroll'),
+//             element: window,
+           
+//             // should animated scroll be canceled on user scroll/keypress
+//             // if set to "false" user input will be disabled until animated scroll is complete
+//             cancelOnUserAction: false,
+           
+//             // function that will be executed when the scroll animation is finished
+//             onComplete: updateAfter()
+//           };
+   
+//   const desiredOffset = 1000;
+//       animateScrollTo(document.getElementById("list-entry_"+ clickedIndex), options);
+  }
+    
+}
+
+function updateAfter() {
+
 }
 
 function toggleView() {

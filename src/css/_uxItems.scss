@@ -158,9 +158,18 @@
     height: 60px;
     background: $accent-green;
     position: fixed;
+    z-index: 99999999999;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -30px;
+    @include mq(desktop){
+    bottom: auto;
+    left: auto;
+    margin-left: 0;
+    }
     // top: 0%;
     // left: 50%;
-    z-index: 99999999;
+    
     cursor: pointer;
     border-radius: 50%;
 }
@@ -170,5 +179,6 @@
     position: absolute;
     top: 20px;
     left: 20px;
+    
 }
 
