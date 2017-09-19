@@ -22,6 +22,7 @@ $selected-color-support: $comment-main-2;
 $accent-green: #aad801;
 $mid-grey: #999999;
 $dark-grey: #505050;
+$text-grey: #676767;
 $background-grey: #333333;
 $background-lightgrey: #f4f4f4;
 
@@ -34,9 +35,10 @@ $background-lightgrey: #f4f4f4;
     margin: 0 !important;
     //background-color: $multimedia-support-4;
     background-color: #ebebeb;
+    height: auto;
     //overflow:hidden;
     @include mq(desktop){
-        overflow:visible;
+        //overflow:visible;
     }
 }
 
@@ -64,11 +66,19 @@ $background-lightgrey: #f4f4f4;
 }
 
 .gv-list-view {
-    position: relative;
+
     width: 100%;
     //height: 100%;
     min-height: 100vh;
     background-color: $background-lightgrey;
+
+    &.open{
+        position: relative;
+    }
+
+    &.close{
+        position: absolute;
+    }
 
     .gv-list-view-inner {
         margin: 20px 15px;
@@ -80,6 +90,10 @@ $background-lightgrey: #f4f4f4;
 
         .gv-list-entry {
 
+            background-color: #ffffff;
+            margin-bottom: 50px;
+            border-bottom: 2px solid #d6d6d6;
+
             .gv-list-entry-inner {
 
                 .gv-list-entry-header {
@@ -89,9 +103,15 @@ $background-lightgrey: #f4f4f4;
                     background-color: $background-grey;
                     color: #fff;
                     vertical-align: top;
+                    padding: 0 0 10px 0;
+
+                    @include mq(desktop){
+                        padding: 0;
+                        }
 
                     .gv-list-image-container {
-                        padding: 5px;
+                        top: 5px;
+                        margin: 0 5px 12px 5px;
                         height: 140px;
                         position: relative;
                         overflow: hidden;
@@ -103,6 +123,7 @@ $background-lightgrey: #f4f4f4;
                         top: 5px;
                         left: 5px;
                         padding: 0;
+                        margin: 0;
                         }
 
                         .gv-list-image {
@@ -138,29 +159,79 @@ $background-lightgrey: #f4f4f4;
                     }
 
                     .gv-list-title {
-                        padding: 5px;
+                        padding: 5px 10px;
+                        @include f-headline();
+                        font-size: 36px;
+                        line-height: 38px;
+                        font-weight: 300;
                         @include mq(desktop){
                         position: absolute;
-                        background-color: #0000ff;
-                        width: 300px;
+                        width: 460px;
+                        //background-color: #fff;
                         height: 55px;
                         top: 5px;
                         left: 260px;
                         padding: 0;
+                        vertical-align: top;
+                        }
+
+                        span:nth-of-type(2) {
+                            padding-top: 7px;
+                            display: inline-block;
+                            vertical-align: top;
+    
+                        }
+
+                        .gv-list-flag {
+                            display: none;
+                            @include mq(desktop){
+                                display: inline-block;
+                                width: 30px;
+                                height: 30px;
+                                background-color: #fff;
+                                border-radius: 50%;
+                                margin-right: 10px;
+                                margin-top: 8px;
+                                vertical-align: top;
+                            }
                         }
                     }
 
                     .gv-list-entry-info {
-                        padding: 5px;
+                        margin: 5px 10px;
+                        display: table;
+                        border-collapse: collapse;
+                        width: calc(100% - 20px);
+                        @include fs-textSans(3);
+                        color: #636363;
+                        
+
                         @include mq(desktop){
                         position: absolute;
-                        background-color: #ffff00;
+                        margin : 0;
                         height: 120px;
                         width: 300px;
                         top: 60px;
                         left: 260px;
-                        padding: 0;
                         }
+
+                        .gv-list-info-row {
+                            
+                            display: table-row;
+                            width: auto;
+
+                            span {
+                                border-top: 1px solid #636363;
+                                display: table-cell;
+                                padding: 4px 0;
+
+                                &:nth-of-type(2) {
+                                    color: #999999;
+                                }
+               
+                            }
+                        }
+
                     }
                     .gv-list-pitch-graphic {
                         display: none;
@@ -177,7 +248,14 @@ $background-lightgrey: #f4f4f4;
                 }
 
                 .gv-list-entry-body-text {
-                    padding: 0 20px;
+                    padding: 12px 20px;
+
+                    .gv-list-entry-description {
+                        @include f-headline();
+                        color: #333;
+                        font-size: 16px;
+                    }
+
                 }
             }
 
@@ -195,7 +273,7 @@ $background-lightgrey: #f4f4f4;
 
 
 .gv-grid-view {
-    position: absolute;
+    
     top: 0;
     left: 0;
     width: 100%;
@@ -210,7 +288,7 @@ $background-lightgrey: #f4f4f4;
     //transform: translateX(100vw);
     z-index: 1000;
     &.open{
-   
+        position: relative;
         transform: translateX(0);
         transition: transform  0.15s linear;
         transition-delay: 0.15s;
@@ -220,7 +298,9 @@ $background-lightgrey: #f4f4f4;
     }
     
     &.close{
-      
+        position: absolute;
+        width: inherit;
+        max-width: inherit;
         transform: translateX(100vw);
         transition: transform  0.15s linear;
         @include mq(desktop){
@@ -266,11 +346,13 @@ $background-lightgrey: #f4f4f4;
         margin-bottom: 12px;
         box-sizing: content-box;
         float: left;
-        height: 120px;
+        height: 86px;
         @include mq(desktop){
             width : 20%; // 5 in row desktop default
             padding-bottom: 20%;
         }
+
+        
 
         .gv-grid-cell-inner {
             position: absolute;
@@ -278,9 +360,17 @@ $background-lightgrey: #f4f4f4;
             left: 0;
             right: 5px;
             bottom: 0px;
-            background: #767676;
+            //background: #767676;
             cursor: pointer;
             border-top: 1px solid $accent-green;
+            -webkit-transition: opacity 100ms ease-in-out;
+            -moz-transition: opacity 100ms ease-in-out;
+              -o-transition: opacity 100ms ease-in-out;
+                 transition: opacity 100ms ease-in-out;
+
+            &:hover {
+                opacity: 0.8;
+            }
 
             @include mq(desktop){
                 right: 20px;
@@ -293,6 +383,8 @@ $background-lightgrey: #f4f4f4;
                 padding-bottom: 100%;
                 pointer-events: none;
                 overflow: hidden;
+
+                
 
                 .gv-grid-cell-image {
                     position: absolute;
@@ -317,20 +409,27 @@ $background-lightgrey: #f4f4f4;
 
             .gv-cell-info {
 
-                padding: 15px;
+                // font-family: $f-serif-headline;
+                
+                //@include fs-textSans(3);
+                padding: 12px 5px;
                 text-align: center;
                 pointer-events: none;
 
             .gv-cell-number {
-
+                display: none;
             }
 
             .gv-cell-title {
-
+                @include fs-headline(3);
+                color: #ffffff;
             }
 
             .gv-cell-subtitle {
-                
+                @include f-headlineSans();
+                font-size: 18px;
+                line-height: 20px;
+                color: $text-grey;
             }
 
         }
@@ -358,11 +457,15 @@ $background-lightgrey: #f4f4f4;
        -moz-transition: opacity 500ms ease-in-out;
          -o-transition: opacity 500ms ease-in-out;
             transition: opacity 500ms ease-in-out;
-             max-width: 100%;
+             //max-width: 100%;
                opacity: 0;
 }
-.gv-blazy.b-loaded {
-               opacity: 1;
+.gv-grid-view .gv-blazy.b-loaded {
+               opacity: 0.8;
+}
+
+.gv-list-view .gv-blazy.b-loaded {
+    opacity: 1;
 }
 
 

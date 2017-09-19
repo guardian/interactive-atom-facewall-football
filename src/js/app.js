@@ -183,35 +183,12 @@ function updateOnGridClick( e ) {
     if (e.target !== e.currentTarget) {
         var clickedIndex = parseInt(e.target.dataset.index);
         e.stopPropagation();
-        console.log(clickedIndex);
-        toggleView();
+        //console.log(clickedIndex);
+        //alert(document.querySelector('.gv-grid-view').offsetTop);
 
-//         // default options
-//         const options = {
-//             // duration of the scroll per 1000px, default 500
-//             speed: 500,
-           
-//             // minimum duration of the scroll
-//             minDuration: 250,
-           
-//             // maximum duration of the scroll
-//             maxDuration: 1500,
-           
-//             // DOM element to scroll, default window
-//             // Pass a reference to a DOM object
-//             // Example: document.querySelector('#element-to-scroll'),
-//             element: window,
-           
-//             // should animated scroll be canceled on user scroll/keypress
-//             // if set to "false" user input will be disabled until animated scroll is complete
-//             cancelOnUserAction: false,
-           
-//             // function that will be executed when the scroll animation is finished
-//             onComplete: updateAfter()
-//           };
-   
-//   const desiredOffset = 1000;
-//       animateScrollTo(document.getElementById("list-entry_"+ clickedIndex), options);
+        toggleView();
+        document.querySelector('#list-entry_' + clickedIndex).scrollIntoView( true );
+
   }
     
 }
@@ -234,11 +211,23 @@ function toggleView() {
 function showGrid() {
     document.querySelector('.gv-grid-view').classList.remove('close');
     document.querySelector('.gv-grid-view').classList.add('open');
+    document.querySelector('.gv-list-view').classList.remove('open');
+    document.querySelector('.gv-list-view').classList.add('close');
 }
 
 function hideGrid() {
+    //var viewportOffset = document.querySelector('.gv-grid-view').getBoundingClientRect();
+    // these are relative to the viewport, i.e. the window
+    //var top = viewportOffset.top;
+    //var left = viewportOffset.left;
     document.querySelector('.gv-grid-view').classList.add('close');
     document.querySelector('.gv-grid-view').classList.remove('open');
+    document.querySelector('.gv-list-view').classList.remove('close');
+    document.querySelector('.gv-list-view').classList.add('open');
+   //document.querySelector('.gv-grid-view').style.top = viewportOffset.top + "px";
+
+
+
 }
 
 function jumpToIndex( ind ) {
