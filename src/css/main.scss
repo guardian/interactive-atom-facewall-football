@@ -94,6 +94,7 @@ $background-lightgrey: #f4f4f4;
                         padding: 5px;
                         height: 140px;
                         position: relative;
+                        overflow: hidden;
 
                         @include mq(desktop){
                         position: absolute;
@@ -108,9 +109,16 @@ $background-lightgrey: #f4f4f4;
                             position: absolute;
                             top: 0;
                             left: 0;
+                            height: auto;
                             width: 100%;
-                            height: 100%;
-                            background-color: #ff0000;
+                            //height: 100%;
+                            //background-color: #ff0000;
+                            @include mq(desktop){
+                                width: auto;
+                                max-width: auto;
+                                height: 100%;
+                                object-fit: cover;
+                                }
                         }
 
                         .gv-list-image-flag {
@@ -281,11 +289,17 @@ $background-lightgrey: #f4f4f4;
             .gv-grid-cell-image-container {
                 width: 100%;
                 position: relative;
-                background: #ff0000;
+                //background: #ff0000;
                 padding-bottom: 100%;
                 pointer-events: none;
+                overflow: hidden;
 
                 .gv-grid-cell-image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+
                 }
 
 
@@ -337,6 +351,18 @@ $background-lightgrey: #f4f4f4;
 
 .gv-hide {
     display: none;
+}
+
+.gv-blazy {
+    -webkit-transition: opacity 500ms ease-in-out;
+       -moz-transition: opacity 500ms ease-in-out;
+         -o-transition: opacity 500ms ease-in-out;
+            transition: opacity 500ms ease-in-out;
+             max-width: 100%;
+               opacity: 0;
+}
+.gv-blazy.b-loaded {
+               opacity: 1;
 }
 
 

@@ -2,6 +2,7 @@
 import xr from 'xr'
 import Handlebars from 'handlebars/dist/handlebars'
 import Scrolling from 'scrolling';
+import Blazy from 'blazy';
 
 import { groupBy } from './libs/arrayObjectUtils.js'
 import { share } from './libs/share.js';
@@ -20,6 +21,8 @@ import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/packag
 
 var gridViewBool = true;
 var resizeTimeout = null;
+var bLazy;
+
 
 function isMobile() {
     var dummy = document.getElementById("gv-mobile-dummy");
@@ -52,6 +55,8 @@ xr.get('https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiA
 
 function cleanData(dataIn) {
 
+    console.log(dataIn);
+
     var obj, dataOut = {}, arr;
 
     for (var key in dataIn) {
@@ -60,8 +65,20 @@ function cleanData(dataIn) {
         //var obj = data.messages[key];
         for (var i=0;i<dataIn[key].length;i++) {
             obj = dataIn[key][i];
-            obj.index = i;
-            obj.Rank = dataIn[key][i].Rank || i + 1;
+            obj["Index"] = i;
+            obj["Rank"] = dataIn[key][i].Rank || i + 1;
+
+            // Corrections from old data
+
+            obj["Grid view image"] = obj["Thumb Image URL 500 x 500px"];
+            obj["Grid view image parameters"] = obj["Thumb Image Parameters"];
+            obj["Grid_image_src"] = obj["Grid view image"]; // No parameters used
+
+            obj["List view image"] = obj["Main Image URL landscape 900 x 506px"];
+            obj["List view image parameters"] = obj["Main Image Parameters"];
+            obj["List_image_src"] = obj["List view image"]; // No parameters used
+
+
             arr.push(obj);
             //console.log(i);
         }
@@ -126,9 +143,29 @@ function addListeners() {
 
     Scrolling(window, updateOnScroll());  // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
 
+    bLazy = new Blazy(
+        {
+            selector: ".gv-blazy",
+            offset: 200
+        }     
+    );
+
+    window.setTimeout(function() {
+        updateLazyLoad();
+        }, 200);
+
     //rightPane = document.getElementById("right-wrap");
     //Scrolling(rightPane, updateViewAfterScroll);
 
+}
+
+function updateLazyLoad() {
+    
+    bLazy.revalidate();
+     
+    window.setTimeout(function() {
+    updateLazyLoad();
+    }, 1000);
 }
 
 
