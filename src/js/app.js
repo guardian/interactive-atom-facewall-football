@@ -15,13 +15,14 @@ import listTemplate from '../templates/list.html'
 //import thumbsTemplate from '../templates/thumbsGallery.html'
 //import cellTemplate from '../templates/gridCell.html'
 
-import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
+//import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
 
 //var shareFn = share('Grenfell Tower', 'https://gu.com/p/72vvx');
 
 var gridViewBool = true;
 var resizeTimeout = null;
 var bLazy;
+var lastScrollTop = 0;
 
 
 function isMobile() {
@@ -67,6 +68,8 @@ function cleanData(dataIn) {
             obj = dataIn[key][i];
             obj["Index"] = i;
             obj["Rank"] = dataIn[key][i].Rank || i + 1;
+            obj["DOB_text"] = dataIn[key][i]["DOB text"];
+            obj["Iso"] = "bgr"; //String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
 
             // Corrections from old data
 
@@ -141,7 +144,7 @@ function addListeners() {
 
     window.onbeforeunload = function(){ window.scrollTo(0,0); } //resets scroll on load
 
-    Scrolling(window, updateOnScroll());  // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
+    Scrolling(window, updateOnScroll);  // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
 
     bLazy = new Blazy(
         {
@@ -153,9 +156,6 @@ function addListeners() {
     window.setTimeout(function() {
         updateLazyLoad();
         }, 200);
-
-    //rightPane = document.getElementById("right-wrap");
-    //Scrolling(rightPane, updateViewAfterScroll);
 
 }
 
@@ -170,12 +170,13 @@ function updateLazyLoad() {
 
 
 function updateOnScroll() {
-    console.log("scrolled");
+    //console.log("scrolled");
+    //console.log(document.documentElement.scrollTop || document.body.scrollTop);
     checkFixElements();
 }
 
 function updateOnResize() {
-    console.log("resized");
+    //console.log("resized");
     updateOnScroll();
 }
 
@@ -187,14 +188,9 @@ function updateOnGridClick( e ) {
         //alert(document.querySelector('.gv-grid-view').offsetTop);
 
         toggleView();
-        document.querySelector('#list-entry_' + clickedIndex).scrollIntoView( true );
-
+        jumpToIndex(clickedIndex);
   }
     
-}
-
-function updateAfter() {
-
 }
 
 function toggleView() {
@@ -209,29 +205,65 @@ function toggleView() {
 }
 
 function showGrid() {
+    fixList(true);
+    fixGrid(false);
     document.querySelector('.gv-grid-view').classList.remove('close');
     document.querySelector('.gv-grid-view').classList.add('open');
     document.querySelector('.gv-list-view').classList.remove('open');
     document.querySelector('.gv-list-view').classList.add('close');
+    window.scrollTo(0,lastScrollTop);
+    window.setTimeout(function() {
+        fixList(false);
+    }, 300);
 }
 
 function hideGrid() {
-    //var viewportOffset = document.querySelector('.gv-grid-view').getBoundingClientRect();
-    // these are relative to the viewport, i.e. the window
-    //var top = viewportOffset.top;
-    //var left = viewportOffset.left;
+    lastScrollTop = document.documentElement.scrollTop || document.body.scrollTop; // Resets to last viewed area of grid
+    fixGrid(true);
+    fixList(false);
     document.querySelector('.gv-grid-view').classList.add('close');
     document.querySelector('.gv-grid-view').classList.remove('open');
     document.querySelector('.gv-list-view').classList.remove('close');
     document.querySelector('.gv-list-view').classList.add('open');
-   //document.querySelector('.gv-grid-view').style.top = viewportOffset.top + "px";
-
-
-
 }
 
-function jumpToIndex( ind ) {
+function fixGrid( fix ) {
+
+    var viewportOffset, t, l, w, grid = document.querySelector('.gv-grid-view');
+
+    if (fix) {
+        viewportOffset = grid.getBoundingClientRect();
+        t = viewportOffset.top;
+        l = viewportOffset.left;
+        w = viewportOffset.width;
+        grid.style.top = t + "px";
+        grid.style.left = l + "px";
+        grid.style.width = w + "px";
+    } else {
+        grid.style = "";
+    }
+}
+
+function fixList( fix ) {
     
+        var viewportOffset, t, l, w, list = document.querySelector('.gv-list-view');
+    
+        if (fix) {
+            viewportOffset = list.getBoundingClientRect();
+            t = viewportOffset.top;
+            l = viewportOffset.left;
+            w = viewportOffset.width;
+            list.style.top = t + "px";
+            list.style.left = l + "px";
+            list.style.width = w + "px";
+            list.style.position = "fixed";
+        } else {
+            list.style = "";
+        }
+    }
+
+function jumpToIndex( ind ) {
+    document.querySelector('#list-entry_' + ind).scrollIntoView( true );
 }
 
 function checkFixElements() {

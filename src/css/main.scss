@@ -148,7 +148,7 @@ $background-lightgrey: #f4f4f4;
                             left: 5px;
                             height: 30px;
                             width: 30px;
-                            background: #fff;
+                            background-color: #fff;
                             z-index: 800;
                             border-radius: 50%;
                             @include mq(desktop){
@@ -254,18 +254,15 @@ $background-lightgrey: #f4f4f4;
                         @include f-headline();
                         color: #333;
                         font-size: 16px;
+
+                        a {
+                            color: #999999;
+                            font-weight: 500;
+                        }
                     }
 
                 }
             }
-
-
-
-
-
-
-
-
 
         }
     }
@@ -273,7 +270,6 @@ $background-lightgrey: #f4f4f4;
 
 
 .gv-grid-view {
-    
     top: 0;
     left: 0;
     width: 100%;
@@ -298,7 +294,7 @@ $background-lightgrey: #f4f4f4;
     }
     
     &.close{
-        position: absolute;
+        position: fixed;
         width: inherit;
         max-width: inherit;
         transform: translateX(100vw);
@@ -379,7 +375,7 @@ $background-lightgrey: #f4f4f4;
             .gv-grid-cell-image-container {
                 width: 100%;
                 position: relative;
-                //background: #ff0000;
+                background: #383838;
                 padding-bottom: 100%;
                 pointer-events: none;
                 overflow: hidden;
@@ -401,7 +397,7 @@ $background-lightgrey: #f4f4f4;
                     left: 5px;
                     height: 30px;
                     width: 30px;
-                    background: #fff;
+                    background-color: #fff;
                     z-index: 9999999999;
                     border-radius: 50%;
                 }
@@ -468,7 +464,16 @@ $background-lightgrey: #f4f4f4;
     opacity: 1;
 }
 
+// FLAGS
 
+.gv-flag {
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #fff;
+}
 
 
 
