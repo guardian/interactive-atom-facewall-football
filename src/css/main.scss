@@ -238,12 +238,26 @@ $background-lightgrey: #f4f4f4;
                         @include mq(desktop){
                         display: block;
                         position: absolute;
-                        background-color: #00ff00;
+                        background-color: transparent;
                         height: 70px;
                         width: 122px;
                         top: 60px;
                         right: 20px;
                         }
+
+                        svg {
+
+                            vector-effect: non-scaling-stroke;
+
+                        #markers circle {
+                            fill: $accent-green;
+                        }
+
+                        #pitch path {
+                            stroke: $accent-green;
+                        }
+
+                    }
                     }
                 }
 
