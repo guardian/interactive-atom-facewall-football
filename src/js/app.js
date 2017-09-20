@@ -213,8 +213,8 @@ function showGrid() {
     document.querySelector('.gv-list-view').classList.add('close');
     window.scrollTo(0,lastScrollTop);
     window.setTimeout(function() {
-        fixList(false);
-    }, 300);
+        fixList();
+    }, 1000);
 }
 
 function hideGrid() {

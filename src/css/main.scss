@@ -30,6 +30,10 @@ $background-lightgrey: #f4f4f4;
 @import "uxItems";
 @import "share";
 
+html,body {
+    height:100%;
+}
+
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
@@ -81,11 +85,12 @@ $background-lightgrey: #f4f4f4;
     }
 
     .gv-list-view-inner {
-        margin: 20px 15px;
+        padding: 20px 15px;
 
         @include mq(desktop){
             margin: 0 auto;
             width: 740px;
+            padding: 0;
         }
 
         .gv-list-entry {
@@ -287,8 +292,10 @@ $background-lightgrey: #f4f4f4;
     top: 0;
     left: 0;
     width: 100%;
-	overflow:hidden;
-    background-color: $background-grey;
+    overflow:hidden;
+    display: table;
+    
+    //background-color: $background-grey;
     min-height: 100vh;
     transform: translateX(0);
     @include mq(desktop){
@@ -299,22 +306,32 @@ $background-lightgrey: #f4f4f4;
     z-index: 1000;
     &.open{
         position: relative;
-        transform: translateX(0);
+        
+
+        .gv-grid-view-inner {
+            transform: translateX(0);
         transition: transform  0.15s linear;
         transition-delay: 0.15s;
         @include mq(desktop){
             transition-delay: 0s;
         }
     }
+    }
     
     &.close{
         position: fixed;
         width: inherit;
         max-width: inherit;
-        transform: translateX(100vw);
-        transition: transform  0.15s linear;
+        //transform: translateX(100vw);
+        //transition: transform  0.15s linear;
         @include mq(desktop){
             //display:block;
+        }
+
+        .gv-grid-view-inner {
+            
+        transform: translateX(100vw);
+        transition: transform  0.15s linear;
         }
     }
 
@@ -327,10 +344,17 @@ $background-lightgrey: #f4f4f4;
     }
 
     .gv-grid-view-inner {
-        margin: 20px 15px;
+        background-color: $background-grey;
+        //margin: 20px 15px;
+        padding: 20px 15px;
+        //width: 500px;
+        min-height: 100vh;
+        display: table-cell;
 
+        //background-color: #ff0000;
         @include mq(desktop){
-            margin: 20px 70px;
+            //margin: 20px 70px;
+            padding: 20px 70px;
         }
     }
 
