@@ -198,7 +198,7 @@ function updateOnGridClick( e ) {
 }
 
 function toggleView() {
-    console.log("toggled");
+    //console.log("toggled");
     gridViewBool = !gridViewBool;
 
     if (gridViewBool) {
@@ -215,9 +215,10 @@ function showGrid() {
     document.querySelector('.gv-grid-view').classList.add('open');
     document.querySelector('.gv-list-view').classList.remove('open');
     document.querySelector('.gv-list-view').classList.add('close');
+    document.querySelector('.toggle-view-overlay-btn').classList.remove('grid-icon-show');
     window.scrollTo(0,lastScrollTop);
     window.setTimeout(function() {
-        fixList();
+        fixList(false);
     }, 1000);
 }
 
@@ -229,6 +230,7 @@ function hideGrid() {
     document.querySelector('.gv-grid-view').classList.remove('open');
     document.querySelector('.gv-list-view').classList.remove('close');
     document.querySelector('.gv-list-view').classList.add('open');
+    document.querySelector('.toggle-view-overlay-btn').classList.add('grid-icon-show');
 }
 
 function fixGrid( fix ) {
@@ -270,11 +272,37 @@ function jumpToIndex( ind ) {
     document.querySelector('#list-entry_' + ind).scrollIntoView( true );
 }
 
+function getCoords(elem) { // crossbrowser version
+    var box = elem.getBoundingClientRect();
+
+    var body = document.body;
+    var docEl = document.documentElement;
+
+    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    var clientTop = docEl.clientTop || body.clientTop || 0;
+    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    var offsetHeight = elem.offsetHeight || 0;
+
+    var top  = box.top +  scrollTop - clientTop;
+    var left = box.left + scrollLeft - clientLeft;
+    var bottom = top + offsetHeight;
+
+    return { top: Math.round(top), left: Math.round(left), bottom: Math.round(bottom) };
+}
+
 function checkFixElements() {
 
     if (!isMobile()) {
 
-    let h = document.getElementById("bannerandheader").offsetHeight || 0;
+    //let h = document.getElementById("bannerandheader").offsetHeight || 0;
+
+    var h = getCoords(document.getElementById("gv-header")).bottom;
+
+
+
 
     //console.log("oh=" + h);
     

@@ -173,6 +173,32 @@
     
     cursor: pointer;
     border-radius: 50%;
+
+    .gv-toggle-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    #gv-grid-icon-svg {
+        display: none;
+        margin: -13px 0 0 -13px;
+    }
+
+    #gv-list-icon-svg {
+        display: block;
+        margin: -10px 0 0 -11.5px;
+    }
+
+    &.grid-icon-show {
+        #gv-grid-icon-svg {
+            display: block;
+        }
+    
+        #gv-list-icon-svg {
+            display: none;
+        }
+    }
 }
 
 
