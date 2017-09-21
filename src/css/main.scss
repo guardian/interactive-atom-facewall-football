@@ -46,6 +46,15 @@ html,body {
     }
 }
 
+#gv-mobile-dummy {
+    position: absolute;
+    display: block;
+
+    @include mq(desktop){
+        display: none;
+    }
+}
+
 .gv-no-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -256,6 +265,7 @@ html,body {
 
                         #markers circle {
                             fill: $accent-green;
+                            visibility: hidden;
                         }
 
                         #pitch path {
@@ -511,6 +521,11 @@ html,body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: 1px solid #fff;
+}
+
+
+.gv-fixed {
+    position: fixed !important;
 }
 
 

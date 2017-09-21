@@ -18,7 +18,7 @@ import listTemplate from '../templates/list.html'
 //import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
 
 //var shareFn = share('Grenfell Tower', 'https://gu.com/p/72vvx');
-
+var data;
 var gridViewBool = true;
 var resizeTimeout = null;
 var bLazy;
@@ -42,13 +42,17 @@ function getStyle (element) {
 xr.get('https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiAx0bxVmDqP98Q.json').then((resp) => {
 
     //var data = formatData(resp.data.sheets.english);
-    var data = resp.data.sheets;
+
+    // !!!!!!!!!!! ALERT SHEET NAME HERE IS "english" !!!!!!!!!!!!!
+
+    data = resp.data.sheets;
     data = cleanData(data);
 
-    console.log(data.english[0]);
+    //console.log(data.english[0]);
     var compiledHTML = compileHTML(data);
     document.querySelector(".gv-grid-view-inner").innerHTML = compiledHTML.grid;
     document.querySelector(".gv-list-view-inner").innerHTML = compiledHTML.list;
+    drawPositions( data.english );
     addListeners();
     //updatePageDate();
     //upDatePageView(data);
@@ -267,6 +271,127 @@ function jumpToIndex( ind ) {
 }
 
 function checkFixElements() {
+
+    if (!isMobile()) {
+
+    let h = document.getElementById("bannerandheader").offsetHeight || 0;
+
+    //console.log("oh=" + h);
+    
+    var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+        //console.log("pos_top=" + pos_top);
+        //console.log("h=" + h);
+    
+        if (pos_top > h) {
+            document.querySelector('#toggle-view-overlay-btn').classList.add('gv-fixed');
+            document.querySelector('#toggle-view-overlay-btn').style.marginTop =  -h + "px";
+        } else if (pos_top < h) {
+            document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-fixed');
+            document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
+        }
+
+    }
+
+}
+
+function getPositionIdArray ( positions ) {
+
+    var i, position, arr = [];
+
+    positions = String(positions).split("/");
+
+    for (i=0; i< positions.length; i++) {
+
+        position = String(positions[i]).toLowerCase().trim();
+
+        switch ( position ) {
+
+            case "goalkeeper" :
+
+            arr.push("GK");
+
+            break;
+
+            case "forward" :
+            
+            arr.push("F1");
+            
+            break;
+
+            case "attacking midfielder" :
+            
+            arr.push("M2");
+            
+            break;
+            
+            case "midfielder" :
+                        
+            arr.push("M3");            
+                        
+            break;
+
+            case "striker" :
+                        
+            arr.push("F2");            
+                        
+            break;
+                        
+            case "defensive midfielder" :
+                                    
+            arr.push("M3");                        
+                                    
+            break;
+
+            case "defender" :
+            
+            arr.push("D2");
+            
+            break;
+
+            case "winger" :
+            
+            arr.push("M1");
+            
+            break;
+
+        }
+
+    }
+
+    return arr;
+
+}
+
+function drawPositions( data ) {
+
+
+    var i, ii, position, arr, el, id;
+
+
+    for (i=0; i< data.length; i++) {
+          
+        arr = getPositionIdArray ( data[i].Position );
+        
+    
+        for (ii=0; ii< arr.length; ii++) {
+
+            id = arr[ii];
+
+            //console.log(id);
+            //var selector = '#gv-pitch_' + i + '_marker_' + id;
+            //console.log(selector);
+
+            el = document.getElementById('gv-pitch_' + i + '_marker_' + id );
+            //el = document.querySelector('#list-entry_' + i  );
+
+            console.log(el)
+
+            el.style.visibility = "visible";
+
+        }
+
+    }
 
 }
 
