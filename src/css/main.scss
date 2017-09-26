@@ -12,6 +12,11 @@ $selected-color: $multimedia-main-2;
 $selected-color-support: $comment-main-2;
 
 
+$three-in-row: percentage(1/3);
+$four-in-row: percentage(1/4);
+$five-in-row: percentage(1/5);
+
+
 
 // Uncomment for embeds
 //@import "embed";
@@ -84,6 +89,7 @@ html,body {
 .gv-views-wrapper {
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .gv-list-view {
@@ -133,7 +139,7 @@ html,body {
                     vertical-align: top;
                     padding: 0 0 10px 0;
 
-                    @include mq(desktop){
+                    @include mq(phablet){
                         padding: 0;
                         }
 
@@ -144,8 +150,18 @@ html,body {
                         position: relative;
                         overflow: hidden;
 
-                        @include mq(desktop){
-                        position: absolute;
+                        @include mq(phablet){
+                            position: absolute;
+                            width: 175px;
+                            height: 175px;
+                            top: 5px;
+                            left: 5px;
+                            padding: 0;
+                            margin: 0;
+                            }
+
+                        @include mq(tablet){
+                        //position: absolute;
                         width: 240px;
                         height: 175px;
                         top: 5px;
@@ -155,19 +171,33 @@ html,body {
                         }
 
                         .gv-list-image {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            height: auto;
+                            // position: absolute;
+                            // top: 0;
+                            // left: 0;
+                            //height: auto;
+                            //margin-left: auro;
+                            //margin-right: auto;
+                            margin: 0 auto;
+                            
                             width: 100%;
+                            
+                            //width: 100%;
+                            
                             //height: 100%;
                             //background-color: #ff0000;
-                            @include mq(desktop){
+                            @include mq(phablet){
                                 width: auto;
-                                max-width: auto;
                                 height: 100%;
-                                object-fit: cover;
+                                margin-left: -25%;
+                                
+                                //object-fit: cover;
                                 }
+
+                            @include mq(tablet){
+                               
+                                    margin-left: -8%;
+                                
+                            }
                         }
 
                         .gv-list-image-flag {
@@ -179,7 +209,7 @@ html,body {
                             background-color: #fff;
                             z-index: 800;
                             border-radius: 50%;
-                            @include mq(desktop){
+                            @include mq(phablet){
                                 display: none;
                             }
                         }
@@ -189,11 +219,40 @@ html,body {
                     .gv-list-title {
                         padding: 5px 10px;
                         @include f-headline();
-                        font-size: 36px;
-                        line-height: 38px;
+                        font-size: 24px;
+                        line-height: 26px;
                         font-weight: 300;
+
+                        @include mq(phablet){
+                            position: absolute;
+                            width: 460px;
+                            width: calc(100% - 210px);
+                            //background-color: #fff;
+                            height: 55px;
+                            top: 5px;
+                            left: 195px;
+                            padding: 0;
+                            vertical-align: top;
+                            }
+                            @include mq(phabletPlus){
+                                font-size: 36px;
+                                line-height: 38px;
+                                }
+                            @include mq(tablet){
+                            
+                                    width: 460px;
+                                    width: calc(100% - 275px);
+                                    //background-color: #fff;
+                                    height: 55px;
+                                    top: 5px;
+                                    left: 260px;
+                                    padding: 0;
+                                    vertical-align: top;
+                            }
+
+
                         @include mq(desktop){
-                        position: absolute;
+                        
                         width: 460px;
                         //background-color: #fff;
                         height: 55px;
@@ -212,7 +271,7 @@ html,body {
 
                         .gv-list-flag {
                             display: none;
-                            @include mq(desktop){
+                            @include mq(phablet){
                                 display: inline-block;
                                 width: 30px;
                                 height: 30px;
@@ -232,10 +291,28 @@ html,body {
                         width: calc(100% - 20px);
                         @include fs-textSans(3);
                         color: #636363;
+
+                        @include mq(phablet){
+                            position: absolute;
+                            margin : 0;
+                            height: 120px;
+                            width: 300px;
+                            width: calc(100% - 210px);
+                            top: 60px;
+                            left: 195px;
+                        }
+
+                        @include mq(tablet){
+                            
+                            width: 300px;
+                            width: calc(100% - 275px);
+                            left: 260px;
+                        
+                        }
                         
 
                         @include mq(desktop){
-                        position: absolute;
+                        //position: absolute;
                         margin : 0;
                         height: 120px;
                         width: 300px;
@@ -372,7 +449,7 @@ html,body {
         background-color: $background-grey;
         //margin: 20px 15px;
         padding: 20px 15px;
-        border-top: 1px solid #444;
+        border-top: 1px solid #555;
         //width: 500px;
         min-height: 100vh;
         display: table-cell;
@@ -390,12 +467,19 @@ html,body {
         width: -moz-calc(100% + 5px);
         width: calc(100% + 5px);
 
-        @include mq(desktop){
+        @include mq(phabletPlus){
             width: 108%;
             width: -webkit-calc(100% + 20px);
             width: -moz-calc(100% + 20px);
             width: calc(100% + 20px);
         }
+
+        // @include mq(desktop){
+        //     width: 108%;
+        //     width: -webkit-calc(100% + 20px);
+        //     width: -moz-calc(100% + 20px);
+        //     width: calc(100% + 20px);
+        // }
     }
 
     .gv-grid-cell {
@@ -407,6 +491,18 @@ html,body {
         box-sizing: content-box;
         float: left;
         height: 86px;
+
+        @include mq(phablet){ 
+            width: $three-in-row; // 3 in row phablet default
+            padding-bottom: $three-in-row; 
+        }
+
+
+        @include mq(tablet){ 
+            width: $four-in-row; // 3 in row phablet default
+            padding-bottom: $four-in-row; 
+        }
+
         @include mq(desktop){
             width : 20%; // 5 in row desktop default
             padding-bottom: 20%;
@@ -432,7 +528,7 @@ html,body {
                 opacity: 0.8;
             }
 
-            @include mq(desktop){
+            @include mq(phabletPlus){
                 right: 20px;
             }
 
@@ -475,6 +571,9 @@ html,body {
                 padding: 12px 5px;
                 text-align: center;
                 pointer-events: none;
+                @include mq(phablet){
+                    text-align: left;
+                }
 
             .gv-cell-number {
                 display: none;
@@ -553,6 +652,7 @@ html,body {
 .gv-header {
     position: relative;
     //background-color: $background-grey;
+    //background: #333;
     width: 100%;
     //min-height: 350px;
     color: #fff;
@@ -570,7 +670,7 @@ html,body {
     position: absolute;
     top: 0;
     width: 2000px;
-    background-color: #2d2d2d;
+    background-color: #222;
     height: 100%;
 
     &.gv-left {
@@ -580,6 +680,17 @@ html,body {
     &.gv-right {
         right: -2000px;
     }
+
+    // &.gv-bottom {
+    //     top: auto;
+    //     bottom: 0;
+    //     margin-left: -500%;
+    //     height: 1px;
+    //     width: 1000%;
+    //     background: #fff;
+    //     opacity: 0.2;
+    // }
+
 }
 
 
@@ -604,7 +715,20 @@ html,body {
 .gv-header-background {
     position: relative;
     border-top: 1px solid rgba(255, 255, 255, 1);
-    background: #333;
+    background-color: #2a2a2a;
+    z-index: 10000;
+}
+
+#gv-header-background-graphic {
+    position: absolute;
+    display: none;
+
+    @include mq(desktop){
+        display: block;
+        top: 40px;
+        right: -90px;
+        z-index: 90000;
+    }
 }
 
 
@@ -647,6 +771,8 @@ html,body {
 // }
 
 .gv-header-wrapper {
+    position: relative;
+    z-index: 99999;
     //background-color: #005689;
     color: white;
     //padding-bottom: 60px;

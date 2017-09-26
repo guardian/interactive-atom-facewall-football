@@ -5,10 +5,19 @@ import Scrolling from 'scrolling';
 import Blazy from 'blazy';
 
 import { groupBy } from './libs/arrayObjectUtils.js'
-import { share } from './libs/share.js';
+//import { share } from './libs/share.js';
+
+
 
 import gridTemplate from '../templates/grid.html'
 import listTemplate from '../templates/list.html'
+
+
+import shares from './share'
+
+let shareFn = shares('Who are the best of the football next generation?', 'https://gu.com/p/6mgzm?CMP=share_btn_tw', '');
+
+
 //import gridPicTemplate from '../templates/gridPic.html'
 //import detailItemTemplate from '../templates/detailItem.html'
 //import gridThumbTemplate from '../templates/thumbPic.html'
@@ -160,6 +169,12 @@ function addListeners() {
     window.setTimeout(function() {
         updateLazyLoad();
         }, 200);
+
+
+        [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
+            var network = shareEl.getAttribute('data-network');
+            shareEl.addEventListener('click', () => shareFn(network));
+        });
 
 }
 
