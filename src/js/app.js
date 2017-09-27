@@ -53,7 +53,8 @@ function getStyle (element) {
 
 var url;
 //url = 'https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiAx0bxVmDqP98Q.json'; // Old 2016 Next Gen World
-url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
+//url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
+url= 'https://interactive.guim.co.uk/docsdata/1cP870AKpEiymhf04z-ND4udImJBmgkyDWhFYnGSFgV4.json'; // New 2017 Next Gen premiership
 
 
 xr.get(url).then((resp) => {
