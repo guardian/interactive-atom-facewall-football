@@ -33,6 +33,9 @@ var resizeTimeout = null;
 var bLazy;
 var lastScrollTop = 0;
 
+var gridViewImageWidth = 500;
+var listViewImageWidth = 500;
+
 
 function isMobile() {
     var dummy = document.getElementById("gv-mobile-dummy");
@@ -48,7 +51,12 @@ function getStyle (element) {
     getComputedStyle(element, null).display;
 }
 
-xr.get('https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiAx0bxVmDqP98Q.json').then((resp) => {
+var url;
+//url = 'https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiAx0bxVmDqP98Q.json'; // Old 2016 Next Gen World
+url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
+
+
+xr.get(url).then((resp) => {
 
     //var data = formatData(resp.data.sheets.english);
 
@@ -61,7 +69,7 @@ xr.get('https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiA
     var compiledHTML = compileHTML(data);
     document.querySelector(".gv-grid-view-inner").innerHTML = compiledHTML.grid;
     document.querySelector(".gv-list-view-inner").innerHTML = compiledHTML.list;
-    drawPositions( data.english );
+    drawPositions( data.players );
     addListeners();
     //updatePageDate();
     //upDatePageView(data);
@@ -82,18 +90,22 @@ function cleanData(dataIn) {
             obj["Index"] = i;
             obj["Rank"] = dataIn[key][i].Rank || i + 1;
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
-            obj["Iso"] = "bgr"; //String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
+            obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
 
             // Corrections from old data
 
-            obj["Grid view image"] = obj["Thumb Image URL 500 x 500px"];
-            obj["Grid view image parameters"] = obj["Thumb Image Parameters"];
-            obj["Grid_image_src"] = obj["Grid view image"]; // No parameters used
+            // obj["Grid view image"] = obj["Thumb Image URL 500 x 500px"];
+            // obj["Grid view image parameters"] = obj["Thumb Image Parameters"];
+            // obj["Grid_image_src"] = obj["Grid view image"]; // No parameters used
 
-            obj["List view image"] = obj["Main Image URL landscape 900 x 506px"];
-            obj["List view image parameters"] = obj["Main Image Parameters"];
-            obj["List_image_src"] = obj["List view image"]; // No parameters used
+            // obj["List view image"] = obj["Main Image URL landscape 900 x 506px"];
+            // obj["List view image parameters"] = obj["Main Image Parameters"];
+            // obj["List_image_src"] = obj["List view image"]; // No parameters used
 
+            obj["Grid_image_src"] = obj["Grid view image"] + "/" + gridViewImageWidth + ".jpg";
+            obj["List_image_src"] = obj["List view image"] + "/" + listViewImageWidth + ".jpg";
+
+            //console.log(obj["List_image_src"]);
 
             arr.push(obj);
             //console.log(i);
