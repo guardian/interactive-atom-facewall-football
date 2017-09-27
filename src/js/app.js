@@ -241,8 +241,8 @@ function hideGrid() {
     lastScrollTop = document.documentElement.scrollTop || document.body.scrollTop; // Resets to last viewed area of grid
     fixGrid(true);
     fixList(false);
-    document.querySelector('.gv-grid-view').classList.add('close');
     document.querySelector('.gv-grid-view').classList.remove('open');
+    document.querySelector('.gv-grid-view').classList.add('close');
     document.querySelector('.gv-list-view').classList.remove('close');
     document.querySelector('.gv-list-view').classList.add('open');
     document.querySelector('.toggle-view-overlay-btn').classList.add('grid-icon-show');
@@ -250,9 +250,13 @@ function hideGrid() {
 
 function fixGrid( fix ) {
 
-    var viewportOffset, t, l, w, grid = document.querySelector('.gv-grid-view');
+    //alert(fix);
 
-    if (fix) {
+    var viewportOffset, t, l, w, grid;
+
+    if (fix == true ) {
+        // alert("called");
+        grid = document.querySelector('#gv-grid-view');
         viewportOffset = grid.getBoundingClientRect();
         t = viewportOffset.top;
         l = viewportOffset.left;
@@ -261,7 +265,13 @@ function fixGrid( fix ) {
         grid.style.left = l + "px";
         grid.style.width = w + "px";
     } else {
-        grid.style = "";
+        
+        grid = document.getElementById('gv-grid-view');
+        grid.style.top = "";
+        grid.style.left = "";
+        grid.style.width = "";
+       
+       
     }
 }
 
@@ -279,7 +289,10 @@ function fixList( fix ) {
             list.style.width = w + "px";
             list.style.position = "fixed";
         } else {
-            list.style = "";
+            list.style.top = "";
+            list.style.left = "";
+            list.style.width = "";
+            list.style.position = "";
         }
     }
 
