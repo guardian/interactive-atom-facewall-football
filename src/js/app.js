@@ -15,7 +15,7 @@ import listTemplate from '../templates/list.html'
 
 import shares from './share'
 
-let shareFn = shares('Who are the best of the football next generation?', 'https://gu.com/p/6mgzm?CMP=share_btn_tw', '');
+let shareFn = shares('Next Generation Footballers 2017 - Rest of the World', 'https://gu.com/p/793ff', '');
 
 
 //import gridPicTemplate from '../templates/gridPic.html'
@@ -26,7 +26,6 @@ let shareFn = shares('Who are the best of the football next generation?', 'https
 
 //import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
 
-//var shareFn = share('Grenfell Tower', 'https://gu.com/p/72vvx');
 var data;
 var gridViewBool = true;
 var resizeTimeout = null;
@@ -151,10 +150,7 @@ function compileHTML(dataIn) {
     }
 
 function addListeners() {
-    [].slice.apply(document.querySelectorAll('.gv-share-container button')).forEach(shareEl => {
-        var network = shareEl.getAttribute('data-network');
-        shareEl.addEventListener('click', () => shareFn(network));
-    });
+    
 
     document.querySelector('.toggle-view-overlay-btn').addEventListener('click', toggleView);
     document.querySelector('.gv-grid').addEventListener('click', updateOnGridClick);   
