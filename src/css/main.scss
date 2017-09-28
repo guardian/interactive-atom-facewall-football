@@ -56,7 +56,6 @@ html,body {
 .interactive-ad-banner {
     display: flex;
     justify-content: center;
-    background-color: white;
 
     @include mq($from: tablet) {
         .ad-slot--rendered {
@@ -750,7 +749,9 @@ html,body {
     max-width: 600px;
     padding: 0 12px 30px 12px;
     @include mq(desktop){
-        padding: 0 0 30px 140px;
+        //margin: 0 auto;
+        //width: 1240px;
+        padding: 0 0 30px 120px;
     } 
 }
 
