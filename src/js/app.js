@@ -24,6 +24,14 @@ let shareFn = shares('Next Generation Footballers 2017 - Premiership', 'https://
 //import thumbsTemplate from '../templates/thumbsGallery.html'
 //import cellTemplate from '../templates/gridCell.html'
 
+Handlebars.registerHelper("ifvalue", function(Index, conditional, options) {
+    if (Number(Index) % Number(conditional)== 0 && Index > 0) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+});
+
 //import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
 
 //var shareFn = share('Grenfell Tower', 'https://gu.com/p/72vvx');
