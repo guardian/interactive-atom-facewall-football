@@ -203,9 +203,16 @@
 
 
 .gv-fixed-btn-container {
+    z-index: 9999999999999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    @include mq(desktop){
     position: absolute;
     top: 20px;
     left: 20px;
-    z-index: 9999999999999;
+    
+    }
 }
 
