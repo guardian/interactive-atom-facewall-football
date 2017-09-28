@@ -26,6 +26,14 @@ let shareFn = shares('Next Generation Footballers 2017 - Rest of the World', 'ht
 
 //import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
 
+Handlebars.registerHelper("ifvalue", function(Index, conditional, options) {
+    if (Number(Index) % Number(conditional)== 0 && Index > 0) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+}); 
+
 var data;
 var gridViewBool = true;
 var resizeTimeout = null;
