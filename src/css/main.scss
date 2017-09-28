@@ -746,12 +746,11 @@ html,body {
     position: relative;
     color: #fff;
     z-index: 10;
-    //max-width: 600px;
+    max-width: 600px;
     padding: 0 12px 30px 12px;
     @include mq(desktop){
         //margin: 0 auto;
         //width: 1240px;
-        max-width: 600px;
         padding: 0 0 30px 120px;
     } 
 }
