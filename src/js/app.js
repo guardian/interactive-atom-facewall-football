@@ -86,7 +86,7 @@ xr.get(url).then((resp) => {
 
 function cleanData(dataIn) {
 
-    console.log(dataIn);
+    //console.log(dataIn);
 
     var obj, dataOut = {}, arr;
 
@@ -207,7 +207,7 @@ function updateLazyLoad() {
 
 
 function updateOnScroll() {
-    console.log("scrolled");
+    //console.log("scrolled");
     //console.log(document.documentElement.scrollTop || document.body.scrollTop);
     checkFixElements();
 }
@@ -354,12 +354,12 @@ function checkFixElements() {
     
     var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     
-        console.log("pos_top=" + pos_top);
-        console.log("oh=" + h);
+        //console.log("pos_top=" + pos_top);
+        //console.log("oh=" + h);
         
     
         if (pos_top > h) {
-            console.log("fixed");
+            //console.log("fixed");
             document.querySelector('#toggle-view-overlay-btn').classList.add('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop =  -h + "px";
         } else if (pos_top < h) {
@@ -461,7 +461,7 @@ function drawPositions( data ) {
             el = document.getElementById('gv-pitch_' + i + '_marker_' + id );
             //el = document.querySelector('#list-entry_' + i  );
 
-            console.log(el)
+            //console.log(el)
 
             el.style.visibility = "visible";
 
@@ -470,6 +470,8 @@ function drawPositions( data ) {
     }
 
 }
+
+
 
 
 
