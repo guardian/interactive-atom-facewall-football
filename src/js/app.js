@@ -15,7 +15,7 @@ import listTemplate from '../templates/list.html'
 
 import shares from './share'
 
-let shareFn = shares('Next Generation Footballers 2017 - Premiership', 'https://gu.com/p/7a3ef', '');
+let shareFn = shares('Next Generation 2017: 20 of the best talents at Premier League clubs', 'https://gu.com/p/7a3ef', '');
 
 
 //import gridPicTemplate from '../templates/gridPic.html'
