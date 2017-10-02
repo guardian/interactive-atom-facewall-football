@@ -157,14 +157,17 @@
     width: 60px;
     height: 60px;
     background: $accent-green;
-    position: fixed;
+    position: absolute;
     z-index: 9999999999999;
-    bottom: 10px;
-    left: 50%;
+    // bottom: 10px;
+    // left: 50%;
+    top: 0;
+    left: 0;
     margin-left: -30px;
     @include mq(desktop){
     position: absolute;
     bottom: auto;
+    top: auto;
     left: auto;
     margin-left: 0;
     }
@@ -205,14 +208,13 @@
 .gv-fixed-btn-container {
     z-index: 9999999999999;
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: 70px;
+    left: 50%;
 
     @include mq(desktop){
     position: absolute;
     top: 20px;
     left: 20px;
-    
+    bottom: auto;
     }
 }
-
