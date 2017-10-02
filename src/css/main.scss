@@ -59,6 +59,7 @@ html,body {
 
     @include mq($from: tablet) {
         .ad-slot--rendered {
+            //margin: 20px 0 40px 0;
             margin: 20px 0 40px 0;
         }
     }
@@ -138,7 +139,7 @@ html,body {
         .gv-list-entry {
 
             background-color: #ffffff;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             border-bottom: 2px solid #d6d6d6;
             line-height: 1.4em;
 
@@ -231,7 +232,7 @@ html,body {
                     }
 
                     .gv-list-title {
-                        padding: 5px 10px;
+                        padding: 4px 10px;
                         @include f-headline();
                         font-size: 24px;
                         line-height: 26px;
@@ -243,7 +244,7 @@ html,body {
                             width: calc(100% - 210px);
                             //background-color: #fff;
                             height: 55px;
-                            top: 5px;
+                            top: 10px;
                             left: 195px;
                             padding: 0;
                             vertical-align: top;
@@ -258,7 +259,7 @@ html,body {
                                     width: calc(100% - 275px);
                                     //background-color: #fff;
                                     height: 55px;
-                                    top: 5px;
+                                    top: 10px;
                                     left: 260px;
                                     padding: 0;
                                     vertical-align: top;
@@ -270,7 +271,7 @@ html,body {
                         width: 460px;
                         //background-color: #fff;
                         height: 55px;
-                        top: 5px;
+                        top: 10px;
                         left: 260px;
                         padding: 0;
                         vertical-align: top;
@@ -309,7 +310,7 @@ html,body {
                         @include mq(phablet){
                             position: absolute;
                             margin : 0;
-                            height: 120px;
+                            height: 104px;
                             width: 300px;
                             width: calc(100% - 210px);
                             top: 60px;
@@ -328,7 +329,7 @@ html,body {
                         @include mq(desktop){
                         //position: absolute;
                         margin : 0;
-                        height: 120px;
+                        height: 104px;
                         width: 300px;
                         top: 60px;
                         left: 260px;
@@ -392,6 +393,7 @@ html,body {
                         a {
                             color: #999999;
                             font-weight: 500;
+                            text-decoration: underline;
                         }
                     }
 
@@ -602,8 +604,8 @@ html,body {
                 // font-family: $f-serif-headline;
                 
                 //@include fs-textSans(3);
-                padding: 12px 5px;
-                text-align: center;
+                padding: 8px 5px 12px 5px;
+                text-align: left;
                 pointer-events: none;
                 @include mq(phablet){
                     text-align: left;
