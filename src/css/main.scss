@@ -233,7 +233,8 @@ html,body {
                     }
 
                     .gv-list-title {
-                        padding: 5px 10px;
+                        padding: 0 10px 5px 10px;
+                        
                         @include f-headline();
                         font-size: 24px;
                         line-height: 26px;
@@ -282,7 +283,14 @@ html,body {
                             padding-top: 7px;
                             display: inline-block;
                             vertical-align: top;
-    
+
+                            @include mq(phablet){
+                                padding-top: 12px;
+                            }
+
+                            @include mq(phabletPlus){
+                                padding-top: 6px;
+                            }
                         }
 
                         .gv-list-flag {
