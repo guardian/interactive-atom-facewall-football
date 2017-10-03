@@ -868,6 +868,14 @@ html,body {
     @include mq($until: desktop) {
         font-size: 16px;
     }
+    a {
+        color: $accent-green;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline; 
+        }
+    }
 }
 
 // .gv-groups-strap {
