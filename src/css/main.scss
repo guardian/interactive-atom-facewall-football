@@ -954,11 +954,14 @@ html,body {
     background-color: #ffffff;
 
     .gv-footer-photo-credit {
-    padding: 10px 5px 20px 5px;
+    padding: 10px 5px 100px 5px;
     @include f-headlineSans();
     font-size: 13px;
     line-height: 1.2em;
     color: #767676;
+    @include mq($from: desktop) {
+        padding: 10px 5px 100px 50px;
+    }
     }
 }
 
