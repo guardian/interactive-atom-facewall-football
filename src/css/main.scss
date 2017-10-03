@@ -941,6 +941,19 @@ html,body {
 }
 
 
+.gv-footer {
+    width: 100%;
+    background-color: #ffffff;
+
+    .gv-footer-photo-credit {
+    padding: 10px 5px 20px 5px;
+    @include f-headlineSans();
+    font-size: 13px;
+    color: #767676;
+    }
+}
+
+
 
 
 
