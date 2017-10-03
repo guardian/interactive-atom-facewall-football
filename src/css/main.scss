@@ -611,8 +611,8 @@ html,body {
                 // font-family: $f-serif-headline;
                 
                 //@include fs-textSans(3);
-                padding: 12px 5px;
-                text-align: center;
+                padding: 8px 5px 12px 5px;
+                text-align: left;
                 pointer-events: none;
                 @include mq(phablet){
                     text-align: left;

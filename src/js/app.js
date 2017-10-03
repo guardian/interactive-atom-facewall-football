@@ -15,7 +15,7 @@ import listTemplate from '../templates/list.html'
 
 import shares from './share'
 
-let shareFn = shares('Next Generation Footballers 2017 - Rest of the World', 'https://gu.com/p/793ff', '');
+let shareFn = shares('Next Generation 2017: 60 of the best young talents in world football', 'https://gu.com/p/793ff', '');
 
 
 //import gridPicTemplate from '../templates/gridPic.html'
