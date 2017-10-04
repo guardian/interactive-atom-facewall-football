@@ -97,6 +97,13 @@ function cleanData(dataIn) {
             obj = dataIn[key][i];
             obj["Index"] = i;
             obj["Rank"] = dataIn[key][i].Rank || i + 1;
+
+            if ( obj["Rank"] <= 9) {
+                obj["Rank"] = "0" + obj["Rank"];
+            }
+
+
+
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
 

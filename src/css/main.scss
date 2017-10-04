@@ -236,7 +236,7 @@ body {
                             vertical-align: top;
                         }
 
-                        span:nth-of-type(2) {
+                        span {
                             padding-top: 7px;
                             display: inline-block;
                             vertical-align: top;
@@ -248,6 +248,18 @@ body {
                                 padding-top: 6px;
                             }
                         }
+
+                        span:nth-of-type(2) {
+                            padding-left: 5px;
+                        }
+
+                         .gv-list-number {
+                    //display: none;
+                    color: $accent-green;
+                    padding-right: 5px;
+                    border-right: 1px solid $accent-green;
+                }
+
                         .gv-list-flag {
                             display: none;
                             @include mq(phablet) {
@@ -421,7 +433,7 @@ body {
         display: table-cell; //background-color: #ff0000;
         @include mq(desktop) {
             //margin: 20px 70px;
-            padding: 30px 70px;
+            padding: 15px 70px 30px 70px;
         }
     }
     .gv-grid {
@@ -519,11 +531,15 @@ body {
                 }
 
                 .gv-cell-number {
-                    display: none;
+                    //display: none;
+                    color: $accent-green;
+                    padding-right: 5px;
                 }
                 .gv-cell-title {
                     @include fs-headline(3);
                     color: #ffffff;
+                    font-size: 24px;
+                    line-height: 26px;
                 }
                 .gv-cell-subtitle {
                     @include f-headlineSans;
@@ -790,8 +806,10 @@ body {
 }
 
 .gv-footer {
+    position: relative;
     width: 100%;
     background-color: #ffffff;
+    z-index: 999999999;
     .gv-footer-photo-credit {
         padding: 10px 5px 100px 5px;
         @include f-headlineSans;
