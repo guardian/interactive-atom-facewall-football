@@ -27,12 +27,12 @@ let shareFn = shares('Next Generation 2017: 60 of the best young talents in worl
 //import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
 
 Handlebars.registerHelper("ifvalue", function(Index, conditional, options) {
-    if (Number(Index) % Number(conditional)== 0 && Index > 0) {
+    if (Number(Index) % Number(conditional) == 0 && Index > 0) {
         return options.fn(this);
     } else {
         return options.inverse(this);
     }
-}); 
+});
 
 var data;
 var gridViewBool = true;
@@ -50,12 +50,12 @@ function isMobile() {
         return true;
     } else {
         return false;
-    } 
+    }
 }
 
-function getStyle (element) {
+function getStyle(element) {
     return element.currentStyle ? element.currentStyle.display :
-    getComputedStyle(element, null).display;
+        getComputedStyle(element, null).display;
 }
 
 var url;
@@ -76,7 +76,7 @@ xr.get(url).then((resp) => {
     var compiledHTML = compileHTML(data);
     document.querySelector(".gv-grid-view-inner").innerHTML = compiledHTML.grid;
     document.querySelector(".gv-list-view-inner").innerHTML = compiledHTML.list;
-    drawPositions( data.players );
+    drawPositions(data.players);
     addListeners();
     //updatePageDate();
     //upDatePageView(data);
@@ -86,13 +86,14 @@ function cleanData(dataIn) {
 
     console.log(dataIn);
 
-    var obj, dataOut = {}, arr;
+    var obj, dataOut = {},
+        arr;
 
     for (var key in dataIn) {
-        
+
         arr = [];
         //var obj = data.messages[key];
-        for (var i=0;i<dataIn[key].length;i++) {
+        for (var i = 0; i < dataIn[key].length; i++) {
             obj = dataIn[key][i];
             obj["Index"] = i;
             obj["Rank"] = dataIn[key][i].Rank || i + 1;
@@ -117,7 +118,7 @@ function cleanData(dataIn) {
             arr.push(obj);
             //console.log(i);
         }
-        
+
         dataOut[key] = arr;
     }
 
@@ -126,80 +127,79 @@ function cleanData(dataIn) {
 
 function compileHTML(dataIn) {
 
-        var newHTML = {}, content;
-    
-        Handlebars.registerHelper('html_decoder', function(text) {
-            var str = unescape(text).replace(/&amp;/g, '&');
-            return str;
-        });
-    
-        // Handlebars.registerPartial({
-        //     'gridCell': cellTemplate
-        // });
-    
-        content = Handlebars.compile(
-            gridTemplate, {
-                compat: true
-            }
-        );
-    
-        newHTML.grid = content(dataIn);
+    var newHTML = {},
+        content;
 
-        content = Handlebars.compile(
-            listTemplate, {
-                compat: true
-            }
-        );
-    
-        newHTML.list = content(dataIn);
-    
-        return newHTML
-    
-    }
-
-function addListeners() {
-    
-
-    document.querySelector('.toggle-view-overlay-btn').addEventListener('click', toggleView);
-    document.querySelector('.gv-grid').addEventListener('click', updateOnGridClick);   
-   
-
-    window.addEventListener('resize', function() {
-      // clear the timeout
-      clearTimeout(resizeTimeout);
-      // start timing for event "completion"
-      resizeTimeout = setTimeout(updateOnResize, 250);
+    Handlebars.registerHelper('html_decoder', function(text) {
+        var str = unescape(text).replace(/&amp;/g, '&');
+        return str;
     });
 
-    window.onbeforeunload = function(){ window.scrollTo(0,0); } //resets scroll on load
+    // Handlebars.registerPartial({
+    //     'gridCell': cellTemplate
+    // });
 
-    Scrolling(window, updateOnScroll);  // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
-
-    bLazy = new Blazy(
-        {
-            selector: ".gv-blazy",
-            offset: 200
-        }     
+    content = Handlebars.compile(
+        gridTemplate, {
+            compat: true
+        }
     );
+
+    newHTML.grid = content(dataIn);
+
+    content = Handlebars.compile(
+        listTemplate, {
+            compat: true
+        }
+    );
+
+    newHTML.list = content(dataIn);
+
+    return newHTML
+
+}
+
+function addListeners() {
+
+
+    document.querySelector('.toggle-view-overlay-btn').addEventListener('click', toggleView);
+    document.querySelector('.gv-grid').addEventListener('click', updateOnGridClick);
+
+
+    window.addEventListener('resize', function() {
+        // clear the timeout
+        clearTimeout(resizeTimeout);
+        // start timing for event "completion"
+        resizeTimeout = setTimeout(updateOnResize, 250);
+    });
+
+    window.onbeforeunload = function() { window.scrollTo(0, 0); } //resets scroll on load
+
+    Scrolling(window, updateOnScroll); // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
+
+    bLazy = new Blazy({
+        selector: ".gv-blazy",
+        offset: 200
+    });
 
     window.setTimeout(function() {
         updateLazyLoad();
-        }, 200);
+    }, 200);
 
 
-        [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
-            var network = shareEl.getAttribute('data-network');
-            shareEl.addEventListener('click', () => shareFn(network));
-        });
+    [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
+        var network = shareEl.getAttribute('data-network');
+        shareEl.addEventListener('click', () => shareFn(network));
+    });
 
 }
 
 function updateLazyLoad() {
-    
+
     bLazy.revalidate();
-     
+
     window.setTimeout(function() {
-    updateLazyLoad();
+        updateLazyLoad();
     }, 1000);
 }
 
@@ -215,7 +215,7 @@ function updateOnResize() {
     updateOnScroll();
 }
 
-function updateOnGridClick( e ) {
+function updateOnGridClick(e) {
     if (e.target !== e.currentTarget) {
         var clickedIndex = parseInt(e.target.dataset.index);
         e.stopPropagation();
@@ -224,8 +224,8 @@ function updateOnGridClick( e ) {
 
         toggleView();
         jumpToIndex(clickedIndex);
-  }
-    
+    }
+
 }
 
 function toggleView() {
@@ -247,7 +247,7 @@ function showGrid() {
     document.querySelector('.gv-list-view').classList.remove('open');
     document.querySelector('.gv-list-view').classList.add('close');
     document.querySelector('.toggle-view-overlay-btn').classList.remove('grid-icon-show');
-    window.scrollTo(0,lastScrollTop);
+    window.scrollTo(0, lastScrollTop);
     window.setTimeout(function() {
         fixList(false);
     }, 1000);
@@ -264,13 +264,13 @@ function hideGrid() {
     document.querySelector('.toggle-view-overlay-btn').classList.add('grid-icon-show');
 }
 
-function fixGrid( fix ) {
+function fixGrid(fix) {
 
     //alert(fix);
 
     var viewportOffset, t, l, w, grid;
 
-    if (fix == true ) {
+    if (fix == true) {
         // alert("called");
         grid = document.querySelector('#gv-grid-view');
         viewportOffset = grid.getBoundingClientRect();
@@ -281,39 +281,39 @@ function fixGrid( fix ) {
         grid.style.left = l + "px";
         grid.style.width = w + "px";
     } else {
-        
+
         grid = document.getElementById('gv-grid-view');
         grid.style.top = "";
         grid.style.left = "";
         grid.style.width = "";
-       
-       
+
+
     }
 }
 
-function fixList( fix ) {
-    
-        var viewportOffset, t, l, w, list = document.querySelector('.gv-list-view');
-    
-        if (fix) {
-            viewportOffset = list.getBoundingClientRect();
-            t = viewportOffset.top;
-            l = viewportOffset.left;
-            w = viewportOffset.width;
-            list.style.top = t + "px";
-            list.style.left = l + "px";
-            list.style.width = w + "px";
-            list.style.position = "fixed";
-        } else {
-            list.style.top = "";
-            list.style.left = "";
-            list.style.width = "";
-            list.style.position = "";
-        }
-    }
+function fixList(fix) {
 
-function jumpToIndex( ind ) {
-    document.querySelector('#list-entry_' + ind).scrollIntoView( true );
+    var viewportOffset, t, l, w, list = document.querySelector('.gv-list-view');
+
+    if (fix) {
+        viewportOffset = list.getBoundingClientRect();
+        t = viewportOffset.top;
+        l = viewportOffset.left;
+        w = viewportOffset.width;
+        list.style.top = t + "px";
+        list.style.left = l + "px";
+        list.style.width = w + "px";
+        list.style.position = "fixed";
+    } else {
+        list.style.top = "";
+        list.style.left = "";
+        list.style.width = "";
+        list.style.position = "";
+    }
+}
+
+function jumpToIndex(ind) {
+    document.querySelector('#list-entry_' + ind).scrollIntoView(true);
 }
 
 function getCoords(elem) { // crossbrowser version
@@ -330,7 +330,7 @@ function getCoords(elem) { // crossbrowser version
 
     var offsetHeight = elem.offsetHeight || 0;
 
-    var top  = box.top +  scrollTop - clientTop;
+    var top = box.top + scrollTop - clientTop;
     var left = box.left + scrollLeft - clientLeft;
     var bottom = top + offsetHeight;
 
@@ -341,25 +341,25 @@ function checkFixElements() {
 
     if (!isMobile()) {
 
-    //let h = document.getElementById("bannerandheader").offsetHeight || 0;
+        //let h = document.getElementById("bannerandheader").offsetHeight || 0;
 
-    var h = getCoords(document.getElementById("gv-header")).bottom;
-
-
+        var h = getCoords(document.getElementById("gv-header")).bottom;
 
 
-    //console.log("oh=" + h);
-    
-    var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    
+
+
+        //console.log("oh=" + h);
+
+        var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
         console.log("pos_top=" + pos_top);
         console.log("oh=" + h);
-        
-    
+
+
         if (pos_top > h) {
             console.log("fixed");
             document.querySelector('#toggle-view-overlay-btn').classList.add('gv-fixed');
-            document.querySelector('#toggle-view-overlay-btn').style.marginTop =  -h + "px";
+            document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
         } else if (pos_top < h) {
             document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
@@ -369,65 +369,65 @@ function checkFixElements() {
 
 }
 
-function getPositionIdArray ( positions ) {
+function getPositionIdArray(positions) {
 
     var i, position, arr = [];
 
     positions = String(positions).split("/");
 
-    for (i=0; i< positions.length; i++) {
+    for (i = 0; i < positions.length; i++) {
 
         position = String(positions[i]).toLowerCase().trim();
 
-        switch ( position ) {
+        switch (position) {
 
-            case "goalkeeper" :
+            case "goalkeeper":
 
-            arr.push("GK");
+                arr.push("GK");
 
-            break;
+                break;
 
-            case "forward" :
-            
-            arr.push("F1");
-            
-            break;
+            case "forward":
 
-            case "attacking midfielder" :
-            
-            arr.push("M2");
-            
-            break;
-            
-            case "midfielder" :
-                        
-            arr.push("M3");            
-                        
-            break;
+                arr.push("F1");
 
-            case "striker" :
-                        
-            arr.push("F2");            
-                        
-            break;
-                        
-            case "defensive midfielder" :
-                                    
-            arr.push("M3");                        
-                                    
-            break;
+                break;
 
-            case "defender" :
-            
-            arr.push("D2");
-            
-            break;
+            case "attacking midfielder":
 
-            case "winger" :
-            
-            arr.push("M1");
-            
-            break;
+                arr.push("M2");
+
+                break;
+
+            case "midfielder":
+
+                arr.push("M3");
+
+                break;
+
+            case "striker":
+
+                arr.push("F2");
+
+                break;
+
+            case "defensive midfielder":
+
+                arr.push("M3");
+
+                break;
+
+            case "defender":
+
+                arr.push("D2");
+
+                break;
+
+            case "winger":
+
+                arr.push("M1");
+
+                break;
 
         }
 
@@ -437,18 +437,18 @@ function getPositionIdArray ( positions ) {
 
 }
 
-function drawPositions( data ) {
+function drawPositions(data) {
 
 
     var i, ii, position, arr, el, id;
 
 
-    for (i=0; i< data.length; i++) {
-          
-        arr = getPositionIdArray ( data[i].Position );
-        
-    
-        for (ii=0; ii< arr.length; ii++) {
+    for (i = 0; i < data.length; i++) {
+
+        arr = getPositionIdArray(data[i].Position);
+
+
+        for (ii = 0; ii < arr.length; ii++) {
 
             id = arr[ii];
 
@@ -456,7 +456,7 @@ function drawPositions( data ) {
             //var selector = '#gv-pitch_' + i + '_marker_' + id;
             //console.log(selector);
 
-            el = document.getElementById('gv-pitch_' + i + '_marker_' + id );
+            el = document.getElementById('gv-pitch_' + i + '_marker_' + id);
             //el = document.querySelector('#list-entry_' + i  );
 
             console.log(el)
@@ -468,8 +468,3 @@ function drawPositions( data ) {
     }
 
 }
-
-
-
-
-

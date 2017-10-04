@@ -2,8 +2,8 @@
 @import "fonts";
 @import "palette";
 
-$gs-baseline:12px;
-$gs-gutter:20px;
+$gs-baseline: 12px;
+$gs-gutter: 20px;
 $facewall-bg: $neutral-5;
 $header-support: $neutral-5;
 $bullet-bg: $multimedia-main-2;
@@ -11,16 +11,12 @@ $unselected-color: $neutral-3;
 $selected-color: $multimedia-main-2;
 $selected-color-support: $comment-main-2;
 
-
-$three-in-row: percentage(1/3);
-$four-in-row: percentage(1/4);
-$five-in-row: percentage(1/5);
-
-
+$three-in-row: percentage(1 / 3);
+$four-in-row: percentage(1 / 4);
+$five-in-row: percentage(1 / 5);
 
 // Uncomment for embeds
 //@import "embed";
-
 // Uncomment for full screen (including immersive article main media)
 @import "fullscreen";
 
@@ -33,32 +29,26 @@ $background-lightgrey: #f4f4f4;
 
 @import "detailView";
 @import "uxItems";
+
 // @import "share";
-
-html,body {
-    height:100%;
-    //overflow-x: hidden;
+html,
+body {
+    height: 100%; //overflow-x: hidden;
 }
-
 
 .element-atom,
 .interactive-atom {
-    margin: 0 !important;
-    //background-color: $multimedia-support-4;
+    margin: 0 !important; //background-color: $multimedia-support-4;
     background-color: #ebebeb;
-    height: auto;
-    //overflow:hidden;
-    @include mq(desktop){
+    height: auto; //overflow:hidden;
+    @include mq(desktop) {
         //overflow:visible;
     }
 }
 
 .interactive-ad-banner {
     display: flex;
-    justify-content: center;
-    //margin-top: -20px!important;
-    
-
+    justify-content: center; //margin-top: -20px!important;
     @include mq($from: tablet) {
         .ad-slot--rendered {
             margin: 0 0 50px 0;
@@ -69,8 +59,7 @@ html,body {
 #gv-mobile-dummy {
     position: absolute;
     display: block;
-
-    @include mq(desktop){
+    @include mq(desktop) {
         display: none;
     }
 }
@@ -85,21 +74,17 @@ html,body {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
-.gv-wrap-all{
-    position: relative;
-    //overflow:hidden;
+.gv-wrap-all {
+    position: relative; //overflow:hidden;
     width: 100%;
-    max-width:1300px;
+    max-width: 1300px;
     vertical-align: top;
     margin: 0 auto;
     min-height: 100vh;
-    
-    @include mq(desktop){
+    @include mq(desktop) {
         //max-width:100%;
     }
 }
-
-
 
 .gv-views-wrapper {
     position: relative;
@@ -108,44 +93,35 @@ html,body {
 }
 
 .gv-list-view {
-
-    width: 100%;
-    //height: 100%;
+    width: 100%; //height: 100%;
     min-height: 100vh;
     background-color: $background-lightgrey;
     z-index: 1;
-
-    @include mq(desktop){
+    @include mq(desktop) {
         //max-width:100%;
         padding-top: 0px;
     }
 
-    &.open{
+    &.open {
         position: relative;
     }
-
-    &.close{
+    &.close {
         position: absolute;
     }
-
     .gv-list-view-inner {
         padding: 20px 15px;
-
-        @include mq(desktop){
+        @include mq(desktop) {
             margin: 0 auto;
             width: 740px;
             padding: 30px 0 0 0;
         }
 
         .gv-list-entry {
-
             background-color: #ffffff;
             margin-bottom: 30px;
             border-bottom: 2px solid #d6d6d6;
             line-height: 1.4em;
-
             .gv-list-entry-inner {
-
                 .gv-list-entry-header {
                     position: relative;
                     min-height: 185px;
@@ -154,10 +130,9 @@ html,body {
                     color: #fff;
                     vertical-align: top;
                     padding: 0 0 10px 0;
-
-                    @include mq(phablet){
+                    @include mq(phablet) {
                         padding: 0;
-                        }
+                    }
 
                     .gv-list-image-container {
                         top: 5px;
@@ -165,8 +140,7 @@ html,body {
                         height: 140px;
                         position: relative;
                         overflow: hidden;
-
-                        @include mq(phablet){
+                        @include mq(phablet) {
                             position: absolute;
                             width: 175px;
                             height: 175px;
@@ -174,16 +148,16 @@ html,body {
                             left: 5px;
                             padding: 0;
                             margin: 0;
-                            }
+                        }
 
-                        @include mq(tablet){
-                        //position: absolute;
-                        width: 240px;
-                        height: 175px;
-                        top: 5px;
-                        left: 5px;
-                        padding: 0;
-                        margin: 0;
+                        @include mq(tablet) {
+                            //position: absolute;
+                            width: 240px;
+                            height: 175px;
+                            top: 5px;
+                            left: 5px;
+                            padding: 0;
+                            margin: 0;
                         }
 
                         .gv-list-image {
@@ -194,28 +168,19 @@ html,body {
                             //margin-left: auro;
                             //margin-right: auto;
                             margin: 0 auto;
-                            
-                            width: 100%;
-                            
-                            //width: 100%;
-                            
+                            width: 100%; //width: 100%;
                             //height: 100%;
                             //background-color: #ff0000;
-                            @include mq(phablet){
+                            @include mq(phablet) {
                                 width: auto;
                                 height: 100%;
-                                margin-left: -25%;
-                                
-                                //object-fit: cover;
-                                }
+                                margin-left: -25%; //object-fit: cover;
+                            }
 
-                            @include mq(tablet){
-                               
-                                    margin-left: -8%;
-                                
+                            @include mq(tablet) {
+                                margin-left: -8%;
                             }
                         }
-
                         .gv-list-image-flag {
                             position: absolute;
                             bottom: 5px;
@@ -225,77 +190,67 @@ html,body {
                             background-color: #fff;
                             z-index: 800;
                             border-radius: 50%;
-                            @include mq(phablet){
+                            @include mq(phablet) {
                                 display: none;
                             }
                         }
-
                     }
-
                     .gv-list-title {
                         padding: 0 10px 5px 10px;
-                        
-                        @include f-headline();
+                        @include f-headline;
                         font-size: 24px;
                         line-height: 26px;
                         font-weight: 300;
-
-                        @include mq(phablet){
+                        @include mq(phablet) {
                             position: absolute;
                             width: 460px;
-                            width: calc(100% - 210px);
-                            //background-color: #fff;
+                            width: calc(100% - 210px); //background-color: #fff;
                             height: 55px;
                             top: 5px;
                             left: 195px;
                             padding: 0;
                             vertical-align: top;
-                            }
-                            @include mq(phabletPlus){
-                                font-size: 36px;
-                                line-height: 38px;
-                                }
-                            @include mq(tablet){
-                            
-                                    width: 460px;
-                                    width: calc(100% - 275px);
-                                    //background-color: #fff;
-                                    height: 55px;
-                                    top: 5px;
-                                    left: 260px;
-                                    padding: 0;
-                                    vertical-align: top;
-                            }
+                        }
 
+                        @include mq(phabletPlus) {
+                            font-size: 36px;
+                            line-height: 38px;
+                        }
 
-                        @include mq(desktop){
-                        
-                        width: 460px;
-                        //background-color: #fff;
-                        height: 55px;
-                        top: 5px;
-                        left: 260px;
-                        padding: 0;
-                        vertical-align: top;
+                        @include mq(tablet) {
+                            width: 460px;
+                            width: calc(100% - 275px); //background-color: #fff;
+                            height: 55px;
+                            top: 5px;
+                            left: 260px;
+                            padding: 0;
+                            vertical-align: top;
+                        }
+
+                        @include mq(desktop) {
+                            width: 460px; //background-color: #fff;
+                            height: 55px;
+                            top: 5px;
+                            left: 260px;
+                            padding: 0;
+                            vertical-align: top;
                         }
 
                         span:nth-of-type(2) {
                             padding-top: 7px;
                             display: inline-block;
                             vertical-align: top;
-
-                            @include mq(phablet){
+                            @include mq(phablet) {
                                 padding-top: 12px;
                             }
 
-                            @include mq(phabletPlus){
+                            @include mq(phabletPlus) {
                                 padding-top: 6px;
                             }
                         }
-
                         .gv-list-flag {
                             display: none;
-                            @include mq(phablet){
+                            @include mq(phablet) {
                                 display: inline-block;
                                 width: 30px;
                                 height: 30px;
@@ -307,7 +262,6 @@ html,body {
                             }
                         }
                     }
-
                     .gv-list-entry-info {
                         margin: 5px 10px;
                         display: table;
@@ -315,10 +269,9 @@ html,body {
                         width: calc(100% - 20px);
                         @include fs-textSans(3);
                         color: #636363;
-
-                        @include mq(phablet){
+                        @include mq(phablet) {
                             position: absolute;
-                            margin : 0;
+                            margin: 0;
                             height: 120px;
                             width: 300px;
                             width: calc(100% - 210px);
@@ -326,170 +279,134 @@ html,body {
                             left: 195px;
                         }
 
-                        @include mq(tablet){
-                            
+                        @include mq(tablet) {
                             width: 300px;
                             width: calc(100% - 275px);
                             left: 260px;
-                        
                         }
-                        
 
-                        @include mq(desktop){
-                        //position: absolute;
-                        margin : 0;
-                        height: 120px;
-                        width: 300px;
-                        top: 60px;
-                        left: 260px;
+                        @include mq(desktop) {
+                            //position: absolute;
+                            margin: 0;
+                            height: 120px;
+                            width: 300px;
+                            top: 60px;
+                            left: 260px;
                         }
 
                         .gv-list-info-row {
-                            
                             display: table-row;
                             width: auto;
-
                             span {
                                 border-top: 1px solid #636363;
                                 display: table-cell;
                                 padding: 4px 0;
-
                                 &:nth-of-type(2) {
                                     color: #999999;
                                 }
-               
                             }
                         }
-
                     }
                     .gv-list-pitch-graphic {
                         display: none;
-                        @include mq(desktop){
-                        display: block;
-                        position: absolute;
-                        background-color: transparent;
-                        height: 70px;
-                        width: 122px;
-                        top: 60px;
-                        right: 20px;
+                        @include mq(desktop) {
+                            display: block;
+                            position: absolute;
+                            background-color: transparent;
+                            height: 70px;
+                            width: 122px;
+                            top: 60px;
+                            right: 20px;
                         }
 
                         svg {
-
                             vector-effect: non-scaling-stroke;
-
-                        #markers circle {
-                            fill: $accent-green;
-                            visibility: hidden;
+                            #markers circle {
+                                fill: $accent-green;
+                                visibility: hidden;
+                            }
+                            #pitch path {
+                                stroke: $accent-green;
+                            }
                         }
-
-                        #pitch path {
-                            stroke: $accent-green;
-                        }
-
-                    }
                     }
                 }
-
                 .gv-list-entry-body-text {
                     padding: 12px 20px;
-
                     .gv-list-entry-description {
-                        @include f-headline();
+                        @include f-headline;
                         color: #333;
                         font-size: 16px;
-
                         a {
                             color: #999999;
                             font-weight: 500;
                             text-decoration: underline;
                         }
-
                         strong a {
                             color: #333;
                             font-weight: 600;
                         }
                     }
-
                 }
             }
-
         }
     }
 }
-
 
 .gv-grid-view {
     top: 0;
     left: 0;
     width: 100%;
-    overflow:hidden;
-    display: table;
-    
-    
-    //background-color: $background-grey;
-    min-height: 100vh;
-    //transform: translateX(0);
-    @include mq(desktop){
-        width:calc(100% - 50px);
+    overflow: hidden;
+    display: table; //background-color: $background-grey;
+    min-height: 100vh; //transform: translateX(0);
+    @include mq(desktop) {
+        width: calc(100% - 50px);
         left: 50px;
-    }
-    //transform: translateX(100vw);
+    } //transform: translateX(100vw);
     z-index: 1000;
-    &.open{
+    &.open {
         position: relative;
-        
-
         .gv-grid-view-inner {
-        transform: translateX(0);
-        -webkit-transition: -webkit-transform  0.15s linear;
-        -moz-transition: -moz-transform  0.15s linear;
-        -ms-transition: -ms-transform  0.15s linear;
-        -o-transition: -o-transform  0.15s linear;
-        transition: transform  0.15s linear;
-
-        // -webkit-transition-delay: 0.15s;
-        // -moz-transition-delay: 0.15s;
-        // -ms-transition-delay: 0.15s;
-        // -o-transition-delay: 0.15s;
-        // transition-delay: 0.15s;
-
-        @include mq(desktop){
-            // -webkit-transition-delay: 0s;
-            // -moz-transition-delay: 0s;
-            // -ms-transition-delay: 0s;
-            // -o-transition-delay: 0s;
-            // transition-delay: 0s;
+            transform: translateX(0);
+            -webkit-transition: -webkit-transform 0.15s linear;
+            -moz-transition: -moz-transform 0.15s linear;
+            -ms-transition: -ms-transform 0.15s linear;
+            -o-transition: -o-transform 0.15s linear;
+            transition: transform 0.15s linear; // -webkit-transition-delay: 0.15s;
+            // -moz-transition-delay: 0.15s;
+            // -ms-transition-delay: 0.15s;
+            // -o-transition-delay: 0.15s;
+            // transition-delay: 0.15s;
+            @include mq(desktop) {
+                // -webkit-transition-delay: 0s;
+                // -moz-transition-delay: 0s;
+                // -ms-transition-delay: 0s;
+                // -o-transition-delay: 0s;
+                // transition-delay: 0s;
+            }
         }
     }
-    }
-    
-    &.close{
+    &.close {
         position: fixed;
         width: inherit;
         max-width: inherit;
-        pointer-events: none;
-        //transform: translateX(100vw);
+        pointer-events: none; //transform: translateX(100vw);
         //transition: transform  0.15s linear;
-        @include mq(desktop){
+        @include mq(desktop) {
             //display:block;
         }
 
         .gv-grid-view-inner {
-            
-        transform: translateX(100vw);
-        -webkit-transition: -webkit-transform  0.15s linear;
-        -moz-transition: -moz-transform  0.15s linear;
-        -ms-transition: -ms-transform  0.15s linear;
-        -o-transition: -o-transform  0.15s linear;
-        transition: transform  0.15s linear;
+            transform: translateX(100vw);
+            -webkit-transition: -webkit-transform 0.15s linear;
+            -moz-transition: -moz-transform 0.15s linear;
+            -ms-transition: -ms-transform 0.15s linear;
+            -o-transition: -o-transform 0.15s linear;
+            transition: transform 0.15s linear;
         }
     }
-
-  
-
-
-    @include mq(desktop){
+    @include mq(desktop) {
         //transform: translateX(0);
         //position:relative;
         //left:0;
@@ -497,89 +414,73 @@ html,body {
     }
 
     .gv-grid-view-inner {
-        background-color: $background-grey;
-        //margin: 20px 15px;
+        background-color: $background-grey; //margin: 20px 15px;
         padding: 20px 15px;
-        border-top: 1px solid #555;
-        //width: 500px;
+        border-top: 1px solid #555; //width: 500px;
         min-height: 100vh;
-        display: table-cell;
-
-        //background-color: #ff0000;
-        @include mq(desktop){
+        display: table-cell; //background-color: #ff0000;
+        @include mq(desktop) {
             //margin: 20px 70px;
             padding: 30px 70px;
         }
     }
-
     .gv-grid {
         width: 105%;
         width: -webkit-calc(100% + 5px);
         width: -moz-calc(100% + 5px);
         width: calc(100% + 5px);
-
-        @include mq(phabletPlus){
+        @include mq(phabletPlus) {
             width: 108%;
             width: -webkit-calc(100% + 20px);
             width: -moz-calc(100% + 20px);
             width: calc(100% + 20px);
-        }
-
-        // @include mq(desktop){
+        } // @include mq(desktop){
         //     width: 108%;
         //     width: -webkit-calc(100% + 20px);
         //     width: -moz-calc(100% + 20px);
         //     width: calc(100% + 20px);
         // }
     }
-
     .gv-grid-cell {
         position: relative;
-        width : 50%; // 2 in row mobile default
+        width: 50%; // 2 in row mobile default
         padding-bottom: 50%;
         height: auto;
         margin-bottom: 12px;
         box-sizing: content-box;
         float: left;
         height: 86px;
-
-        @include mq(phablet){ 
+        @include mq(phablet) {
             width: $three-in-row; // 3 in row phablet default
-            padding-bottom: $three-in-row; 
+            padding-bottom: $three-in-row;
         }
 
-
-        @include mq(tablet){ 
+        @include mq(tablet) {
             width: $four-in-row; // 3 in row phablet default
-            padding-bottom: $four-in-row; 
+            padding-bottom: $four-in-row;
         }
 
-        @include mq(desktop){
-            width : 20%; // 5 in row desktop default
+        @include mq(desktop) {
+            width: 20%; // 5 in row desktop default
             padding-bottom: 20%;
         }
-
-        
 
         .gv-grid-cell-inner {
             position: absolute;
             top: 0;
             left: 0;
             right: 5px;
-            bottom: 0px;
-            //background: #767676;
+            bottom: 0px; //background: #767676;
             cursor: pointer;
             border-top: 1px solid $accent-green;
             -webkit-transition: opacity 100ms ease-in-out;
             -moz-transition: opacity 100ms ease-in-out;
-              -o-transition: opacity 100ms ease-in-out;
-                 transition: opacity 100ms ease-in-out;
-
+            -o-transition: opacity 100ms ease-in-out;
+            transition: opacity 100ms ease-in-out;
             &:hover {
                 opacity: 0.8;
             }
-
-            @include mq(phabletPlus){
+            @include mq(phabletPlus) {
                 right: 20px;
             }
 
@@ -590,18 +491,12 @@ html,body {
                 padding-bottom: 100%;
                 pointer-events: none;
                 overflow: hidden;
-
-                
-
                 .gv-grid-cell-image {
                     position: absolute;
                     top: 0;
                     left: 0;
                     width: 100%;
-
                 }
-
-
                 .gv-grid-cell-flag {
                     position: absolute;
                     bottom: 5px;
@@ -613,48 +508,35 @@ html,body {
                     border-radius: 50%;
                 }
             }
-
             .gv-cell-info {
-
                 // font-family: $f-serif-headline;
-                
                 //@include fs-textSans(3);
                 padding: 8px 5px 12px 5px;
                 text-align: left;
                 pointer-events: none;
-                @include mq(phablet){
+                @include mq(phablet) {
                     text-align: left;
                 }
 
-            .gv-cell-number {
-                display: none;
+                .gv-cell-number {
+                    display: none;
+                }
+                .gv-cell-title {
+                    @include fs-headline(3);
+                    color: #ffffff;
+                }
+                .gv-cell-subtitle {
+                    @include f-headlineSans;
+                    font-size: 18px;
+                    line-height: 20px;
+                    color: #999;
+                }
             }
-
-            .gv-cell-title {
-                @include fs-headline(3);
-                color: #ffffff;
-            }
-
-            .gv-cell-subtitle {
-                @include f-headlineSans();
-                font-size: 18px;
-                line-height: 20px;
-                color: #999;
-            }
-
         }
-
-        }
-
-        &.disabled {
-            
-        }
-
+        &.disabled {}
         &:hover {
             //background: #767676;
         }
-
-        
     }
 }
 
@@ -664,14 +546,14 @@ html,body {
 
 .gv-blazy {
     -webkit-transition: opacity 500ms ease-in-out;
-       -moz-transition: opacity 500ms ease-in-out;
-         -o-transition: opacity 500ms ease-in-out;
-            transition: opacity 500ms ease-in-out;
-             //max-width: 100%;
-               opacity: 0;
+    -moz-transition: opacity 500ms ease-in-out;
+    -o-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out; //max-width: 100%;
+    opacity: 0;
 }
+
 .gv-grid-view .gv-blazy.b-loaded {
-               opacity: 0.8;
+    opacity: 0.8;
 }
 
 .gv-list-view .gv-blazy.b-loaded {
@@ -679,7 +561,6 @@ html,body {
 }
 
 // FLAGS
-
 .gv-flag {
     background-size: cover;
     background-repeat: no-repeat;
@@ -690,18 +571,9 @@ html,body {
     border: 1px solid #fff;
 }
 
-
 .gv-fixed {
     position: fixed !important;
 }
-
-
-
-
-
-
-
-
 
 .gv-band-extend {
     // position: absolute;
@@ -709,15 +581,12 @@ html,body {
     // width: 2000px;
     // background-color: #222;
     // height: 100%;
-
     // &.gv-left {
     //     left: -2000px;
     // }
-
     // &.gv-right {
     //     right: -2000px;
     // }
-
     // &.gv-bottom {
     //     top: auto;
     //     bottom: 0;
@@ -727,14 +596,7 @@ html,body {
     //     background: #fff;
     //     opacity: 0.2;
     // }
-
 }
-
-
-
-
-
-
 
 // .gv-main-content
 // .gv-header-wrapper {
@@ -748,15 +610,12 @@ html,body {
 //         }
 //     }
 // }
-
 .gv-header-background {
     position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 1);
-    //background-color: #2a2a2a;
+    border-top: 1px solid rgba(255, 255, 255, 1); //background-color: #2a2a2a;
     background-color: #222;
     z-index: 10000;
-    overflow: hidden;
-    //background-image: url('<%= path %>/assets/sixty.svg');
+    overflow: hidden; //background-image: url('<%= path %>/assets/sixty.svg');
 }
 
 .gv-header {
@@ -765,18 +624,17 @@ html,body {
     z-index: 10;
     max-width: 600px;
     padding: 0 12px 30px 12px;
-    @include mq(desktop){
+    @include mq(desktop) {
         //margin: 0 auto;
         //width: 1240px;
         padding: 0 0 30px 120px;
-    } 
+    }
 }
 
 #gv-header-background-graphic {
     position: absolute;
     display: none;
-
-    @include mq(desktop){
+    @include mq(desktop) {
         display: block;
         top: 40px;
         right: -90px;
@@ -784,12 +642,8 @@ html,body {
     }
 }
 
-
-
-
 .header-share-container {
-    margin: 10px 0 20px;
-    //background-color: #005689;
+    margin: 10px 0 20px; //background-color: #005689;
 }
 
 // .gv-counter {
@@ -805,34 +659,26 @@ html,body {
 //     @include fs-data(2);
 //     padding-top: 5px;
 // }
-
 // .gv-arrows {
 //     width: 100vw;
 //     top: -20px;
-
 //     @include mq(leftCol) {
 //         margin-left: -160px !important;
 //     }
-
 //     @include mq(wide) {
 //         margin-left: -240px !important;
 //     }
-
 //     @include mq(desktop, tablet) {
 //         margin-left: -20px !important;
 //     }
 // }
-
 .gv-header-wrapper {
     position: relative;
-    z-index: 99999;
-    //background-color: #005689;
+    z-index: 99999; //background-color: #005689;
     color: white;
     background-color: #2a2a2a;
-
     max-width: 1300px;
-    margin: 0 auto;
-    // @each $bp in (tablet, desktop, wide) {
+    margin: 0 auto; // @each $bp in (tablet, desktop, wide) {
     //     @include mq($bp) {
     //         max-width: map-get($mq-breakpoints, $bp);
     //     }
@@ -861,9 +707,9 @@ html,body {
     }
 
     a {
-        color: #999999!important;
-        font-weight: 600!important;
-        text-decoration: underline!important;
+        color: #999999 !important;
+        font-weight: 600 !important;
+        text-decoration: underline !important;
     }
 }
 
@@ -876,12 +722,12 @@ html,body {
     @include mq($until: desktop) {
         font-size: 16px;
     }
+
     a {
         color: $accent-green;
         text-decoration: none;
-
         &:hover {
-            text-decoration: underline; 
+            text-decoration: underline;
         }
     }
 }
@@ -894,7 +740,6 @@ html,body {
 //     width: 100%;
 //     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 // }
-
 .gv-header {
     padding-top: 10px;
 }
@@ -914,7 +759,6 @@ html,body {
     margin-top: 10px;
 }
 
-
 .interactive-share {
     height: 32px;
     width: 32px;
@@ -926,46 +770,36 @@ html,body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 32px;
-
     &[data-network='facebook'] {
-        background-image: url('<%= path %>/assets/facebook.svg');
+        background-image: url("<%= path %>/assets/facebook.svg");
         background-color: #3067a3;
     }
-
     &[data-network='twitter'] {
-        background-image: url('<%= path %>/assets/twitter.svg');
+        background-image: url("<%= path %>/assets/twitter.svg");
         background-color: #03b3ee;
     }
-
     &[data-network='email'] {
-        background-image: url('<%= path %>/assets/mail.svg');
+        background-image: url("<%= path %>/assets/mail.svg");
         background-color: #767676;
     }
 }
 
 .interactive-share:hover {
-  cursor:pointer;
-  opacity:0.9;
+    cursor: pointer;
+    opacity: 0.9;
 }
-
 
 .gv-footer {
     width: 100%;
     background-color: #ffffff;
-
     .gv-footer-photo-credit {
-    padding: 10px 5px 100px 5px;
-    @include f-headlineSans();
-    font-size: 13px;
-    line-height: 1.2em;
-    color: #767676;
-    @include mq($from: desktop) {
-        padding: 10px 5px 100px 50px;
-    }
+        padding: 10px 5px 100px 5px;
+        @include f-headlineSans;
+        font-size: 13px;
+        line-height: 1.2em;
+        color: #767676;
+        @include mq($from: desktop) {
+            padding: 10px 5px 100px 50px;
+        }
     }
 }
-
-
-
-
-
