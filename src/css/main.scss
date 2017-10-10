@@ -317,6 +317,16 @@ body {
                                     color: #999999;
                                 }
                             }
+                            span.gv-details-change {
+                                border-top: none;
+                                display: inline-block;
+                                padding: 0;
+                                color: $accent-green;
+                                &:nth-of-type(2) {
+                                    color: #ff0000;
+                                }
+
+                            }
                         }
                     }
                     .gv-list-pitch-graphic {

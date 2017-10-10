@@ -59,8 +59,9 @@ function getStyle(element) {
 }
 
 var url;
-//url = 'https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiAx0bxVmDqP98Q.json'; // Old 2016 Next Gen World
-url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
+
+//url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
+url= 'https://interactive.guim.co.uk/docsdata/1mIpLr09lxHSG6JkQ3K-P3fkFsx7-wpOARxnuWzlo2kk.json'; // New 2017 top 100
 
 
 xr.get(url).then((resp) => {
@@ -106,6 +107,11 @@ function cleanData(dataIn) {
 
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
+            obj["Club"] = dataIn[key][i]["Club on 20 Dec 2016"];
+            obj["Age"] = dataIn[key][i]["Age on 20 Dec 2016"];
+
+
+            obj["Change"] =  getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]));
 
             // Corrections from old data
 
@@ -117,8 +123,8 @@ function cleanData(dataIn) {
             // obj["List view image parameters"] = obj["Main Image Parameters"];
             // obj["List_image_src"] = obj["List view image"]; // No parameters used
 
-            obj["Grid_image_src"] = obj["Grid view image"] + "/" + gridViewImageWidth + ".jpg";
-            obj["List_image_src"] = obj["List view image"] + "/" + listViewImageWidth + ".jpg";
+            obj["Grid_image_src"] = obj["Facewall cell image GRID src"] + "/" + gridViewImageWidth + ".jpg";
+            obj["List_image_src"] = obj["Facewall main image GRID src"] + "/" + listViewImageWidth + ".jpg";
 
             //console.log(obj["List_image_src"]);
 
@@ -475,3 +481,24 @@ function drawPositions(data) {
     }
 
 }
+
+function getMovementText( oldRank, change ){
+   
+    var strOut = oldRank + " 2016 ";
+ 
+        if ( isNaN( change )){
+          strOut = "<span class='gv-details-change'>New</span>";
+        
+        } else if( change == 0 ){
+        strOut += "<span class='gv-details-change'></span>&nbsp;&#9654;"; // same
+        } else if( change < 0 ){
+          change = Math.abs(change);
+           strOut += "<span class='gv-details-change'>&#9660;</span>"+ change +""; // Down
+        }else if(change > 0){
+          strOut += "<span class='gv-details-change'>&#9650;</span>"+ change +""; // Up
+        } 
+             
+       //console.log(strOut);
+    return strOut;
+  }
+
