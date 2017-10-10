@@ -74,6 +74,8 @@ body {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
+select:focus {outline:none;}
+
 .gv-wrap-all {
     position: relative; //overflow:hidden;
     width: 100%;
@@ -257,7 +259,16 @@ body {
                     //display: none;
                     color: $accent-green;
                     padding-right: 5px;
-                    border-right: 1px solid $accent-green;
+                    
+
+                    &:after {
+                        display: inline-block;
+                        content: "";
+                        border-right: 1px solid $accent-green;
+                        height: 25px;
+                        width: 8px;
+                        opacity: 0.5;
+                    }
                 }
 
                         .gv-list-flag {
@@ -322,9 +333,13 @@ body {
                                 display: inline-block;
                                 padding: 0;
                                 color: $accent-green;
-                                &:nth-of-type(2) {
-                                    color: #ff0000;
-                                }
+
+                            }
+                            span.gv-details-dim {
+                                border-top: none;
+                                display: inline;
+                                padding: 0;
+                                color: #636363;
 
                             }
                         }

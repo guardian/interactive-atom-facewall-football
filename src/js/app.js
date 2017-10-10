@@ -484,7 +484,7 @@ function drawPositions(data) {
 
 function getMovementText( oldRank, change ){
    
-    var strOut = oldRank + " 2016 ";
+    var strOut = oldRank + " <span class='gv-details-dim'>2016</span> ";
  
         if ( isNaN( change )){
           strOut = "<span class='gv-details-change'>New</span>";
