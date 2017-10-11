@@ -115,14 +115,20 @@ select:focus {outline:none;}
         @include mq(desktop) {
             margin: 0 auto;
             width: 740px;
-            padding: 30px 0 0 0;
+            padding: 70px 0 0 0;
         }
 
         .gv-list-entry {
             background-color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             border-bottom: 2px solid #d6d6d6;
             line-height: 1.4em;
+            @include mq(phablet) {
+                  margin-bottom: 50px;
+            }
+            @include mq(tablet) {
+                  margin-bottom: 70px;
+            }
             .gv-list-entry-inner {
                 .gv-list-entry-header {
                     position: relative;
@@ -137,27 +143,26 @@ select:focus {outline:none;}
                     }
 
                     .gv-list-image-container {
-                        top: 5px;
-                        margin: 0 5px 12px 5px;
-                        height: 140px;
-                        position: relative;
-                        overflow: hidden;
-                        @include mq(phablet) {
-                            position: absolute;
-                            width: 175px;
-                            height: 175px;
-                            top: 5px;
-                            left: 5px;
+                        position: absolute;
+                            width: 33%;
+                            height: 210px;
+                            bottom: 0;
+                            left: 0;
                             padding: 0;
                             margin: 0;
+                        //position: relative;
+                        overflow: hidden;
+                        @include mq(phablet) {
+                               width: 200px;
                         }
 
                         @include mq(tablet) {
                             //position: absolute;
                             width: 240px;
-                            height: 175px;
-                            top: 5px;
-                            left: 5px;
+                            height: 240px;
+                            
+                            bottom: 0;
+                            left: 0;
                             padding: 0;
                             margin: 0;
                         }
@@ -174,13 +179,13 @@ select:focus {outline:none;}
                             //height: 100%;
                             //background-color: #ff0000;
                             @include mq(phablet) {
-                                width: auto;
-                                height: 100%;
-                                margin-left: -25%; //object-fit: cover;
+                                //width: auto;
+                                //height: 100%;
+                                //margin-left: -25%; //object-fit: cover;
                             }
 
                             @include mq(tablet) {
-                                margin-left: -8%;
+                                //margin-left: -8%;
                             }
                         }
                         .gv-list-image-flag {
@@ -198,20 +203,25 @@ select:focus {outline:none;}
                         }
                     }
                     .gv-list-title {
-                        padding: 0 10px 5px 10px;
+                        //padding: 0 10px 5px 10px;
                         @include f-headline;
                         font-size: 24px;
                         line-height: 26px;
                         font-weight: 300;
+                        position: absolute;
+                            width: 60%;
+                            //width: calc(100% - 210px); //background-color: #fff;
+                            height: 55px;
+                            top: 5px;
+                            left: 35%;
+                            padding: 0;
+                            vertical-align: top;
                         @include mq(phablet) {
-                            position: absolute;
-                            width: 460px;
+                             width: 460px;
                             width: calc(100% - 210px); //background-color: #fff;
                             height: 55px;
                             top: 5px;
                             left: 195px;
-                            padding: 0;
-                            vertical-align: top;
                         }
 
                         @include mq(phabletPlus) {
@@ -286,14 +296,19 @@ select:focus {outline:none;}
                         }
                     }
                     .gv-list-entry-info {
-                        margin: 5px 10px;
+                        //margin: 5px 10px;
                         display: table;
                         border-collapse: collapse;
-                        width: calc(100% - 20px);
+                        position: absolute;
+                        margin: 0;
+                        width: 65%;
+                        top: 60px;
+                        left: 34%;
+                         height: 120px;
                         @include fs-textSans(3);
                         color: #636363;
                         @include mq(phablet) {
-                            position: absolute;
+                            //position: absolute;
                             margin: 0;
                             height: 120px;
                             width: 300px;
@@ -462,6 +477,21 @@ select:focus {outline:none;}
         }
     }
     .gv-grid {
+
+  //        -ms-box-orient: horizontal;
+  // display: -webkit-box;
+  // display: -moz-box;
+  // display: -ms-flexbox;
+  // display: -moz-flex;
+  // display: -webkit-flex;
+  // display: flex;
+  
+  // -webkit-flex-flow: row wrap;
+
+
+
+
+
         width: 105%;
         width: -webkit-calc(100% + 5px);
         width: -moz-calc(100% + 5px);
@@ -479,6 +509,7 @@ select:focus {outline:none;}
         // }
     }
     .gv-grid-cell {
+
         position: relative;
         width: 50%; // 2 in row mobile default
         padding-bottom: 50%;
@@ -487,6 +518,41 @@ select:focus {outline:none;}
         box-sizing: content-box;
         float: left;
         height: 86px;
+
+        &.gv-deselected {
+            opacity: 0.5;
+
+img {
+  //opacity: 0.5;
+  filter: gray;
+  filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+
+
+
+
+
+
+
+
+
+             .gv-grid-cell-inner {
+                border-top: 1px solid #767676;
+
+                .gv-cell-number {
+                    //display: none;
+                    color: #767676!important;
+                }
+            }
+        }
+
+
+
+
+
         @include mq(phablet) {
             width: $three-in-row; // 3 in row phablet default
             padding-bottom: $three-in-row;
@@ -503,6 +569,7 @@ select:focus {outline:none;}
         }
 
         .gv-grid-cell-inner {
+
             position: absolute;
             top: 0;
             left: 0;

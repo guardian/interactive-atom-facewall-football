@@ -205,7 +205,98 @@ function addListeners() {
         shareEl.addEventListener('click', () => shareFn(network));
     });
 
+    var playerFilter = document.getElementById("gv-player-filter");
+
+    playerFilter.addEventListener("change", function() {
+    
+    filterView( event.target.value );
+});
+
 }
+
+function filterView ( value ) {
+
+    var i, ii, selectedSet = [], deselectedSet = [], found, arr, val, index;
+
+    
+
+    var grid = document.getElementById('gv-grid'), cell;
+
+
+
+    if ( value == "All players") {
+
+        selectedSet = data.players;
+
+    } else {
+
+        for (i = 0; i < data.players.length; i++) {
+
+        found = false;
+
+        arr = String(data.players[i]["Filters"]).split(",");
+
+
+
+        for (ii = 0; ii < arr.length; ii++) {
+
+            val = arr[ii].trim();
+
+
+            if (val == value) {
+
+                selectedSet.push(data.players[i]);
+                found = true;
+
+                break;
+
+            }
+
+        }
+
+        if (!found) {
+            deselectedSet.push(data.players[i]);
+        }
+    }
+
+
+    }
+
+
+
+    for (i = 0; i < selectedSet.length; i++) {
+
+
+        index = selectedSet[i]["Index"];
+        cell = document.getElementById('gv-grid-cell_' + index );
+        cell.classList.remove('gv-deselected');
+        grid.appendChild( cell );
+
+    }
+
+    for (i = 0; i < deselectedSet.length; i++) {
+
+
+        index = deselectedSet[i]["Index"];
+        cell = document.getElementById('gv-grid-cell_' + index );
+        cell.classList.add('gv-deselected');
+        grid.appendChild( cell );
+
+    }
+
+
+
+
+  //   divOne = document.getElementById('#div1');
+  // divTwo = document.getElementById('#div2');
+  // divThree = document.getElementById('#div3');
+  // container = divOne.parentNode;
+  // container.appendChild(divTwo);
+  // container.appendChild(divOne);
+  // container.appendChild(divThree);
+
+}
+
 
 function updateLazyLoad() {
 
