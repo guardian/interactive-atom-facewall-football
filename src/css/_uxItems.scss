@@ -158,7 +158,7 @@
     height: 60px;
     background: $accent-green;
     position: absolute;
-    z-index: 9999999999999;
+    z-index: 950;
     // bottom: 10px;
     // left: 50%;
     top: 0;
@@ -206,7 +206,7 @@
 
 
 .gv-fixed-btn-container {
-    z-index: 9999999999999;
+    z-index: 950;
     position: fixed;
     bottom: 70px;
     left: 50%;

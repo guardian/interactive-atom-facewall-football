@@ -195,7 +195,7 @@ select:focus {outline:none;}
                             height: 30px;
                             width: 30px;
                             background-color: #fff;
-                            z-index: 800;
+                            z-index: 100;
                             border-radius: 50%;
                             @include mq(phablet) {
                                 display: none;
@@ -416,7 +416,7 @@ select:focus {outline:none;}
         width: calc(100% - 50px);
         left: 50px;
     } //transform: translateX(100vw);
-    z-index: 1000;
+    z-index: 200;
     &.open {
         position: relative;
         .gv-grid-view-inner {
@@ -608,7 +608,7 @@ img {
                     height: 30px;
                     width: 30px;
                     background-color: #fff;
-                    z-index: 9999999999;
+                    z-index: 250;
                     border-radius: 50%;
                 }
             }
@@ -722,14 +722,14 @@ img {
     position: relative;
     border-top: 1px solid rgba(255, 255, 255, 1); //background-color: #2a2a2a;
     background-color: #222;
-    z-index: 10000;
+    z-index: 700;
     overflow: hidden; //background-image: url('<%= path %>/assets/sixty.svg');
 }
 
 .gv-header {
     position: relative;
     color: #fff;
-    z-index: 10;
+    z-index: 750;
     max-width: 600px;
     padding: 0 12px 30px 12px;
     @include mq(desktop) {
@@ -746,7 +746,7 @@ img {
         display: block;
         top: 40px;
         right: -90px;
-        z-index: 90000;
+        z-index: 800;
     }
 }
 
@@ -782,7 +782,7 @@ img {
 // }
 .gv-header-wrapper {
     position: relative;
-    z-index: 99999; //background-color: #005689;
+    z-index: 725; //background-color: #005689;
     color: white;
     background-color: #2a2a2a;
     max-width: 1300px;
@@ -901,7 +901,7 @@ img {
     position: relative;
     width: 100%;
     background-color: #ffffff;
-    z-index: 999999999;
+    z-index: 900;
     .gv-footer-photo-credit {
         padding: 10px 5px 100px 5px;
         @include f-headlineSans;
