@@ -1,22 +1,22 @@
     <div class="gv-list" id="gv-list">    
-            {{#each players}}
+            {{#each gifts}}
             <div class="gv-list-entry" id="list-entry_{{Index}}" data-index="{{Index}}">
 
                     <div class="gv-list-entry-inner" id="gv-list-entry-inner_{{Index}}" data-index="{{Index}}">
                             <div class="gv-list-entry-header">
 
                                     <div class="gv-list-image-container">
-                                            <!-- <img class="gv-list-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="{{List_image_src}}"/> -->
-                                            <img class="gv-list-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="<%= path %>/assets/test-cutout.png"/>
+                                            <img class="gv-list-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="{{List_image_src}}"/>
+                                            <!-- <img class="gv-list-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="<%= path %>/assets/test-cutout.png"/> -->
                                             <!-- <div class="gv-flag gv-list-image-flag gv-blazy" data-src="<%= path %>/assets/flags/pngs/{{Iso}}.png"></div> -->
                                     </div>
 
-                                    <div class="gv-list-title"><span class="gv-list-number">{{Rank}}</span><span>{{Name}}</span></div>
+                                    <div class="gv-list-title"><span>{{Header}}</span><br/><span class="gv-subtitle">{{Subheader}}</span></div>
                                     <div class="gv-list-entry-info">
-                                            <div class="gv-list-country gv-list-info-row"><span>Age</span><span>{{Age}}</span></div>
-                                            <div class="gv-list-club gv-list-info-row"><span>Team</span><span>{{Club}} / {{Nationality}}</span></div>
-                                            <div class="gv-list-position gv-list-info-row"><span>Position</span><span>{{Position}}</span></div>
-                                            <div class="gv-list-born gv-list-info-row"><span>Rank</span><span>{{{Change}}}</span></div>
+                                            <div class="gv-list-country gv-list-info-row"><span>Price</span><span>{{Price}}</span></div>
+                                            <div class="gv-list-club gv-list-info-row"><span>What</span><span>{{What}}</span></div>
+                                            <div class="gv-list-position gv-list-info-row"><span>Where</span><span><a href="{{Link}}" target="_blank" >Buy online now</a></span></div>
+                                           <!--  <div class="gv-list-born gv-list-info-row"><span>Rank</span><span>{{{Change}}}</span></div> -->
                                     </div>
                                    <!--  <div class="gv-list-pitch-graphic">
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -55,9 +55,9 @@
                                </svg>
                                     </div> -->
                             </div>
-                            <div class="gv-list-entry-body-text">
+                            <!-- <div class="gv-list-entry-body-text">
                                 <div class="gv-list-entry-description">{{{Profile}}} <strong>{{{Writer}}}</strong></div>
-                            </div>
+                            </div> -->
     
                     </div>
             </div>

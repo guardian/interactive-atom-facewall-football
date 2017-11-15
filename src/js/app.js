@@ -61,8 +61,9 @@ function getStyle(element) {
 var url;
 
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
-url= 'https://interactive.guim.co.uk/docsdata/1mIpLr09lxHSG6JkQ3K-P3fkFsx7-wpOARxnuWzlo2kk.json'; // New 2017 top 100
+//url= 'https://interactive.guim.co.uk/docsdata/1mIpLr09lxHSG6JkQ3K-P3fkFsx7-wpOARxnuWzlo2kk.json'; // New 2017 top 100
 //url= 'https://interactive.guim.co.uk/docsdata/10yzxnL1IoWxXZJ0T0uaMlVW6ID8pUqlA9SD-KYR4j1g.json'; // Old 2016 OFM gift guide
+url='https://interactive.guim.co.uk/docsdata/1qqKjxG3WrxKI_uuYIeobLFk4k2nl2kjqHyvnv0Al6kM.json';
 
 
 xr.get(url).then((resp) => {
@@ -121,6 +122,7 @@ function cleanData(dataIn) {
             obj["Price"] = dataIn[key][i]["price"];
             obj["Category"] = dataIn[key][i]["category"];
             obj["Description"] = dataIn[key][i]["description"];
+            obj["What"] = dataIn[key][i]["what"];
             obj["Link"] = dataIn[key][i]["link"];
 
             // Corrections from old data
@@ -146,6 +148,16 @@ function cleanData(dataIn) {
 
         dataOut[key] = arr;
     }
+
+    var arr2 = [];
+    dataOut["gifts"][0]["Link"] = "http://go.theguardian.com/?url=https%3A%2F%2Fwww.johnlewis.com%2Fjohn-lewis-moz-the-monster-plush-toy%2Fp3265967&id=114047X1572903";
+
+    for (var i=0; i < 50; i++) {
+
+        arr2.push(dataOut["gifts"][0]);
+    }
+
+    dataOut["gifts"] = arr2;
 
     return dataOut;
 }

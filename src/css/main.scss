@@ -20,7 +20,8 @@ $five-in-row: percentage(1 / 5);
 // Uncomment for full screen (including immersive article main media)
 @import "fullscreen";
 
-$accent-green: #aad801;
+$accent-gold: #aad801;
+$accent-gold: #d99b20;
 $mid-grey: #999999;
 $dark-grey: #505050;
 $text-grey: #676767;
@@ -97,7 +98,7 @@ select:focus {outline:none;}
 .gv-list-view {
     width: 100%; //height: 100%;
     min-height: 100vh;
-    background-color: $background-lightgrey;
+    background-color: #fff;
     z-index: 1;
     @include mq(desktop) {
         //max-width:100%;
@@ -121,21 +122,21 @@ select:focus {outline:none;}
         .gv-list-entry {
             background-color: #ffffff;
             margin-bottom: 40px;
-            border-bottom: 2px solid #d6d6d6;
+            //border-bottom: 2px solid #d6d6d6;
             line-height: 1.4em;
             @include mq(phablet) {
-                  margin-bottom: 50px;
+                  margin-bottom: 40px;
             }
             @include mq(tablet) {
-                  margin-bottom: 70px;
+                  margin-bottom: 40px;
             }
             .gv-list-entry-inner {
                 .gv-list-entry-header {
                     position: relative;
-                    min-height: 185px;
+                    min-height: 150px;
                     width: 100%;
-                    background-color: $background-grey;
-                    color: #fff;
+                    background-color: #00ff00;
+                    color: #000;
                     vertical-align: top;
                     padding: 0 0 10px 0;
                     @include mq(phablet) {
@@ -144,29 +145,29 @@ select:focus {outline:none;}
 
 
                     .gv-list-image-container {
-                        top: 5px;
-                        margin: 0 5px 12px 5px;
-                        height: 140px;
+                        top: 0;
+                        margin: 0 0 8px 0;
+                        height: auto;
                         position: relative;
                         overflow: hidden;
-                        background: #ff0000;
+                        //background: #ff0000;
 
                         @include mq(phablet){
                             position: absolute;
-                            width: 175px;
-                            height: 175px;
-                            top: 5px;
-                            left: 5px;
+                            width: 185px;
+                            height: 150px;
+                            top: 0;
+                            left: 0;
                             padding: 0;
                             margin: 0;
                             }
 
                         @include mq(tablet){
                         //position: absolute;
-                        width: 240px;
-                        height: 175px;
-                        top: 5px;
-                        left: 5px;
+                        width: 250px;
+                        height: 150px;
+                        top: 0;
+                        left: 0;
                         padding: 0;
                         margin: 0;
                         }
@@ -189,14 +190,14 @@ select:focus {outline:none;}
                             @include mq(phablet){
                                 width: auto;
                                 height: 100%;
-                                margin-left: -25%;
+                                margin-left: -15%;
                                 
                                 //object-fit: cover;
                                 }
 
                             @include mq(tablet){
                                
-                                    margin-left: -8%;
+                                    margin-left: 0;
                                 
                             }
                         }
@@ -222,75 +223,82 @@ select:focus {outline:none;}
                         //padding: 0 10px 5px 10px;
                         @include f-headline;
                         font-size: 24px;
-                        line-height: 26px;
+                        line-height: 24px;
                         font-weight: 300;
-                        position: absolute;
-                            width: 60%;
+                        position: relative;
+                        //background: #0000ff;
+                            width: 100%;
                             //width: calc(100% - 210px); //background-color: #fff;
                             height: 55px;
-                            top: 5px;
-                            left: 35%;
+                            top: 0;
+                            left: 0;
                             padding: 0;
                             vertical-align: top;
                         @include mq(phablet) {
+                            position: absolute;
                              width: 460px;
-                            width: calc(100% - 210px); //background-color: #fff;
+                            width: calc(100% - 195px); //background-color: #fff;
                             height: 55px;
-                            top: 5px;
+                            top: 0;
                             left: 195px;
                         }
 
                         @include mq(phabletPlus) {
-                            font-size: 36px;
-                            line-height: 38px;
+                            font-size: 32px;
+                            line-height: 32px;
                         }
 
                         @include mq(tablet) {
                             width: 460px;
-                            width: calc(100% - 275px); //background-color: #fff;
+                            width: calc(100% - 260px); //background-color: #fff;
                             height: 55px;
-                            top: 5px;
+                            top: 0;
                             left: 260px;
                             padding: 0;
                             vertical-align: top;
                         }
 
                         @include mq(desktop) {
-                            width: 460px; //background-color: #fff;
+                            width: 480px; //background-color: #fff;
                             height: 55px;
-                            top: 5px;
+                            top: 0;
                             left: 260px;
                             padding: 0;
                             vertical-align: top;
                         }
 
                         span {
-                            padding-top: 7px;
+                            padding-top: 0;
                             display: inline-block;
                             vertical-align: top;
                             @include mq(phablet) {
-                                padding-top: 12px;
+                                padding-top: 0;
                             }
 
                             @include mq(phabletPlus) {
-                                padding-top: 6px;
+                                padding-top: 0;
                             }
                         }
 
-                        span:nth-of-type(2) {
-                            padding-left: 5px;
+                        // span:nth-of-type(2) {
+                        //     padding-left: 5px;
+                        // }
+
+                        .gv-subtitle {
+                            @include fs-textSans(3);
+                            padding-top: 1px;
                         }
 
                          .gv-list-number {
                     //display: none;
-                    color: $accent-green;
+                    color: $accent-gold;
                     padding-right: 5px;
                     
 
                     &:after {
                         display: inline-block;
                         content: "";
-                        border-right: 1px solid $accent-green;
+                        border-right: 1px solid $accent-gold;
                         height: 25px;
                         width: 8px;
                         opacity: 0.5;
@@ -315,36 +323,36 @@ select:focus {outline:none;}
                         //margin: 5px 10px;
                         display: table;
                         border-collapse: collapse;
-                        position: absolute;
+                        position: relative;
                         margin: 0;
-                        width: 65%;
-                        top: 60px;
-                        left: 34%;
-                         height: 120px;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                         height: auto;
                         @include fs-textSans(3);
                         color: #636363;
                         @include mq(phablet) {
-                            //position: absolute;
+                            position: absolute;
                             margin: 0;
-                            height: 120px;
-                            width: 300px;
-                            width: calc(100% - 210px);
-                            top: 60px;
+                            height: 80px;
+                            //width: 300px;
+                            width: calc(100% - 195px);
+                            top: 65px;
                             left: 195px;
                         }
 
                         @include mq(tablet) {
                             width: 300px;
-                            width: calc(100% - 275px);
+                            width: calc(100% - 260px);
                             left: 260px;
                         }
 
                         @include mq(desktop) {
                             //position: absolute;
                             margin: 0;
-                            height: 120px;
-                            width: 300px;
-                            top: 60px;
+                            height: 80px;
+                            //width: 300px;
+                            top: 65px;
                             left: 260px;
                         }
 
@@ -363,7 +371,7 @@ select:focus {outline:none;}
                                 border-top: none;
                                 display: inline-block;
                                 padding: 0;
-                                color: $accent-green;
+                                color: $accent-gold;
 
                             }
                             span.gv-details-dim {
@@ -390,11 +398,11 @@ select:focus {outline:none;}
                         svg {
                             vector-effect: non-scaling-stroke;
                             #markers circle {
-                                fill: $accent-green;
+                                fill: $accent-gold;
                                 visibility: hidden;
                             }
                             #pitch path {
-                                stroke: $accent-green;
+                                stroke: $accent-gold;
                             }
                         }
                     }
@@ -592,7 +600,7 @@ img {
             right: 5px;
             bottom: 0px; //background: #767676;
             cursor: pointer;
-            border-top: 1px solid $accent-green;
+            border-top: 1px solid $accent-gold;
             -webkit-transition: opacity 100ms ease-in-out;
             -moz-transition: opacity 100ms ease-in-out;
             -o-transition: opacity 100ms ease-in-out;
@@ -640,7 +648,7 @@ img {
 
                 .gv-cell-number {
                     //display: none;
-                    color: $accent-green;
+                    color: $accent-gold;
                     padding-right: 5px;
                 }
                 .gv-cell-title {
@@ -760,8 +768,8 @@ img {
     display: none;
     @include mq(desktop) {
         display: block;
-        top: 40px;
-        right: -90px;
+        top: 8px;
+        right: 0;
         z-index: 800;
     }
 }
@@ -838,7 +846,7 @@ img {
 }
 
 .gv-header .gv-strap {
-    color: $accent-green;
+    color: $accent-gold;
     @include fs-headline(8);
     font-size: 18px;
     line-height: 24px;
@@ -848,7 +856,7 @@ img {
     }
 
     a {
-        color: $accent-green;
+        color: $accent-gold;
         text-decoration: none;
         &:hover {
             text-decoration: underline;
@@ -917,7 +925,7 @@ img {
     position: relative;
     width: 100%;
     background-color: #ffffff;
-    z-index: 90;
+    z-index: 900;
     .gv-footer-photo-credit {
         padding: 10px 5px 100px 5px;
         @include f-headlineSans;
