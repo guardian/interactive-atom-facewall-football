@@ -43,19 +43,19 @@
                     <div class="gv-field">
                         <label for="gv-player-filter" class="hidden">Show</label>
                         <select class="field__select-within" id="gv-player-filter" name="gv-player-filter">
-                            <option value="All players" selected="selected">All players</option>
+                            <option value="All players" selected="selected">All gifts</option>
                         </select>
                     </div>
                 </div>
                 <div class="gv-grid" id="gv-grid">
-                    {{#players}}
+                    {{#gifts}}
                     <div class="gv-grid-cell">
                         <div class="gv-grid-cell-inner">
                             <div class="gv-grid-cell-image-container"></div>
                             <div class="gv-cell-info"></div>
                         </div>
                     </div>
-                    {{/players}}
+                    {{/gifts}}
                 </div>
             </div>
         </div>

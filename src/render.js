@@ -14,7 +14,8 @@ import mainTemplate from './src/templates/main.html!text'
 
 export function render() {
     return rp({
-        uri: 'https://interactive.guim.co.uk/docsdata/1mIpLr09lxHSG6JkQ3K-P3fkFsx7-wpOARxnuWzlo2kk.json',
+        // uri: 'https://interactive.guim.co.uk/docsdata/1mIpLr09lxHSG6JkQ3K-P3fkFsx7-wpOARxnuWzlo2kk.json', // football100
+        uri: 'https://interactive.guim.co.uk/docsdata/1qqKjxG3WrxKI_uuYIeobLFk4k2nl2kjqHyvnv0Al6kM.json',
         json: true
     }).then((data) => {
         var sheets = data.sheets;        

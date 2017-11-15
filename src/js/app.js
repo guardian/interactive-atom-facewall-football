@@ -15,7 +15,7 @@ import listTemplate from '../templates/list.html'
 
 import shares from './share'
 
-let shareFn = shares('Next Generation 2017: 60 of the best young talents in world football', 'https://gu.com/p/793ff', '');
+let shareFn = shares('50 Christmas gift ideas for foodies', 'https://gu.com/p/793ff', '');
 
 
 //import gridPicTemplate from '../templates/gridPic.html'
@@ -225,7 +225,7 @@ function filterView ( value ) {
 
 
 
-    if ( value == "All players") {
+    if ( value == "All gifts") {
 
         selectedSet = data.players;
 
