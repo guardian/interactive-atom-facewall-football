@@ -78,7 +78,7 @@ xr.get(url).then((resp) => {
     var compiledHTML = compileHTML(data);
     document.querySelector(".gv-grid-view-inner").innerHTML = compiledHTML.grid;
     document.querySelector(".gv-list-view-inner").innerHTML = compiledHTML.list;
-    drawPositions(data.players);
+    //drawPositions(data.players);
     addListeners();
     //updatePageDate();
     //upDatePageView(data);
@@ -112,7 +112,16 @@ function cleanData(dataIn) {
             obj["Age"] = dataIn[key][i]["Age on 20 Dec 2016"];
 
 
-            obj["Change"] =  getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]));
+            obj["Change"] =  "CHANGE"; //getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]));
+
+
+
+            obj["Header"] = dataIn[key][i]["header"];
+            obj["Subheader"] = dataIn[key][i]["sub-header"];
+            obj["Price"] = dataIn[key][i]["price"];
+            obj["Category"] = dataIn[key][i]["category"];
+            obj["Description"] = dataIn[key][i]["description"];
+            obj["Link"] = dataIn[key][i]["link"];
 
             // Corrections from old data
 
@@ -124,8 +133,10 @@ function cleanData(dataIn) {
             // obj["List view image parameters"] = obj["Main Image Parameters"];
             // obj["List_image_src"] = obj["List view image"]; // No parameters used
 
-            obj["Grid_image_src"] = obj["Facewall cell image GRID src"] + "/" + gridViewImageWidth + ".jpg";
-            obj["List_image_src"] = obj["Facewall main image GRID src"] + "/" + listViewImageWidth + ".jpg";
+            //obj["Grid_image_src"] = obj["Facewall cell image GRID src"] + "/" + gridViewImageWidth + ".jpg";
+            //obj["List_image_src"] = obj["Facewall main image GRID src"] + "/" + listViewImageWidth + ".jpg";
+            obj["Grid_image_src"] = obj["Grid view image"] + "/" + gridViewImageWidth + ".jpg";
+            obj["List_image_src"] = obj["List view image"] + "/" + listViewImageWidth + ".jpg";
 
             //console.log(obj["List_image_src"]);
 
@@ -353,9 +364,11 @@ function showGrid() {
     document.querySelector('.gv-list-view').classList.add('close');
     document.querySelector('.toggle-view-overlay-btn').classList.remove('grid-icon-show');
     window.scrollTo(0, lastScrollTop);
-    window.setTimeout(function() {
-        fixList(false);
-    }, 1000);
+    // window.setTimeout(function() {
+    //     fixList(false);
+    // }, 1000);
+    waitForTransitionEnd( false );
+    
 }
 
 function hideGrid() {
@@ -367,6 +380,54 @@ function hideGrid() {
     document.querySelector('.gv-list-view').classList.remove('close');
     document.querySelector('.gv-list-view').classList.add('open');
     document.querySelector('.toggle-view-overlay-btn').classList.add('grid-icon-show');
+}
+
+function waitForTransitionEnd( bool ) {
+    var transitionEndEventName = getTransitionEndEventName(); //figure out, e.g. "webkitTransitionEnd".. 
+    var elemToAnimate = document.querySelector('#gv-grid-view');//the thing you want to animate..
+    var done = false;
+    var transitionEnded = function(){
+     done = true;
+     //do your transition finished stuff..
+     fixList( false );
+     elemToAnimate.removeEventListener(transitionEndEventName,
+                                        transitionEnded, false);
+     //console.log("transitionEnd");
+};
+elemToAnimate.addEventListener(transitionEndEventName,
+                                transitionEnded, false);
+
+//animation triggering code here..
+
+//ensure tidy up if event doesn't fire..
+setTimeout(function(){
+    if(!done){
+        //console.log("timeout needed to call transition ended..");
+        transitionEnded();
+    }
+}, 250); //note: XXX should be the time required for the
+        //animation to complete plus a grace period (e.g. 10ms) 
+}
+
+function getTransitionEndEventName () {
+    var i,
+        undefined,
+        el = document.createElement('div'),
+        transitions = {
+            'transition':'transitionend',
+            'OTransition':'otransitionend',  // oTransitionEnd in very old Opera
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+        };
+
+    for (i in transitions) {
+        if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+            return transitions[i];
+        }
+    }
+
+    //TODO: throw 'TransitionEnd event is not supported in this browser';
+    return ""; 
 }
 
 function fixGrid(fix) {
@@ -542,55 +603,55 @@ function getPositionIdArray(positions) {
 
 }
 
-function drawPositions(data) {
+// function drawPositions(data) {
 
 
-    var i, ii, position, arr, el, id;
+//     var i, ii, position, arr, el, id;
 
 
-    for (i = 0; i < data.length; i++) {
+//     for (i = 0; i < data.length; i++) {
 
-        arr = getPositionIdArray(data[i].Position);
+//         arr = getPositionIdArray(data[i].Position);
 
 
-        for (ii = 0; ii < arr.length; ii++) {
+//         for (ii = 0; ii < arr.length; ii++) {
 
-            id = arr[ii];
+//             id = arr[ii];
 
-            //console.log(id);
-            //var selector = '#gv-pitch_' + i + '_marker_' + id;
-            //console.log(selector);
+//             //console.log(id);
+//             //var selector = '#gv-pitch_' + i + '_marker_' + id;
+//             //console.log(selector);
 
-            el = document.getElementById('gv-pitch_' + i + '_marker_' + id);
-            //el = document.querySelector('#list-entry_' + i  );
+//             el = document.getElementById('gv-pitch_' + i + '_marker_' + id);
+//             //el = document.querySelector('#list-entry_' + i  );
 
-            //console.log(el)
+//             //console.log(el)
 
-            el.style.visibility = "visible";
+//             el.style.visibility = "visible";
 
-        }
+//         }
 
-    }
+//     }
 
-}
+// }
 
-function getMovementText( oldRank, change ){
+// function getMovementText( oldRank, change ){
    
-    var strOut = oldRank + " <span class='gv-details-dim'>2016</span> ";
+//     var strOut = oldRank + " <span class='gv-details-dim'>2016</span> ";
  
-        if ( isNaN( change )){
-          strOut = "<span class='gv-details-change'>New</span>";
+//         if ( isNaN( change )){
+//           strOut = "<span class='gv-details-change'>New</span>";
         
-        } else if( change == 0 ){
-        strOut += "<span class='gv-details-change'></span>&nbsp;&#9654;"; // same
-        } else if( change < 0 ){
-          change = Math.abs(change);
-           strOut += "<span class='gv-details-change'>&#9660;</span>"+ change +""; // Down
-        }else if(change > 0){
-          strOut += "<span class='gv-details-change'>&#9650;</span>"+ change +""; // Up
-        } 
+//         } else if( change == 0 ){
+//         strOut += "<span class='gv-details-change'></span>&nbsp;&#9654;"; // same
+//         } else if( change < 0 ){
+//           change = Math.abs(change);
+//            strOut += "<span class='gv-details-change'>&#9660;</span>"+ change +""; // Down
+//         }else if(change > 0){
+//           strOut += "<span class='gv-details-change'>&#9650;</span>"+ change +""; // Up
+//         } 
              
-       //console.log(strOut);
-    return strOut;
-  }
+//        //console.log(strOut);
+//     return strOut;
+//   }
 
