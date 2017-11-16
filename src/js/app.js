@@ -150,15 +150,15 @@ function cleanData(dataIn) {
         dataOut[key] = arr;
     }
 
-    var arr2 = [];
-    dataOut["gifts"][0]["Link"] = "http://go.theguardian.com/?url=https%3A%2F%2Fwww.johnlewis.com%2Fjohn-lewis-moz-the-monster-plush-toy%2Fp3265967&id=114047X1572903";
+    //var arr2 = [];
+    //dataOut["gifts"][0]["Link"] = "http://go.theguardian.com/?url=https%3A%2F%2Fwww.johnlewis.com%2Fjohn-lewis-moz-the-monster-plush-toy%2Fp3265967&id=114047X1572903";
 
-    for (var i=0; i < 50; i++) {
+    //for (var i=0; i < 50; i++) {
 
-        arr2.push(dataOut["gifts"][0]);
-    }
+        //arr2.push(dataOut["gifts"][0]);
+    //}
 
-    dataOut["gifts"] = arr2;
+    //dataOut["gifts"] = arr2;
 
     return dataOut;
 }
