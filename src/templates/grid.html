@@ -2,17 +2,17 @@
     <div class="gv-field">
         <label for="gv-player-filter" class="hidden">Show</label>
         <select class="field__select-within" id="gv-player-filter" name="gv-player-filter">
-            <option value="All players" selected="selected">
+            <option value="All gifts" selected="selected">
                 All gifts</option>
-            <option value="Under £10">Under £10</option>
-            <option value="Under £50">Under £50</option>
-            <option value="Over £50">Over £50</option>
+            <option value="under 10">Under £10</option>
+            <option value="under 50">Under £50</option>
+            <option value="over 50">Over £50</option>
         </select>
     </div>
 </div>
 <div class="gv-grid" id="gv-grid">
     {{#each gifts}}
-    <div class="gv-grid-cell" id="gv-grid-cell_{{Index}}" data-index="{{Index}}">
+    <div class="gv-grid-cell {{CategoryClass}}" id="gv-grid-cell_{{Index}}" data-index="{{Index}}">
         <div class="gv-grid-cell-inner" id="gv-grid-cell-inner_{{index}}" data-index="{{Index}}">
             <div class="gv-grid-cell-image-container">
                 <img class="gv-grid-cell-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="{{Grid_image_src}}" />

@@ -15,7 +15,7 @@ import listTemplate from '../templates/list.html'
 
 import shares from './share'
 
-let shareFn = shares('50 Christmas gift ideas for foodies', 'https://gu.com/p/793ff', '');
+let shareFn = shares('50 Christmas gift ideas for foodies', 'https://gu.com/p/7t7vm', '');
 
 
 //import gridPicTemplate from '../templates/gridPic.html'
@@ -124,6 +124,7 @@ function cleanData(dataIn) {
             obj["Description"] = dataIn[key][i]["description"];
             obj["What"] = dataIn[key][i]["what"];
             obj["Link"] = dataIn[key][i]["link"];
+            obj["CategoryClass"] = getCellClass(dataIn[key][i]["category"]);
 
             // Corrections from old data
 
@@ -250,15 +251,15 @@ function filterView ( value ) {
 
     if ( value == "All gifts") {
 
-        selectedSet = data.players;
+        selectedSet = data.gifts;
 
     } else {
 
-        for (i = 0; i < data.players.length; i++) {
+        for (i = 0; i < data.gifts.length; i++) {
 
         found = false;
 
-        arr = String(data.players[i]["Filters"]).split(",");
+        arr = String(data.gifts[i]["Category"]).split(",");
 
 
 
@@ -269,7 +270,7 @@ function filterView ( value ) {
 
             if (val == value) {
 
-                selectedSet.push(data.players[i]);
+                selectedSet.push(data.gifts[i]);
                 found = true;
 
                 break;
@@ -279,7 +280,7 @@ function filterView ( value ) {
         }
 
         if (!found) {
-            deselectedSet.push(data.players[i]);
+            deselectedSet.push(data.gifts[i]);
         }
     }
 
@@ -615,55 +616,41 @@ function getPositionIdArray(positions) {
 
 }
 
-// function drawPositions(data) {
+function getCellClass( category ) {
+
+    var cellClass = "gv-cell-uncategorized";
+
+    switch (category) {
+
+        case "over 50" :
+
+        cellClass = "gv-cell-gold";
+
+        break;
+
+        case "under 50" :
+
+        cellClass = "gv-cell-bronze";
+
+        break;
+
+        case "under 10" :
+
+        cellClass = "gv-cell-silver";
+
+        break;
+
+    }
+
+    return cellClass;
+}
 
 
-//     var i, ii, position, arr, el, id;
 
 
-//     for (i = 0; i < data.length; i++) {
-
-//         arr = getPositionIdArray(data[i].Position);
 
 
-//         for (ii = 0; ii < arr.length; ii++) {
 
-//             id = arr[ii];
 
-//             //console.log(id);
-//             //var selector = '#gv-pitch_' + i + '_marker_' + id;
-//             //console.log(selector);
 
-//             el = document.getElementById('gv-pitch_' + i + '_marker_' + id);
-//             //el = document.querySelector('#list-entry_' + i  );
-
-//             //console.log(el)
-
-//             el.style.visibility = "visible";
-
-//         }
-
-//     }
-
-// }
-
-// function getMovementText( oldRank, change ){
-   
-//     var strOut = oldRank + " <span class='gv-details-dim'>2016</span> ";
- 
-//         if ( isNaN( change )){
-//           strOut = "<span class='gv-details-change'>New</span>";
-        
-//         } else if( change == 0 ){
-//         strOut += "<span class='gv-details-change'></span>&nbsp;&#9654;"; // same
-//         } else if( change < 0 ){
-//           change = Math.abs(change);
-//            strOut += "<span class='gv-details-change'>&#9660;</span>"+ change +""; // Down
-//         }else if(change > 0){
-//           strOut += "<span class='gv-details-change'>&#9650;</span>"+ change +""; // Up
-//         } 
-             
-//        //console.log(strOut);
-//     return strOut;
-//   }
 
