@@ -278,7 +278,7 @@ select:focus {
                         .gv-subtitle {
                             @include fs-textSans(3);
                             padding-top: 3px;
-                            color: #767676;
+                            color: #333;
                             line-height: 16px;
                             padding-bottom: 12px;
                         }
@@ -535,7 +535,7 @@ select:focus {
         margin-bottom: 12px;
         box-sizing: content-box;
         float: left;
-        height: 78px;
+        height: 60px;
 
         &.gv-deselected {
             opacity: 0.5;
@@ -636,7 +636,7 @@ select:focus {
             .gv-cell-info {
                 // font-family: $f-serif-headline;
                 //@include fs-textSans(3);
-                padding: 8px 5px 12px 5px;
+                padding: 8px 5px 12px 0;
                 text-align: left;
                 pointer-events: none;
                 @include mq(phablet) {
@@ -651,8 +651,12 @@ select:focus {
                 .gv-cell-title {
                     @include fs-headline(3);
                     color: #ffffff;
-                    font-size: 24px;
-                    line-height: 26px;
+                    font-size: 18px;
+                    line-height: 20px;
+                    @include mq(phabletPlus) {
+                    font-size: 20px;
+                    line-height: 24px;
+                    }
                 }
                 .gv-cell-subtitle {
                     @include f-headlineSans;
