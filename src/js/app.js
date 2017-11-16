@@ -230,12 +230,12 @@ function addListeners() {
         shareEl.addEventListener('click', () => shareFn(network));
     });
 
-    var playerFilter = document.getElementById("gv-player-filter");
+    //var playerFilter = document.getElementById("gv-player-filter");
 
-    playerFilter.addEventListener("change", function() {
+    //playerFilter.addEventListener("change", function() {
     
-    filterView( event.target.value );
-});
+    //filterView( event.target.value );
+//});
 
 }
 
