@@ -942,3 +942,11 @@ select:focus {
         }
     }
 }
+
+.gv-affialiate-explainer {
+  max-width: 620px;
+  padding-top: 20px;
+  @include mq($from: desktop) {
+      margin-left: 280px;
+  }
+}
