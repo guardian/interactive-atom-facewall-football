@@ -210,7 +210,7 @@ function addListeners() {
     playerFilter.addEventListener("change", function() {
     
     filterView( event.target.value );
-});
+}, false );
 
 }
 

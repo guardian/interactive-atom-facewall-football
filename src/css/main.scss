@@ -36,6 +36,10 @@ body {
     //height: 100%; //overflow-x: hidden;
 }
 
+.veggie-burger {
+    z-index: 2!important;
+}
+
 header, .content__main .gs-container:first-of-type {
     background-color: #2a2a2a!important;
     position: relative!important;
@@ -68,6 +72,21 @@ header, .content__main .gs-container:first-of-type {
 
 
     
+}
+
+.content__main {
+     background-color: #ececec!important;
+}
+
+.content__main .gs-container:nth-of-type(2) {
+    background-color: #fafafa!important;
+
+    @include mq(mobileLandscape) {
+         padding-right: 0!important;
+          padding-left: 0!important;
+
+    
+}
 }
 
 header {
@@ -130,7 +149,7 @@ left: -200%;
 .element-atom,
 .interactive-atom {
     margin: 0 !important; //background-color: $multimedia-support-4;
-    background-color: #ebebeb;
+    //background-color: #ebebeb;
     height: auto; //overflow:hidden;
     @include mq(desktop) {
         //overflow:visible;
@@ -142,7 +161,7 @@ left: -200%;
     justify-content: center; //margin-top: -20px!important;
     @include mq($from: tablet) {
         .ad-slot--rendered {
-            margin: 0 0 50px 0;
+            margin: 0 0 80px 0;
         }
     }
 }
@@ -193,6 +212,7 @@ select:focus {outline:none;}
     min-height: 100vh;
     background-color: #fafafa;
     z-index: 1;
+    padding-bottom: 20px;
     @include mq(desktop) {
         //max-width:100%;
         padding-top: 0px;
@@ -205,7 +225,17 @@ select:focus {outline:none;}
         position: absolute;
     }
     .gv-list-view-inner {
-        padding: 20px 15px;
+        padding: 40px 0;
+
+        @include mq(mobileLandscape) {
+            padding: 40px 15px;
+        }
+
+        @include mq(tablet) {
+            padding: 70px 15px;
+        }
+
+
         @include mq(desktop) {
             margin: 0 auto;
             width: 620px;
@@ -232,7 +262,7 @@ select:focus {outline:none;}
             .gv-list-entry-inner {
                 .gv-list-entry-header {
                     position: relative;
-                    min-height: 185px;
+                    min-height: 200px;
                     width: 100%;
                     background-color: $background-grey;
                     color: #fff;
@@ -240,20 +270,24 @@ select:focus {outline:none;}
                     padding: 0 0 10px 0;
                     @include mq(phablet) {
                         padding: 0;
+                        min-height: 185px;
                     }
 
                     .gv-list-image-container {
                         position: absolute;
-                            width: 33%;
-                            height: 210px;
-                            bottom: 0;
-                            left: 0;
+                            width: 35%;
+                            height: 100px;
+                            top: -15px;
+                            left: 3px;
                             padding: 0;
                             margin: 0;
                         //position: relative;
                         overflow: hidden;
                         @include mq(phablet) {
                                width: 200px;
+                               bottom: 0;
+                               top: auto;
+                               height: 210px;
                         }
 
                         @include mq(tablet) {
@@ -282,6 +316,7 @@ select:focus {outline:none;}
                                 //width: auto;
                                 //height: 100%;
                                 //margin-left: -25%; //object-fit: cover;
+                                width: 100%;
                             }
 
                             @include mq(tablet) {
@@ -399,16 +434,17 @@ select:focus {outline:none;}
                         //margin: 5px 10px;
                         display: table;
                         border-collapse: collapse;
-                        position: absolute;
+                        position: relative;
                         margin: 0;
-                        width: 65%;
-                        top: 60px;
-                        left: 34%;
+                        width: calc(100% - 20px);
+                        top: 85px;
+                        left: 10px;
                          height: 120px;
                         @include fs-textSans(3);
                         color: #636363;
                         @include mq(phablet) {
                             //position: absolute;
+                            position: absolute;
                             margin: 0;
                             height: 120px;
                             width: 300px;
@@ -484,7 +520,15 @@ select:focus {outline:none;}
                     }
                 }
                 .gv-list-entry-body-text {
+
+                    padding: 12px 10px;
+                    @include mq(mobileLandscape) {
+
                     padding: 12px 20px;
+
+                }
+
+
                     .gv-list-entry-description {
                         @include f-headline;
                         color: #333;
@@ -1000,7 +1044,7 @@ img {
 .gv-footer {
     position: relative;
     width: 100%;
-    background-color: #ffffff;
+    //background-color: #ffffff;
     z-index: 900;
     .gv-footer-photo-credit {
         padding: 10px 5px 100px 5px;
