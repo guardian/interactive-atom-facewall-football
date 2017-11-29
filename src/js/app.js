@@ -309,7 +309,7 @@ function updateLazyLoad() {
 
 
 function updateOnScroll() {
-    //console.log("scrolled");
+   
     //console.log(document.documentElement.scrollTop || document.body.scrollTop);
     checkFixElements();
 }
@@ -352,9 +352,11 @@ function showGrid() {
     document.querySelector('.gv-list-view').classList.add('close');
     document.querySelector('.toggle-view-overlay-btn').classList.remove('grid-icon-show');
     window.scrollTo(0, lastScrollTop);
-    window.setTimeout(function() {
-        fixList(false);
-    }, 1000);
+    // window.setTimeout(function() {
+    //     fixList(false);
+    // }, 1000);
+
+    waitForTransitionEnd( false );
 }
 
 function hideGrid() {
@@ -416,6 +418,54 @@ function fixList(fix) {
     }
 }
 
+function waitForTransitionEnd( bool ) {
+    var transitionEndEventName = getTransitionEndEventName(); //figure out, e.g. "webkitTransitionEnd".. 
+    var elemToAnimate = document.querySelector('#gv-grid-view');//the thing you want to animate..
+    var done = false;
+    var transitionEnded = function(){
+     done = true;
+     //do your transition finished stuff..
+     fixList( false );
+     elemToAnimate.removeEventListener(transitionEndEventName,
+                                        transitionEnded, false);
+     //console.log("transitionEnd");
+};
+elemToAnimate.addEventListener(transitionEndEventName,
+                                transitionEnded, false);
+
+//animation triggering code here..
+
+//ensure tidy up if event doesn't fire..
+setTimeout(function(){
+    if(!done){
+        //console.log("timeout needed to call transition ended..");
+        transitionEnded();
+    }
+}, 250); //note: XXX should be the time required for the
+        //animation to complete plus a grace period (e.g. 10ms) 
+}
+
+function getTransitionEndEventName () {
+    var i,
+        undefined,
+        el = document.createElement('div'),
+        transitions = {
+            'transition':'transitionend',
+            'OTransition':'otransitionend',  // oTransitionEnd in very old Opera
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+        };
+
+    for (i in transitions) {
+        if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+            return transitions[i];
+        }
+    }
+
+    //TODO: throw 'TransitionEnd event is not supported in this browser';
+    return ""; 
+}
+
 function jumpToIndex(ind) {
     document.querySelector('#list-entry_' + ind).scrollIntoView(true);
 }
@@ -447,7 +497,7 @@ function checkFixElements() {
 
         //let h = document.getElementById("bannerandheader").offsetHeight || 0;
 
-        var h = getCoords(document.getElementById("gv-header")).bottom;
+        var h = getCoords(document.getElementById("gv-wrap-all")).top;
 
 
 

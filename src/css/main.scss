@@ -124,6 +124,9 @@ header {
 
 .gv-header-background {
     display: none!important;
+    //height: 0;
+    //overflow: hidden;
+    //opacity: 0;
 }
 
 
@@ -565,11 +568,11 @@ select:focus {outline:none;}
         position: relative;
         .gv-grid-view-inner {
             transform: translateX(0);
-            -webkit-transition: -webkit-transform 0.15s linear;
-            -moz-transition: -moz-transform 0.15s linear;
-            -ms-transition: -ms-transform 0.15s linear;
-            -o-transition: -o-transform 0.15s linear;
-            transition: transform 0.15s linear; // -webkit-transition-delay: 0.15s;
+            -webkit-transition: -webkit-transform 0.2s ease-out;
+            -moz-transition: -moz-transform 0.2s ease-out;
+            -ms-transition: -ms-transform 0.2s ease-out;
+            -o-transition: -o-transform 0.2s ease-out;
+            transition: transform 0.2s ease-out; // -webkit-transition-delay: 0.15s;
             // -moz-transition-delay: 0.15s;
             // -ms-transition-delay: 0.15s;
             // -o-transition-delay: 0.15s;
@@ -595,11 +598,11 @@ select:focus {outline:none;}
 
         .gv-grid-view-inner {
             transform: translateX(100vw);
-            -webkit-transition: -webkit-transform 0.15s linear;
-            -moz-transition: -moz-transform 0.15s linear;
-            -ms-transition: -ms-transform 0.15s linear;
-            -o-transition: -o-transform 0.15s linear;
-            transition: transform 0.15s linear;
+            -webkit-transition: -webkit-transform 0.2s ease-in;
+            -moz-transition: -moz-transform 0.2s ease-in;
+            -ms-transition: -ms-transform 0.2s ease-in;
+            -o-transition: -o-transform 0.2s ease-in;
+            transition: transform 0.2s ease-in;
         }
     }
     @include mq(desktop) {
