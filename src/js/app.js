@@ -207,9 +207,9 @@ function addListeners() {
 
     var playerFilter = document.getElementById("gv-player-filter");
 
-    playerFilter.addEventListener("change", function() {
-    
-    filterView( event.target.value );
+    playerFilter.addEventListener("change", function( e ) {
+   
+    filterView( e.target.value );
 }, false );
 
 }
