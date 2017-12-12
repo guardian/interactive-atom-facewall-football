@@ -129,9 +129,9 @@ function cleanData(dataIn) {
             obj["PublishClass"] = "gv-published";
 
             //console.log(obj["List_image_src"]);
-            if ( i < 50 ) {
+            //if ( i < 50 ) {
             arr.push(obj);
-            }
+            //}
             //console.log(i);
         }
 
