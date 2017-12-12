@@ -255,19 +255,19 @@ select:focus {outline:none;}
 
         .gv-list-entry {
             background-color: #ffffff;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             border-bottom: 2px solid #d6d6d6;
             line-height: 1.4em;
             @include mq(phablet) {
-                  margin-bottom: 50px;
+                  //margin-bottom: 50px;
             }
             @include mq(tablet) {
-                  margin-bottom: 70px;
+                  //margin-bottom: 70px;
             }
             .gv-list-entry-inner {
                 .gv-list-entry-header {
                     position: relative;
-                    min-height: 200px;
+                    min-height: 185px;
                     width: 100%;
                     background-color: $background-grey;
                     color: #fff;
@@ -279,31 +279,30 @@ select:focus {outline:none;}
                     }
 
                     .gv-list-image-container {
-                        position: absolute;
-                            width: 35%;
-                            height: 100px;
-                            top: -15px;
-                            left: 3px;
+                       top: 5px;
+                        margin: 0 5px 12px 5px;
+                        height: 140px;
+                        position: relative;
+                        overflow: hidden;
+                    
+                        @include mq(phablet) {
+                            position: absolute;
+                            width: 175px;
+                            height: 175px;
+                            top: 5px;
+                            left: 5px;
                             padding: 0;
                             margin: 0;
-                        //position: relative;
-                        overflow: hidden;
-                        @include mq(phablet) {
-                               width: 200px;
-                               bottom: 0;
-                               top: auto;
-                               height: 210px;
                         }
 
                         @include mq(tablet) {
                             //position: absolute;
                             width: 240px;
-                            height: 240px;
-                            
-                            bottom: 0;
-                            left: 0;
-                            padding: 0;
-                            margin: 0;
+                        height: 175px;
+                        top: 5px;
+                        left: 5px;
+                        padding: 0;
+                        margin: 0;
                         }
 
                         .gv-list-image {
@@ -318,14 +317,14 @@ select:focus {outline:none;}
                             //height: 100%;
                             //background-color: #ff0000;
                             @include mq(phablet) {
-                                //width: auto;
-                                //height: 100%;
-                                //margin-left: -25%; //object-fit: cover;
-                                width: 100%;
+                                width: auto;
+                                height: 100%;
+                                margin-left: -40%; //object-fit: cover;
+                                //width: 100%;
                             }
 
                             @include mq(tablet) {
-                                //margin-left: -8%;
+                                margin-left: -15%;
                             }
                         }
                         .gv-list-image-flag {
@@ -343,25 +342,36 @@ select:focus {outline:none;}
                         }
                     }
                     .gv-list-title {
-                        //padding: 0 10px 5px 10px;
+                        padding: 0 10px 5px 10px;
+                        //padding: 4px 10px;
                         @include f-headline;
                         font-size: 24px;
                         line-height: 26px;
                         font-weight: 300;
-                        position: absolute;
-                            width: 60%;
+                        //position: absolute;
+                            //width: 60%;
                             //width: calc(100% - 210px); //background-color: #fff;
+                            //height: 55px;
+                            //top: 5px;
+                            //left: 35%;
+                            //padding: 0;
+                            //vertical-align: top;
+                        @include mq(phablet) {
+                            //  width: 460px;
+                            // width: calc(100% - 210px); //background-color: #fff;
+                            // height: 55px;
+                            // top: 5px;
+                            // left: 195px;
+
+                             position: absolute;
+                            width: 460px;
+                            width: calc(100% - 210px);
+                            //background-color: #fff;
                             height: 55px;
-                            top: 5px;
-                            left: 35%;
+                            top: 10px;
+                            left: 195px;
                             padding: 0;
                             vertical-align: top;
-                        @include mq(phablet) {
-                             width: 460px;
-                            width: calc(100% - 210px); //background-color: #fff;
-                            height: 55px;
-                            top: 5px;
-                            left: 195px;
                         }
 
                         @include mq(phabletPlus) {
@@ -436,15 +446,15 @@ select:focus {outline:none;}
                         }
                     }
                     .gv-list-entry-info {
-                        //margin: 5px 10px;
+                        margin: 5px 10px;
                         display: table;
                         border-collapse: collapse;
                         position: relative;
-                        margin: 0;
+                        //margin: 0;
                         width: calc(100% - 20px);
-                        top: 85px;
-                        left: 10px;
-                         height: 120px;
+                        //top: 85px;
+                        //left: 10px;
+                         //height: 120px;
                         @include fs-textSans(3);
                         color: #636363;
                         @include mq(phablet) {
@@ -468,9 +478,16 @@ select:focus {outline:none;}
                             //position: absolute;
                             margin: 0;
                             height: 120px;
-                            width: 300px;
+                            width: 345px;
                             top: 60px;
                             left: 260px;
+                        }
+
+                         @include mq(leftCol) {
+                            //position: absolute;
+                            
+                            width: 310px;
+                            
                         }
 
                         .gv-list-info-row {
@@ -502,7 +519,7 @@ select:focus {outline:none;}
                     }
                     .gv-list-pitch-graphic {
                         display: none;
-                        @include mq(desktop) {
+                        @include mq(leftCol) {
                             display: block;
                             position: absolute;
                             background-color: transparent;
