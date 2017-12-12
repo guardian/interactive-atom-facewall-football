@@ -23,9 +23,9 @@
     </div>
 </div>
 <div class="gv-grid" id="gv-grid">
-    {{#each players}}
-    <div class="gv-grid-cell" id="gv-grid-cell_{{Index}}" data-index="{{Index}}">
-        <div class="gv-grid-cell-inner" id="gv-grid-cell-inner_{{index}}" data-index="{{Index}}">
+    {{#each cells}}
+    <div class="gv-grid-cell {{PublishClass}}" id="gv-grid-cell_{{Index}}" data-index="{{Index}}">
+        <div class="gv-grid-cell-inner" id="gv-grid-cell-inner_{{Index}}" data-index="{{Index}}">
             <div class="gv-grid-cell-image-container">
                 <img class="gv-grid-cell-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="{{Grid_image_src}}" />
                 <!-- <div class="gv-flag gv-grid-cell-flag gv-blazy" data-src="<%= path %>/assets/flags/pngs/{{Iso}}.png"></div> -->

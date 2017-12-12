@@ -126,13 +126,47 @@ function cleanData(dataIn) {
             obj["Grid_image_src"] = obj["Facewall cell image GRID src"] + "/" + gridViewImageWidth + ".jpg";
             obj["List_image_src"] = obj["Facewall main image GRID src"] + "/" + listViewImageWidth + ".jpg";
 
-            //console.log(obj["List_image_src"]);
+            obj["PublishClass"] = "gv-published";
 
+            //console.log(obj["List_image_src"]);
+            if ( i < 50 ) {
             arr.push(obj);
+            }
             //console.log(i);
         }
 
         dataOut[key] = arr;
+
+        if (key == "players") {
+
+        var newArr = [].concat(arr);
+            //Add inactive cells
+        var populated = newArr.length;
+
+        var remainderTotal = 100 - populated;
+
+        for ( var ii = 0; ii < remainderTotal; ii ++ ) {
+
+            obj = {};
+            obj["Grid_image_src"] = "";
+            obj["List_image_src"] = "";
+            obj["Rank"] = ii + 1;
+
+            if ( obj["Rank"] <= 9) {
+                obj["Rank"] = "0" + obj["Rank"];
+            }
+            obj["Index"] = populated + ii;
+            obj["Name"] = "";
+            obj["Club"] = "";
+            obj["PublishClass"] = "gv-unpublished";
+            obj["Filters"] = "";
+            newArr.push(obj);
+
+        }
+
+        dataOut["cells"] = newArr;
+
+        }
     }
 
     return dataOut;
@@ -226,15 +260,15 @@ function filterView ( value ) {
 
     if ( value == "All players") {
 
-        selectedSet = data.players;
+        selectedSet = data.cells;
 
     } else {
 
-        for (i = 0; i < data.players.length; i++) {
+        for (i = 0; i < data.cells.length; i++) {
 
         found = false;
 
-        arr = String(data.players[i]["Filters"]).split(",");
+        arr = String(data.cells[i]["Filters"]).split(",");
 
 
 
@@ -245,7 +279,7 @@ function filterView ( value ) {
 
             if (val == value) {
 
-                selectedSet.push(data.players[i]);
+                selectedSet.push(data.cells[i]);
                 found = true;
 
                 break;
@@ -255,7 +289,7 @@ function filterView ( value ) {
         }
 
         if (!found) {
-            deselectedSet.push(data.players[i]);
+            deselectedSet.push(data.cells[i]);
         }
     }
 

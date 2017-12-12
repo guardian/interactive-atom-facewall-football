@@ -258,6 +258,8 @@ select:focus {outline:none;}
             margin-bottom: 30px;
             border-bottom: 2px solid #d6d6d6;
             line-height: 1.4em;
+
+
             @include mq(phablet) {
                   //margin-bottom: 50px;
             }
@@ -703,8 +705,12 @@ select:focus {outline:none;}
         float: left;
         height: 86px;
 
-        &.gv-deselected {
-            opacity: 0.5;
+        &.gv-unpublished {
+            pointer-events: none;
+        }
+
+        &.gv-deselected, &.gv-unpublished {
+            opacity: 0.6;
 
 img {
   //opacity: 0.5;
