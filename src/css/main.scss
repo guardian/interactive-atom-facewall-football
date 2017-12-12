@@ -706,7 +706,7 @@ select:focus {outline:none;}
         height: 86px;
 
         &.gv-unpublished {
-            pointer-events: none;
+            pointer-events: none!important;
         }
 
         &.gv-deselected, &.gv-unpublished {
