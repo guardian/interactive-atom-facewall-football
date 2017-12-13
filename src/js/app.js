@@ -107,8 +107,8 @@ function cleanData(dataIn) {
 
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
-            obj["Club"] = dataIn[key][i]["Club on 20 Dec 2016"];
-            obj["Age"] = dataIn[key][i]["Age on 20 Dec 2016"];
+            obj["Club"] = dataIn[key][i]["Club on 20 Dec 2017"];
+            obj["Age"] = dataIn[key][i]["Age on 20 Dec 2017"];
 
 
             obj["Change"] =  getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]));
