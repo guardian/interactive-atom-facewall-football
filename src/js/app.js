@@ -527,11 +527,14 @@ function getCoords(elem) { // crossbrowser version
 
 function checkFixElements() {
 
-    if (!isMobile()) {
+    //if (!isMobile()) {
 
         //let h = document.getElementById("bannerandheader").offsetHeight || 0;
 
-        var h = getCoords(document.getElementById("gv-wrap-all")).top;
+        var rect = getCoords(document.getElementById("gv-wrap-all"));
+
+        var h = rect.top;
+        var b = rect.bottom;
 
 
 
@@ -544,7 +547,7 @@ function checkFixElements() {
         //console.log("oh=" + h);
 
 
-        if (pos_top > h) {
+        if ( pos_top > h && !isMobile() ) {
             //console.log("fixed");
             document.querySelector('#toggle-view-overlay-btn').classList.add('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
@@ -553,7 +556,14 @@ function checkFixElements() {
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
         }
 
-    }
+    if ( pos_top > b ) {
+            //console.log("fixed");
+            document.querySelector('#toggle-view-overlay-btn').classList.add('gv-hide');
+            //document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
+        } else {
+            document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-hide');
+            //document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
+        }
 
 }
 

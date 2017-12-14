@@ -819,15 +819,29 @@ img {
                 }
                 .gv-cell-title {
                     @include fs-headline(3);
+                    //@include f-headlineSans;
                     color: #ffffff;
+                    font-size: 20px;
+                    line-height: 22px;
+                    @include mq(desktop) {
+                    font-size: 22px;
+                    line-height: 24px;
+                    }
+                    @include mq(leftCol) {
                     font-size: 24px;
                     line-height: 26px;
+                    }
                 }
                 .gv-cell-subtitle {
+                    padding-top: 2px;
                     @include f-headlineSans;
-                    font-size: 18px;
-                    line-height: 20px;
+                    font-size: 16px;
+                    line-height: 18px;
                     color: #999;
+                    @include mq(desktop) {
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
                 }
             }
         }
