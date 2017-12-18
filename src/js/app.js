@@ -61,7 +61,9 @@ function getStyle(element) {
 var url;
 
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
-url= 'https://interactive.guim.co.uk/docsdata/1mIpLr09lxHSG6JkQ3K-P3fkFsx7-wpOARxnuWzlo2kk.json'; // New 2017 top 100
+url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // New 2017 top 100 Live
+
+
 
 
 xr.get(url).then((resp) => {
@@ -111,7 +113,7 @@ function cleanData(dataIn) {
             obj["Age"] = dataIn[key][i]["Age on 20 Dec 2017"];
 
 
-            obj["Change"] =  getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]));
+            obj["Change"] =  getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]), dataIn[key][i]["Up or down"]);
 
             // Corrections from old data
 
@@ -144,6 +146,8 @@ function cleanData(dataIn) {
         var populated = newArr.length;
 
         var remainderTotal = 100 - populated;
+
+        //for ( var ii = (remainderTotal-1); ii > -1; ii -- ) {
 
         for ( var ii = 0; ii < remainderTotal; ii ++ ) {
 
@@ -667,14 +671,17 @@ function drawPositions(data) {
 
 }
 
-function getMovementText( oldRank, change ){
+function getMovementText( oldRank, change, changeTxt ){
    
     var strOut = oldRank + " <span class='gv-details-dim'>2016</span> ";
  
-        if ( isNaN( change )){
+        if ( changeTxt == "New entry" ){
           strOut = "<span class='gv-details-change'>New</span>";
         
-        } else if( change == 0 ){
+        } else if ( changeTxt == "Re-entry" ){
+          strOut = "<span class='gv-details-change'>Re-entry</span>";
+        }
+         else if( change == 0 ){
         strOut += "<span class='gv-details-change'></span>&nbsp;&#9654;"; // same
         } else if( change < 0 ){
           change = Math.abs(change);
