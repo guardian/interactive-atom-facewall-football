@@ -41,7 +41,7 @@ body {
     z-index: 2!important;
 }
 
-header, .content__main .gs-container:first-of-type {
+article header, .content__main .gs-container:first-of-type {
     background-color: #2a2a2a!important;
     position: relative!important;
 
@@ -91,20 +91,20 @@ header, .content__main .gs-container:first-of-type {
 }
 }
 
-header {
+article header {
      @include mq(desktop) {
     background-image: url('<%= path %>/assets/onehundred.svg');
     background-repeat: no-repeat;
-    background-position: 108% 10px;
+    background-position: 108% 15px;
     background-size: 420px;
 }
 
  @include mq(leftCol) {
-    background-position: 104% 10px;
+    background-position: 104% 15px;
 }
 
 @include mq(wide) {
-    background-position: 95% 10px;
+    background-position: 95% 15px;
 }
 
 }
@@ -115,13 +115,14 @@ header {
 
 .content--interactive .content__meta-container {
 
-    width: 185px;
+    //width: 185px;
 
 }
 
 .content--interactive .meta__extras, .content__labels {
         border-top: 1px solid  transparent!important;
         border-bottom: 1px solid  transparent !important;
+        //width: 230px;
     }
 
 .gv-header-background {
