@@ -141,6 +141,7 @@ article header {
 position: absolute;
 width: 500%;
 height: 60px;
+padding-top: 51px; // STYLE FIX
 background: #2a2a2a;
 left: -200%;
 @include mq(tablet) {
@@ -149,10 +150,35 @@ left: -200%;
 }
 @include mq(leftCol) {
         //max-width:100%;
-        height: 63px;
+        //height: 63px; // STYLE FIX
+         padding-top: 0; // STYLE FIX
+        height: 118px; // STYLE FIX
 }
 }
 
+
+.content--interactive .block-share__item .inline-icon, .content--interactive .commentcount2__heading span, .content--interactive .inline-close svg, .content--interactive .inline-triangle, .content--interactive .old-article-message .old-article-message--clock svg, .content--interactive .social-icon svg, .content--interactive .social-icon__svg, .content--pillar-news:not(.paid-content) .block-share__item .inline-icon, .content--pillar-news:not(.paid-content) .commentcount2__heading span, .content--pillar-news:not(.paid-content) .inline-close svg, .content--pillar-news:not(.paid-content) .inline-triangle, .content--pillar-news:not(.paid-content) .old-article-message .old-article-message--clock svg, .content--pillar-news:not(.paid-content) .social-icon svg, .content--pillar-news:not(.paid-content) .social-icon__svg {
+
+fill: #fff!important; // STYLE FIX
+
+}
+
+.content--interactive a, .content__series-label__link {
+color: #767676!important; // STYLE FIX
+}
+
+.content--interactive .bullet::before {
+background-color: #767676!important; // STYLE FIX
+}
+
+.content--interactive .u-underline:hover, .content--pillar-news:not(.paid-content) .u-underline:hover {
+    border-bottom: solid 0.0625rem #fff!important;  // STYLE FIX
+}
+
+.content--interactive .block-share__item:focus, .content--interactive .block-share__item:hover, .content--interactive .social-icon:focus, .content--interactive .social-icon:hover, .content--interactive .social-icon.social-icon--more:focus, .content--interactive .social-icon.social-icon--more:hover, .content--pillar-news:not(.paid-content) .block-share__item:focus, .content--pillar-news:not(.paid-content) .block-share__item:hover, .content--pillar-news:not(.paid-content) .social-icon:focus, .content--pillar-news:not(.paid-content) .social-icon:hover, .content--pillar-news:not(.paid-content) .social-icon.social-icon--more:focus, .content--pillar-news:not(.paid-content) .social-icon.social-icon--more:hover {
+    background-color: transparent!important;
+    border: 0.0625rem solid #fff!important;
+}
 
 
 .element-atom,
