@@ -4,19 +4,16 @@
 
 $gs-baseline:12px;
 $gs-gutter:20px;
-$facewall-bg: $neutral-5;
-$header-support: $neutral-5;
-$bullet-bg: $multimedia-main-2;
-$unselected-color: $neutral-3;
-$selected-color: $multimedia-main-2;
-$selected-color-support: $comment-main-2;
-
+$facewall-bg: $neutral-96;
+$header-support: $neutral-92;
+$bullet-bg: $gu-news;
+$unselected-color: $neutral-86;
+$selected-color: $gu-news;
+$selected-color-support: $gu-news;
 
 $three-in-row: percentage(1/3);
 $four-in-row: percentage(1/4);
 $five-in-row: percentage(1/5);
-
-
 
 // Uncomment for embeds
 //@import "embed";
@@ -24,12 +21,12 @@ $five-in-row: percentage(1/5);
 // Uncomment for full screen (including immersive article main media)
 @import "fullscreen";
 
-$accent-green: #aad801;
+$accent-color: $gu-sport;
 $mid-grey: #999999;
 $dark-grey: #505050;
 $text-grey: #676767;
-$background-grey: #333333;
-$background-lightgrey: #f4f4f4;
+$background-grey: $neutral-96;
+$background-lightgrey: $neutral-92;
 
 @import "detailView";
 @import "uxItems";
@@ -39,13 +36,16 @@ html,body {
     height:100%;
     //overflow-x: hidden;
 }
-
+ 
+.gs-container{
+     z-index: 1079;
+}
 
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
     //background-color: $multimedia-support-4;
-    background-color: #ebebeb;
+    background-color: $neutral-96;
     height: auto;
     //overflow:hidden;
     @include mq(desktop){
@@ -56,8 +56,7 @@ html,body {
 .interactive-ad-banner {
     display: flex;
     justify-content: center;
-    //margin-top: -20px!important;
-    
+    //margin-top: -20px!important;  
 
     @include mq($from: tablet) {
         .ad-slot--rendered {
@@ -99,8 +98,6 @@ html,body {
     }
 }
 
-
-
 .gv-views-wrapper {
     position: relative;
     overflow: hidden;
@@ -112,7 +109,7 @@ html,body {
     width: 100%;
     //height: 100%;
     min-height: 100vh;
-    background-color: $background-lightgrey;
+    background-color: $neutral-100;
     z-index: 1;
 
     @include mq(desktop){
@@ -151,7 +148,7 @@ html,body {
                     min-height: 185px;
                     width: 100%;
                     background-color: $background-grey;
-                    color: #fff;
+                    color: $accent-color;
                     vertical-align: top;
                     padding: 0 0 10px 0;
 
@@ -234,11 +231,16 @@ html,body {
 
                     .gv-list-title {
                         padding: 0 10px 5px 10px;
-                        
+
                         @include f-headline();
                         font-size: 24px;
                         line-height: 26px;
                         font-weight: 300;
+                        font-variant-numeric: lining-nums;
+                        font-variant-numeric: lining-nums;
+                        -moz-font-feature-settings: "lnum";
+                        -webkit-font-feature-settings: "lnum";
+                        font-feature-settings: "lnum";
 
                         @include mq(phablet){
                             position: absolute;
@@ -328,7 +330,7 @@ html,body {
 
                         @include mq(tablet){
                             
-                            width: 300px;
+                            width: 460px;
                             width: calc(100% - 275px);
                             left: 260px;
                         
@@ -339,7 +341,7 @@ html,body {
                         //position: absolute;
                         margin : 0;
                         height: 120px;
-                        width: 300px;
+                        width: 460px;
                         top: 60px;
                         left: 260px;
                         }
@@ -365,7 +367,7 @@ html,body {
                     .gv-list-pitch-graphic {
                         display: none;
                         @include mq(desktop){
-                        display: block;
+                        display: none;
                         position: absolute;
                         background-color: transparent;
                         height: 70px;
@@ -379,12 +381,12 @@ html,body {
                             vector-effect: non-scaling-stroke;
 
                         #markers circle {
-                            fill: $accent-green;
+                            fill: $accent-color;
                             visibility: hidden;
                         }
 
                         #pitch path {
-                            stroke: $accent-green;
+                            stroke: $accent-color;
                         }
 
                     }
@@ -497,10 +499,10 @@ html,body {
     }
 
     .gv-grid-view-inner {
-        background-color: $background-grey;
+        background-color: $neutral-100;
         //margin: 20px 15px;
         padding: 20px 15px;
-        border-top: 1px solid #555;
+        border-top: 1px solid $accent-color;
         //width: 500px;
         min-height: 100vh;
         display: table-cell;
@@ -569,7 +571,7 @@ html,body {
             bottom: 0px;
             //background: #767676;
             cursor: pointer;
-            border-top: 1px solid $accent-green;
+            border-top: 1px solid $accent-color;
             -webkit-transition: opacity 100ms ease-in-out;
             -moz-transition: opacity 100ms ease-in-out;
               -o-transition: opacity 100ms ease-in-out;
@@ -611,6 +613,7 @@ html,body {
                     background-color: #fff;
                     z-index: 9999999999;
                     border-radius: 50%;
+                    display:none
                 }
             }
 
@@ -627,17 +630,17 @@ html,body {
                 }
 
             .gv-cell-number {
-                display: none;
+                display: block;
             }
 
             .gv-cell-title {
                 @include fs-headline(3);
-                color: #ffffff;
+                color: $accent-color;
             }
 
             .gv-cell-subtitle {
                 @include f-headlineSans();
-                font-size: 18px;
+                font-size: 14px;
                 line-height: 20px;
                 color: #999;
             }
@@ -731,11 +734,6 @@ html,body {
 }
 
 
-
-
-
-
-
 // .gv-main-content
 // .gv-header-wrapper {
 //     //margin-top: -10px!important;
@@ -753,15 +751,15 @@ html,body {
     position: relative;
     border-top: 1px solid rgba(255, 255, 255, 1);
     //background-color: #2a2a2a;
-    background-color: #222;
-    z-index: 10000;
+    background-color: $neutral-92;
+    z-index: 1078;
     overflow: hidden;
     //background-image: url('<%= path %>/assets/sixty.svg');
 }
 
 .gv-header {
     position: relative;
-    color: #fff;
+    color: $neutral-7;
     z-index: 10;
     max-width: 600px;
     padding: 0 12px 30px 12px;
@@ -783,8 +781,6 @@ html,body {
         z-index: 90000;
     }
 }
-
-
 
 
 .header-share-container {
@@ -828,7 +824,7 @@ html,body {
     z-index: 99999;
     //background-color: #005689;
     color: white;
-    background-color: #2a2a2a;
+    background-color: $neutral-96;
 
     max-width: 1300px;
     margin: 0 auto;
@@ -868,7 +864,7 @@ html,body {
 }
 
 .gv-header .gv-strap {
-    color: $accent-green;
+    color: $accent-color;
     @include fs-headline(8);
     font-size: 18px;
     line-height: 24px;
@@ -877,7 +873,7 @@ html,body {
         font-size: 16px;
     }
     a {
-        color: $accent-green;
+        color: $accent-color;
         text-decoration: none;
 
         &:hover {
