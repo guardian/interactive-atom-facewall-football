@@ -98,6 +98,15 @@ function cleanData(dataIn) {
             obj["Rank"] = dataIn[key][i].Rank || i + 1;
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
+            obj["clubStr"] = "";
+
+            if(dataIn[key][i]["ClubDomestic"] != "n/a"){ obj["clubStr"]+=dataIn[key][i]["ClubDomestic"] }
+            if(dataIn[key][i]["ClubKSL"] != "n/a"){ obj["clubStr"]+=("---"+dataIn[key][i]["ClubKSL"])}
+            if(dataIn[key][i]["ClubWBBL"] != "n/a"){ obj["clubStr"]+=("---"+dataIn[key][i]["ClubWBBL"])}   
+
+           
+            
+            obj["clubStr"] =  obj["clubStr"].split("---").join(", ")
 
             // Corrections from old data
 
