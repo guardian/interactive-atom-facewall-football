@@ -159,16 +159,16 @@ left: -200%;
 
 .content--interactive .block-share__item .inline-icon, .content--interactive .commentcount2__heading span, .content--interactive .inline-close svg, .content--interactive .inline-triangle, .content--interactive .old-article-message .old-article-message--clock svg, .content--interactive .social-icon svg, .content--interactive .social-icon__svg, .content--pillar-news:not(.paid-content) .block-share__item .inline-icon, .content--pillar-news:not(.paid-content) .commentcount2__heading span, .content--pillar-news:not(.paid-content) .inline-close svg, .content--pillar-news:not(.paid-content) .inline-triangle, .content--pillar-news:not(.paid-content) .old-article-message .old-article-message--clock svg, .content--pillar-news:not(.paid-content) .social-icon svg, .content--pillar-news:not(.paid-content) .social-icon__svg {
 
-fill: #fff!important; // STYLE FIX
+    fill: $gu-blue !important; // STYLE FIX
 
 }
 
 .content--interactive a, .content__series-label__link {
-color: #767676!important; // STYLE FIX
+    color: #767676!important; // STYLE FIX
 }
 
 .content--interactive .bullet::before {
-background-color: #767676!important; // STYLE FIX
+    background-color: transparent!important; // STYLE FIX
 }
 
 .content--interactive .u-underline:hover, .content--pillar-news:not(.paid-content) .u-underline:hover {
@@ -177,9 +177,14 @@ background-color: #767676!important; // STYLE FIX
 
 .content--interactive .block-share__item:focus, .content--interactive .block-share__item:hover, .content--interactive .social-icon:focus, .content--interactive .social-icon:hover, .content--interactive .social-icon.social-icon--more:focus, .content--interactive .social-icon.social-icon--more:hover, .content--pillar-news:not(.paid-content) .block-share__item:focus, .content--pillar-news:not(.paid-content) .block-share__item:hover, .content--pillar-news:not(.paid-content) .social-icon:focus, .content--pillar-news:not(.paid-content) .social-icon:hover, .content--pillar-news:not(.paid-content) .social-icon.social-icon--more:focus, .content--pillar-news:not(.paid-content) .social-icon.social-icon--more:hover {
     background-color: transparent!important;
-    border: 0.0625rem solid #fff!important;
+    border: 0.0625rem solid $gu-blue!important;
 }
 
+
+.content--interactive .block-share__item, .content--interactive .inline-close, .content--interactive .social-icon, .content--interactive .social-icon.social-icon--more {
+    background-color: transparent;
+    border: 0.0625rem solid $gu-blue !important;
+}
 
 .element-atom,
 .interactive-atom {
@@ -814,7 +819,7 @@ img {
             .gv-grid-cell-image-container {
                 width: 100%;
                 position: relative;
-                background: #383838;
+                background: $neutral-60;
                 padding-bottom: 100%;
                 pointer-events: none;
                 overflow: hidden;
@@ -854,7 +859,7 @@ img {
                     @include fs-headline(3);
                     //@include f-headlineSans;
                     color: $gu-blue;
-                    font-size: 20px;
+                    font-size: 18px;
                     line-height: 22px;
                     @include mq(desktop) {
                     font-size: 22px;
@@ -1149,4 +1154,8 @@ img {
             padding: 10px 5px 100px 50px;
         }
     }
+}
+
+.content__standfirst{
+    line-height: 1.65rem !important;
 }

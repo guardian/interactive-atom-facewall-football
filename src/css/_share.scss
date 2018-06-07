@@ -104,3 +104,9 @@ $gs-baseline:12px;
     }   
 
 }
+
+
+ .social-icon, .content--interactive, .content--interactive.social-icon, .social-icon.social-icon--more {
+    background-color: $gu-blue !important;
+    border: 0.0625rem solid #dcdcdc;
+}
