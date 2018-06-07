@@ -27,12 +27,12 @@ let shareFn = shares('Next Generation 2017: 60 of the best young talents in worl
 //import animateScrollTo from 'animated-scroll-to'; //https://www.npmjs.com/package/animated-scroll-to
 
 Handlebars.registerHelper("ifvalue", function(Index, conditional, options) {
-    if (Number(Index) % Number(conditional)== 0 && Index > 0) {
+    if (Number(Index) % Number(conditional) == 0 && Index > 0) {
         return options.fn(this);
     } else {
         return options.inverse(this);
     }
-}); 
+});
 
 var data;
 var gridViewBool = true;
@@ -50,17 +50,22 @@ function isMobile() {
         return true;
     } else {
         return false;
-    } 
+    }
 }
 
-function getStyle (element) {
+function getStyle(element) {
     return element.currentStyle ? element.currentStyle.display :
-    getComputedStyle(element, null).display;
+        getComputedStyle(element, null).display;
 }
 
 var url;
-//url = 'https://interactive.guim.co.uk/docsdata/1_F-62z-eeeV1mP3OS1SNcF4b8s3deiAx0bxVmDqP98Q.json'; // Old 2016 Next Gen World
-url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
+
+//url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
+url= 'https://interactive.guim.co.uk/docsdata-test/1su_inOe_vhoksNrV9VLO9tXEs22pGTDnzJDp-VcS0wg.json'; // New 2017 top 100 Live
+
+
+
+
 
 
 xr.get(url).then((resp) => {
@@ -76,7 +81,7 @@ xr.get(url).then((resp) => {
     var compiledHTML = compileHTML(data);
     document.querySelector(".gv-grid-view-inner").innerHTML = compiledHTML.grid;
     document.querySelector(".gv-list-view-inner").innerHTML = compiledHTML.list;
-    drawPositions( data.players );
+    drawPositions(data.players);
     addListeners();
     //updatePageDate();
     //upDatePageView(data);
@@ -84,7 +89,7 @@ xr.get(url).then((resp) => {
 
 function cleanData(dataIn) {
 
-    console.log(dataIn);
+     console.log(dataIn);
 
     var obj, dataOut = {}, arr;
 
@@ -98,6 +103,15 @@ function cleanData(dataIn) {
             obj["Rank"] = dataIn[key][i].Rank || i + 1;
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
+            obj["clubStr"] = "";
+
+            if(dataIn[key][i]["ClubDomestic"] != "n/a"){ obj["clubStr"]+=dataIn[key][i]["ClubDomestic"] }
+            if(dataIn[key][i]["ClubKSL"] != "n/a"){ obj["clubStr"]+=("---"+dataIn[key][i]["ClubKSL"])}
+            if(dataIn[key][i]["ClubWBBL"] != "n/a"){ obj["clubStr"]+=("---"+dataIn[key][i]["ClubWBBL"])}   
+
+           
+            
+            obj["clubStr"] =  obj["clubStr"].split("---").join(", ")
 
             // Corrections from old data
 
@@ -126,86 +140,176 @@ function cleanData(dataIn) {
 
 function compileHTML(dataIn) {
 
-        var newHTML = {}, content;
-    
-        Handlebars.registerHelper('html_decoder', function(text) {
-            var str = unescape(text).replace(/&amp;/g, '&');
-            return str;
-        });
-    
-        // Handlebars.registerPartial({
-        //     'gridCell': cellTemplate
-        // });
-    
-        content = Handlebars.compile(
-            gridTemplate, {
-                compat: true
-            }
-        );
-    
-        newHTML.grid = content(dataIn);
+    var newHTML = {},
+        content;
 
-        content = Handlebars.compile(
-            listTemplate, {
-                compat: true
-            }
-        );
-    
-        newHTML.list = content(dataIn);
-    
-        return newHTML
-    
-    }
-
-function addListeners() {
-    
-
-    document.querySelector('.toggle-view-overlay-btn').addEventListener('click', toggleView);
-    document.querySelector('.gv-grid').addEventListener('click', updateOnGridClick);   
-   
-
-    window.addEventListener('resize', function() {
-      // clear the timeout
-      clearTimeout(resizeTimeout);
-      // start timing for event "completion"
-      resizeTimeout = setTimeout(updateOnResize, 250);
+    Handlebars.registerHelper('html_decoder', function(text) {
+        var str = unescape(text).replace(/&amp;/g, '&');
+        return str;
     });
 
-    window.onbeforeunload = function(){ window.scrollTo(0,0); } //resets scroll on load
+    // Handlebars.registerPartial({
+    //     'gridCell': cellTemplate
+    // });
 
-    Scrolling(window, updateOnScroll);  // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
-
-    bLazy = new Blazy(
-        {
-            selector: ".gv-blazy",
-            offset: 200
-        }     
+    content = Handlebars.compile(
+        gridTemplate, {
+            compat: true
+        }
     );
 
-    window.setTimeout(function() {
-        updateLazyLoad();
-        }, 200);
+    newHTML.grid = content(dataIn);
 
+    content = Handlebars.compile(
+        listTemplate, {
+            compat: true
+        }
+    );
 
-        [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
-            var network = shareEl.getAttribute('data-network');
-            shareEl.addEventListener('click', () => shareFn(network));
-        });
+    newHTML.list = content(dataIn);
+
+    return newHTML
 
 }
 
-function updateLazyLoad() {
-    
-    bLazy.revalidate();
-     
+function addListeners() {
+
+
+    document.querySelector('.toggle-view-overlay-btn').addEventListener('click', toggleView);
+    document.querySelector('.gv-grid').addEventListener('click', updateOnGridClick);
+
+
+    window.addEventListener('resize', function() {
+        // clear the timeout
+        clearTimeout(resizeTimeout);
+        // start timing for event "completion"
+        resizeTimeout = setTimeout(updateOnResize, 250);
+    });
+
+    window.onbeforeunload = function() { window.scrollTo(0, 0); } //resets scroll on load
+
+    Scrolling(window, updateOnScroll); // method to add a scroll listener -- https://www.npmjs.com/package/scrolling
+
+    bLazy = new Blazy({
+        selector: ".gv-blazy",
+        offset: 200
+    });
+
     window.setTimeout(function() {
-    updateLazyLoad();
+        updateLazyLoad();
+    }, 200);
+
+
+    [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
+        var network = shareEl.getAttribute('data-network');
+        shareEl.addEventListener('click', () => shareFn(network));
+    });
+
+    var playerFilter = document.getElementById("gv-player-filter");
+
+    playerFilter.addEventListener("change", function( e ) {
+   
+    filterView( e.target.value );
+}, false );
+
+}
+
+function filterView ( value ) {
+
+    var i, ii, selectedSet = [], deselectedSet = [], found, arr, val, index;
+
+    
+
+    var grid = document.getElementById('gv-grid'), cell;
+
+
+
+    if ( value == "All players") {
+
+        selectedSet = data.cells;
+
+    } else {
+
+        for (i = 0; i < data.cells.length; i++) {
+
+        found = false;
+
+        arr = String(data.cells[i]["Filters"]).split(",");
+
+
+
+        for (ii = 0; ii < arr.length; ii++) {
+
+            val = arr[ii].trim();
+
+
+            if (val == value) {
+
+                selectedSet.push(data.cells[i]);
+                found = true;
+
+                break;
+
+            }
+
+        }
+
+        if (!found) {
+            deselectedSet.push(data.cells[i]);
+        }
+    }
+
+
+    }
+
+
+
+    for (i = 0; i < selectedSet.length; i++) {
+
+
+        index = selectedSet[i]["Index"];
+        cell = document.getElementById('gv-grid-cell_' + index );
+        cell.classList.remove('gv-deselected');
+        grid.appendChild( cell );
+
+    }
+
+    for (i = 0; i < deselectedSet.length; i++) {
+
+
+        index = deselectedSet[i]["Index"];
+        cell = document.getElementById('gv-grid-cell_' + index );
+        cell.classList.add('gv-deselected');
+        grid.appendChild( cell );
+
+    }
+
+
+
+
+  //   divOne = document.getElementById('#div1');
+  // divTwo = document.getElementById('#div2');
+  // divThree = document.getElementById('#div3');
+  // container = divOne.parentNode;
+  // container.appendChild(divTwo);
+  // container.appendChild(divOne);
+  // container.appendChild(divThree);
+
+}
+
+
+function updateLazyLoad() {
+
+    bLazy.revalidate();
+
+    window.setTimeout(function() {
+        updateLazyLoad();
     }, 1000);
 }
 
 
 function updateOnScroll() {
-    console.log("scrolled");
+   
     //console.log(document.documentElement.scrollTop || document.body.scrollTop);
     checkFixElements();
 }
@@ -215,7 +319,7 @@ function updateOnResize() {
     updateOnScroll();
 }
 
-function updateOnGridClick( e ) {
+function updateOnGridClick(e) {
     if (e.target !== e.currentTarget) {
         var clickedIndex = parseInt(e.target.dataset.index);
         e.stopPropagation();
@@ -224,8 +328,8 @@ function updateOnGridClick( e ) {
 
         toggleView();
         jumpToIndex(clickedIndex);
-  }
-    
+    }
+
 }
 
 function toggleView() {
@@ -247,10 +351,12 @@ function showGrid() {
     document.querySelector('.gv-list-view').classList.remove('open');
     document.querySelector('.gv-list-view').classList.add('close');
     document.querySelector('.toggle-view-overlay-btn').classList.remove('grid-icon-show');
-    window.scrollTo(0,lastScrollTop);
-    window.setTimeout(function() {
-        fixList(false);
-    }, 1000);
+    window.scrollTo(0, lastScrollTop);
+    // window.setTimeout(function() {
+    //     fixList(false);
+    // }, 1000);
+
+    waitForTransitionEnd( false );
 }
 
 function hideGrid() {
@@ -264,13 +370,13 @@ function hideGrid() {
     document.querySelector('.toggle-view-overlay-btn').classList.add('grid-icon-show');
 }
 
-function fixGrid( fix ) {
+function fixGrid(fix) {
 
     //alert(fix);
 
     var viewportOffset, t, l, w, grid;
 
-    if (fix == true ) {
+    if (fix == true) {
         // alert("called");
         grid = document.querySelector('#gv-grid-view');
         viewportOffset = grid.getBoundingClientRect();
@@ -281,39 +387,87 @@ function fixGrid( fix ) {
         grid.style.left = l + "px";
         grid.style.width = w + "px";
     } else {
-        
+
         grid = document.getElementById('gv-grid-view');
         grid.style.top = "";
         grid.style.left = "";
         grid.style.width = "";
-       
-       
+
+
     }
 }
 
-function fixList( fix ) {
-    
-        var viewportOffset, t, l, w, list = document.querySelector('.gv-list-view');
-    
-        if (fix) {
-            viewportOffset = list.getBoundingClientRect();
-            t = viewportOffset.top;
-            l = viewportOffset.left;
-            w = viewportOffset.width;
-            list.style.top = t + "px";
-            list.style.left = l + "px";
-            list.style.width = w + "px";
-            list.style.position = "fixed";
-        } else {
-            list.style.top = "";
-            list.style.left = "";
-            list.style.width = "";
-            list.style.position = "";
+function fixList(fix) {
+
+    var viewportOffset, t, l, w, list = document.querySelector('.gv-list-view');
+
+    if (fix) {
+        viewportOffset = list.getBoundingClientRect();
+        t = viewportOffset.top;
+        l = viewportOffset.left;
+        w = viewportOffset.width;
+        list.style.top = t + "px";
+        list.style.left = l + "px";
+        list.style.width = w + "px";
+        list.style.position = "fixed";
+    } else {
+        list.style.top = "";
+        list.style.left = "";
+        list.style.width = "";
+        list.style.position = "";
+    }
+}
+
+function waitForTransitionEnd( bool ) {
+    var transitionEndEventName = getTransitionEndEventName(); //figure out, e.g. "webkitTransitionEnd".. 
+    var elemToAnimate = document.querySelector('#gv-grid-view');//the thing you want to animate..
+    var done = false;
+    var transitionEnded = function(){
+     done = true;
+     //do your transition finished stuff..
+     fixList( false );
+     elemToAnimate.removeEventListener(transitionEndEventName,
+                                        transitionEnded, false);
+     //console.log("transitionEnd");
+};
+elemToAnimate.addEventListener(transitionEndEventName,
+                                transitionEnded, false);
+
+//animation triggering code here..
+
+//ensure tidy up if event doesn't fire..
+setTimeout(function(){
+    if(!done){
+        //console.log("timeout needed to call transition ended..");
+        transitionEnded();
+    }
+}, 250); //note: XXX should be the time required for the
+        //animation to complete plus a grace period (e.g. 10ms) 
+}
+
+function getTransitionEndEventName () {
+    var i,
+        undefined,
+        el = document.createElement('div'),
+        transitions = {
+            'transition':'transitionend',
+            'OTransition':'otransitionend',  // oTransitionEnd in very old Opera
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+        };
+
+    for (i in transitions) {
+        if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+            return transitions[i];
         }
     }
 
-function jumpToIndex( ind ) {
-    document.querySelector('#list-entry_' + ind).scrollIntoView( true );
+    //TODO: throw 'TransitionEnd event is not supported in this browser';
+    return ""; 
+}
+
+function jumpToIndex(ind) {
+    document.querySelector('#list-entry_' + ind).scrollIntoView(true);
 }
 
 function getCoords(elem) { // crossbrowser version
@@ -330,7 +484,7 @@ function getCoords(elem) { // crossbrowser version
 
     var offsetHeight = elem.offsetHeight || 0;
 
-    var top  = box.top +  scrollTop - clientTop;
+    var top = box.top + scrollTop - clientTop;
     var left = box.left + scrollLeft - clientLeft;
     var bottom = top + offsetHeight;
 
@@ -339,95 +493,105 @@ function getCoords(elem) { // crossbrowser version
 
 function checkFixElements() {
 
-    if (!isMobile()) {
+    //if (!isMobile()) {
 
-    //let h = document.getElementById("bannerandheader").offsetHeight || 0;
+        //let h = document.getElementById("bannerandheader").offsetHeight || 0;
 
-    var h = getCoords(document.getElementById("gv-header")).bottom;
+        var rect = getCoords(document.getElementById("gv-wrap-all"));
+
+        var h = rect.top;
+        var b = rect.bottom;
 
 
 
 
-    //console.log("oh=" + h);
-    
-    var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    
-        console.log("pos_top=" + pos_top);
-        console.log("oh=" + h);
-        
-    
-        if (pos_top > h) {
-            console.log("fixed");
+        //console.log("oh=" + h);
+
+        var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+        //console.log("pos_top=" + pos_top);
+        //console.log("oh=" + h);
+
+
+        if ( pos_top > h && !isMobile() ) {
+            //console.log("fixed");
             document.querySelector('#toggle-view-overlay-btn').classList.add('gv-fixed');
-            document.querySelector('#toggle-view-overlay-btn').style.marginTop =  -h + "px";
+            document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
         } else if (pos_top < h) {
             document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
         }
 
-    }
+    if ( pos_top > b ) {
+            //console.log("fixed");
+            document.querySelector('#toggle-view-overlay-btn').classList.add('gv-hide');
+            //document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
+        } else {
+            document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-hide');
+            //document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
+        }
 
 }
 
-function getPositionIdArray ( positions ) {
+function getPositionIdArray(positions) {
 
     var i, position, arr = [];
 
     positions = String(positions).split("/");
 
-    for (i=0; i< positions.length; i++) {
+    for (i = 0; i < positions.length; i++) {
 
         position = String(positions[i]).toLowerCase().trim();
 
-        switch ( position ) {
+        switch (position) {
 
-            case "goalkeeper" :
+            case "goalkeeper":
 
-            arr.push("GK");
+                arr.push("GK");
 
-            break;
+                break;
 
-            case "forward" :
-            
-            arr.push("F1");
-            
-            break;
+            case "forward":
 
-            case "attacking midfielder" :
-            
-            arr.push("M2");
-            
-            break;
-            
-            case "midfielder" :
-                        
-            arr.push("M3");            
-                        
-            break;
+                arr.push("F1");
 
-            case "striker" :
-                        
-            arr.push("F2");            
-                        
-            break;
-                        
-            case "defensive midfielder" :
-                                    
-            arr.push("M3");                        
-                                    
-            break;
+                break;
 
-            case "defender" :
-            
-            arr.push("D2");
-            
-            break;
+            case "attacking midfielder":
 
-            case "winger" :
-            
-            arr.push("M1");
-            
-            break;
+                arr.push("M2");
+
+                break;
+
+            case "midfielder":
+
+                arr.push("M3");
+
+                break;
+
+            case "striker":
+
+                arr.push("F2");
+
+                break;
+
+            case "defensive midfielder":
+
+                arr.push("M3");
+
+                break;
+
+            case "defender":
+
+                arr.push("D2");
+
+                break;
+
+            case "winger":
+
+                arr.push("M1");
+
+                break;
 
         }
 
@@ -437,18 +601,18 @@ function getPositionIdArray ( positions ) {
 
 }
 
-function drawPositions( data ) {
+function drawPositions(data) {
 
 
     var i, ii, position, arr, el, id;
 
 
-    for (i=0; i< data.length; i++) {
-          
-        arr = getPositionIdArray ( data[i].Position );
-        
-    
-        for (ii=0; ii< arr.length; ii++) {
+    for (i = 0; i < data.length; i++) {
+
+        arr = getPositionIdArray(data[i].Position);
+
+
+        for (ii = 0; ii < arr.length; ii++) {
 
             id = arr[ii];
 
@@ -456,10 +620,10 @@ function drawPositions( data ) {
             //var selector = '#gv-pitch_' + i + '_marker_' + id;
             //console.log(selector);
 
-            el = document.getElementById('gv-pitch_' + i + '_marker_' + id );
+            el = document.getElementById('gv-pitch_' + i + '_marker_' + id);
             //el = document.querySelector('#list-entry_' + i  );
 
-            console.log(el)
+            //console.log(el)
 
             el.style.visibility = "visible";
 
@@ -469,7 +633,26 @@ function drawPositions( data ) {
 
 }
 
-
-
-
+function getMovementText( oldRank, change, changeTxt ){
+   
+    var strOut = oldRank + " <span class='gv-details-dim'>2016</span> ";
+ 
+        if ( changeTxt == "New entry" ){
+          strOut = "<span class='gv-details-change'>New</span>";
+        
+        } else if ( changeTxt == "Re-entry" ){
+          strOut = "<span class='gv-details-change'>Re-entry</span>";
+        }
+         else if( change == 0 ){
+        strOut += "<span class='gv-details-change'></span>&nbsp;&#9654;"; // same
+        } else if( change < 0 ){
+          change = Math.abs(change);
+           strOut += "<span class='gv-details-change'>&#9660;</span>"+ change +""; // Down
+        }else if(change > 0){
+          strOut += "<span class='gv-details-change'>&#9650;</span>"+ change +""; // Up
+        } 
+             
+       //console.log(strOut);
+    return strOut;
+  }
 

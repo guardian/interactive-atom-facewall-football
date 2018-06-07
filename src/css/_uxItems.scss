@@ -158,7 +158,7 @@
     height: 60px;
     background: $accent-green;
     position: absolute;
-    z-index: 9999999999999;
+    z-index: 950;
     // bottom: 10px;
     // left: 50%;
     top: 0;
@@ -206,7 +206,7 @@
 
 
 .gv-fixed-btn-container {
-    z-index: 9999999999999;
+    z-index: 950;
     position: fixed;
     bottom: 70px;
     left: 50%;
@@ -217,4 +217,47 @@
     left: 20px;
     bottom: auto;
     }
+}
+
+
+
+.gv-filter-block {
+    background: #333;
+    height: 55px;
+
+.hidden {
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    clip: recto(0 0 0 0);
+    display: none;
+}
+
+select {
+    height: 37px;
+    float: right;
+}
+
+select {
+    cursor: pointer;
+    color: $accent-green;
+    border-radius: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #333333 url("<%= path %>/assets/down-arrow.png") no-repeat 93% 50%;
+        background-size: auto auto;
+    background-size: 16px auto;
+    padding: 5px 10px;
+    font-family: "Guardian Sans Headline",Helvetica,Arial,sans-serif;
+    cursor: pointer;
+    border: 1px solid $accent-green;
+    width: 250px;
+    
+}
+
 }
