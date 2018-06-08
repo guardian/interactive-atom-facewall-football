@@ -206,13 +206,14 @@
 
 
 .gv-fixed-btn-container {
-    display:none;
+    
     z-index: 950;
     position: fixed;
     bottom: 70px;
     left: 50%;
 
     @include mq(desktop){
+   
     position: absolute;
     top: 20px;
     left: 20px;
