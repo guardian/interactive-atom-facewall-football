@@ -1,0 +1,103 @@
+    <div class="gv-list" id="gv-list">    
+            {{#each players}}
+            <div class="gv-list-entry {{PublishClass}}" id="list-entry_{{Index}}" data-index="{{Index}}">
+
+                    <div class="gv-list-entry-inner" id="gv-list-entry-inner_{{Index}}" data-index="{{Index}}">
+                            <div class="gv-list-entry-header">
+
+                                    <div class="gv-list-image-container">
+                                            <img class="gv-list-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="{{List_image_src}}"/>
+                                            <!-- <img class="gv-list-image gv-blazy" src="<%= path %>/assets/placeholder.png" data-src="<%= path %>/assets/test-cutout.png"/> -->
+                                            <!-- <div class="gv-flag gv-list-image-flag gv-blazy" data-src="<%= path %>/assets/flags/pngs/{{Iso}}.png"></div> -->
+                                    </div>
+
+                                    <div class="gv-list-title"><span class="gv-list-title-name">{{Name}}</span></div>
+                                    <div class="gv-list-entry-info">
+                                            <!-- <div class="gv-list-country gv-list-info-row"><span>Age</span><span>{{Age}}</span></div> -->
+                                            <div class="gv-list-club gv-list-info-row"><span>Club</span><span>{{Club}}</span></div>
+                                            <div class="gv-list-position gv-list-info-row"><span>Position</span><span>{{Position}}</span></div>
+                                            <div class="gv-list-born gv-list-info-row"><span>Born</span><span>{{{DOB_text}}}</span></div>
+                                    </div>
+                                    <div class="gv-list-pitch-graphic">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        style="enable-background:new 0 0 125 72;" xml:space="preserve">
+                               <style type="text/css">
+                                       .st0{fill:none;stroke:#636363;stroke-miterlimit:10;shape-rendering: crispEdges;}
+                                       .st2{fill:none;stroke:#636363;stroke-miterlimit:10;shape-rendering: auto;}
+                                       .st1{fill:#FFFFFF;}
+                               </style>
+                               <g id="pitch">
+                                <rect x="1" y="1" class="st0" width="123" height="70"/>
+                                <line class="st0" x1="62.5" y1="1" x2="62.5" y2="71"/>
+                                <circle class="st2" cx="62.5" cy="36" r="7.6"/>
+                                <circle class="st2" cx="103.5" cy="35.9" r="0.4"/>
+                                <circle class="st2" cx="21.5" cy="35.9" r="0.4"/>
+                                <polyline class="st0" points="1,12.4 30.1,12.5 30.1,59.5 1,59.4 	"/>
+                                <polyline class="st0" points="1,24.7 13,24.7 13,47.2 1,47.1 	"/>
+                                <polyline class="st0" points="124,24.7 112,24.7 112,47.2 124,47.1 	"/>
+                                <polyline class="st0" points="124,12.4 94.9,12.5 94.9,59.5 124,59.4 	"/>
+                        </g>
+                        <g id="markers">
+                                <!-- <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_GK" class="st1" cx="117.6" cy="35.9" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D1" class="st1" cx="89.3" cy="12.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D2" class="st1" cx="89.3" cy="28.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D3" class="st1" cx="89.3" cy="44.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D4" class="st1" cx="89.3" cy="60.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M1" class="st1" cx="57.3" cy="12.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M2" class="st1" cx="46.3" cy="28.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M3" class="st1" cx="57.3" cy="44.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M4" class="st1" cx="57.3" cy="60.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_F1" class="st1" cx="30.3" cy="28.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_F2" class="st1" cx="30.3" cy="44.3" r="4"/> -->
+
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_GK" class="st1" cx="6.4" cy="35.9" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D1" class="st1" cx="35.7" cy="12.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D2" class="st1" cx="35.7" cy="28.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D3" class="st1" cx="35.7" cy="44.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_D4" class="st1" cx="35.7" cy="60.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M1" class="st1" cx="67.7" cy="12.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M2" class="st1" cx="78.7" cy="28.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M3" class="st1" cx="67.7" cy="44.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M4" class="st1" cx="67.7" cy="60.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_F1" class="st1" cx="94.7" cy="28.3" r="4"/>
+                                <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_F2" class="st1" cx="94.7" cy="44.3" r="4"/>
+                                
+                        </g>
+                        
+                               </svg>
+                                    </div>
+                            </div>
+                            <div class="gv-list-entry-body-text">
+                                <div class="gv-list-entry-description">{{{Profile}}} <strong>{{{Writer}}}</strong></div>
+                            </div>
+    
+                    </div>
+            </div>
+
+            {{#ifvalue Index 6}}
+                       
+            <div class="interactive-ad-banner">
+                        <div class="ad-wrapper--desktop hide-until-tablet">
+                            <div id="dfp-ad--inline{{Index}}"
+                                 class="js-ad-slot ad-slot ad-slot--banner-ad ad-slot--banner-ad-desktop"
+                                 data-link-name="ad slot banner"
+                                 data-name="banner"
+                                 data-tablet="1,1|2,2|728,90"
+                                 data-desktop="1,1|2,2|88,70|728,90|940,230|900,250"></div>
+                        </div>
+                    
+                        <div class="ad-wrapper--mobile mobile-only">
+                            <div id="dfp-ad--inline{{Index}}Mobile"
+                                 class="js-ad-slot ad-slot ad-slot--inline ad-slot--inline{{Index}}"
+                                 data-link-name="ad slot inline{{Index}}Mobile"
+                                 data-name="inline{{Index}}Mobile"
+                                 data-mobile="1,1|2,2|300,250|fluid"></div>
+                        </div>
+                    </div>
+
+
+
+            {{/ifvalue}}
+
+            {{/each}}
+     </div>

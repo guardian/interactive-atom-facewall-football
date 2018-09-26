@@ -9,8 +9,10 @@ import { groupBy } from './libs/arrayObjectUtils.js'
 
 
 
-import gridTemplate from '../templates/grid.html'
-import listTemplate from '../templates/list.html'
+//import gridTemplate from '../templates/grid.html' UNCOMMENT FOR TOP 100
+//import listTemplate from '../templates/list.html' UNCOMMENT FOR TOP 100
+import gridTemplate from '../templates/grid-ng.html' // Use for Next Gen Young Footballers
+import listTemplate from '../templates/list-ng.html' // Use for Next Gen Young Footballers
 
 
 import shares from './share'
@@ -61,7 +63,9 @@ function getStyle(element) {
 var url;
 
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
-url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // New 2017 top 100 Live
+//url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // Old 2017 top 100 Live
+
+url= 'https://interactive.guim.co.uk/docsdata/15oX1N8uGCfeljcVD-1o1BXYju0_V7YDi6WwpjjWN4XQ.json'; // New 2018 Next Gen Premiership
 
 
 
@@ -111,7 +115,7 @@ function cleanData(dataIn) {
 
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
-            obj["Club"] = dataIn[key][i]["Club on 20 Dec 2017"];
+            //obj["Club"] = dataIn[key][i]["Club on 20 Dec 2017"];
             obj["Age"] = dataIn[key][i]["Age on 20 Dec 2017"];
 
 
@@ -127,8 +131,11 @@ function cleanData(dataIn) {
             // obj["List view image parameters"] = obj["Main Image Parameters"];
             // obj["List_image_src"] = obj["List view image"]; // No parameters used
 
-            obj["Grid_image_src"] = obj["Facewall cell image GRID src"] + "/" + gridViewImageWidth + ".jpg";
-            obj["List_image_src"] = obj["Facewall main image GRID src"] + "/" + listViewImageWidth + ".jpg";
+            obj["Grid_image_src"] = obj["Facewall cell image GRID src"] + "/" + gridViewImageWidth + ".jpg"; // Uncomment Football 100
+            obj["List_image_src"] = obj["Facewall main image GRID src"] + "/" + listViewImageWidth + ".jpg"; // Uncomment Football 100
+
+            obj["Grid_image_src"] = obj["Grid view image"] + "/" + gridViewImageWidth + ".jpg";
+            obj["List_image_src"] = obj["List view image"] + "/" + listViewImageWidth + ".jpg";
 
             obj["PublishClass"] = "gv-published";
 
@@ -166,7 +173,7 @@ function cleanData(dataIn) {
             obj["Club"] = "";
             obj["PublishClass"] = "gv-unpublished";
             obj["Filters"] = "";
-            newArr.push(obj);
+            //newArr.push(obj); Uncomment for silhouettes in Football 100
 
         }
 
