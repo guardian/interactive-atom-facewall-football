@@ -156,7 +156,7 @@
 .toggle-view-overlay-btn {
     width: 60px;
     height: 60px;
-    background: $accent-green;
+    background: #121212;
     position: absolute;
     z-index: 950;
     // bottom: 10px;
@@ -170,6 +170,7 @@
     top: auto;
     left: auto;
     margin-left: 0;
+    background: $accent-blue-dark;
     }
     // top: 0%;
     // left: 50%;

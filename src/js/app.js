@@ -247,17 +247,17 @@ function addListeners() {
     }, 200);
 
 
-    [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
-        var network = shareEl.getAttribute('data-network');
-        shareEl.addEventListener('click', () => shareFn(network));
-    });
+//     [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
+//         var network = shareEl.getAttribute('data-network');
+//         shareEl.addEventListener('click', () => shareFn(network));
+//     });
 
-    var playerFilter = document.getElementById("gv-player-filter");
+//     var playerFilter = document.getElementById("gv-player-filter");
 
-    playerFilter.addEventListener("change", function( e ) {
+//     playerFilter.addEventListener("change", function( e ) {
    
-    filterView( e.target.value );
-}, false );
+//     filterView( e.target.value );
+// }, false );
 
 }
 

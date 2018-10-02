@@ -20,6 +20,8 @@ $five-in-row: percentage(1 / 5);
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
+$accent-blue-dark:#0084c5;
+$accent-blue:#03bafe;
 $accent-green: #aad801;
 $mid-grey: #999999;
 $dark-grey: #505050;
@@ -42,11 +44,11 @@ body {
 }
 
 article header, .content__main .gs-container:first-of-type {
-    background-color: #2a2a2a!important;
+    background-color: #121212!important;
     position: relative!important;
 
   .content__section-label a {
-        color: $accent-green !important;
+        color: $accent-blue-dark !important;
     } 
 
     h1 {
@@ -92,20 +94,11 @@ article header, .content__main .gs-container:first-of-type {
 }
 
 article header {
-     @include mq(desktop) {
-    background-image: url('<%= path %>/assets/onehundred.svg');
-    background-repeat: no-repeat;
-    background-position: 108% 15px;
-    background-size: 420px;
-}
 
- @include mq(leftCol) {
-    background-position: 104% 15px;
-}
 
-@include mq(wide) {
-    background-position: 95% 15px;
-}
+
+    
+
 
 }
 
@@ -119,6 +112,7 @@ article header {
 
     //width: 185px;
     width: 265px;
+    //opacity: 0.5;
 
 }
 
@@ -142,19 +136,24 @@ position: absolute;
 width: 500%;
 height: 59px!important;
 //padding-top: 51px; // STYLE FIX
-background: #2a2a2a;
-background: #ff0000;
+//background: rgba(255,0,0,0.5);
+background: #121212;
+//background: #ff0000;
 left: -200%;
+
+
 @include mq(leftCol) {
         //max-width:100%;
         //height: 59px;
         height: 63px!important;
+        //margin-top: -63px;
 }
 @include mq(leftCol) {
         //max-width:100%;
         //height: 63px; // STYLE FIX
          padding-top: 0; // STYLE FIX
         height: 118px; // STYLE FIX
+        //margin-top: -118px;
 }
 }
 
@@ -236,12 +235,48 @@ select:focus {outline:none;}
         //max-width:100%;
         margin-top: 0;
     }
+
+     @include mq(desktop) {
+        &:before {
+            content:"";
+            display: block;
+            position: absolute;
+            margin-top: -220px;
+            width: 90%;
+            height: 220px;
+            //background: #ff0000;
+            pointer-events: none;
+
+    background-image: url('<%= path %>/assets/header-image-pl.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto 100%;
+
+
+
+        }
+     }
 }
 
 .gv-views-wrapper {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    
+    @include mq(desktop) {
+    &:after {
+        content: "";
+        display: block;
+        width: auto;
+        height: 100%;
+        background: #dcdcdc;
+        border-left: 1px solid $accent-blue-dark;
+        position: absolute;
+        left: 50px;
+        top: 0;
+        z-index: 2;
+    }
+    }
 }
 
 .gv-list-view {
@@ -288,9 +323,9 @@ select:focus {outline:none;}
         .gv-list-entry {
             background-color: #ffffff;
             margin-bottom: 30px;
-            border-bottom: 2px solid #d6d6d6;
+            //border-bottom: 2px solid #d6d6d6;
             line-height: 1.4em;
-
+            position: relative;
 
             @include mq(phablet) {
                   //margin-bottom: 50px;
@@ -298,24 +333,60 @@ select:focus {outline:none;}
             @include mq(tablet) {
                   //margin-bottom: 70px;
             }
+
+            @include mq(desktop) {
+             &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 130px;
+                margin-left: -130px;
+                border-top: 1px solid $accent-blue-dark;
+            }
+        }
+            @include mq(leftCol) {
+             &:before {
+               
+                width: 130px;
+                margin-left: -130px;
+              
+            }
+            }
+
+            @include mq(wide) {
+             &:before {
+               
+                width: 210px;
+                margin-left: -210px;
+              
+            }
+            }
+
+
+
+
             .gv-list-entry-inner {
                 .gv-list-entry-header {
                     position: relative;
-                    min-height: 185px;
+                    min-height: 175px;
+                    margin-bottom: 10px;
                     width: 100%;
-                    background-color: $background-grey;
+                    background-color: $accent-blue-dark;
                     color: #fff;
                     vertical-align: top;
                     padding: 0 0 5px 0;
                     @include mq(phablet) {
                         padding: 0;
-                        min-height: 185px;
+                        min-height: 175px;
+                        width: calc(100% - 20px);
                     }
 
                     .gv-list-image-container {
-                       top: 5px;
-                        margin: 0 5px 12px 5px;
-                        height: 140px;
+                       //top: 5px;
+                        margin: 0 0 5px 0;
+                        height: auto;
                         position: relative;
                         overflow: hidden;
                     
@@ -323,8 +394,9 @@ select:focus {outline:none;}
                             position: absolute;
                             width: 175px;
                             height: 175px;
-                            top: 5px;
-                            left: 5px;
+                            top: 10px;
+                            left: auto;
+                            right: -20px;
                             padding: 0;
                             margin: 0;
                         }
@@ -333,8 +405,9 @@ select:focus {outline:none;}
                             //position: absolute;
                             width: 240px;
                         height: 175px;
-                        top: 5px;
-                        left: 5px;
+                        top: 10px;
+                        right: -20px;
+                        left: auto;
                         padding: 0;
                         margin: 0;
                         }
@@ -349,7 +422,7 @@ select:focus {outline:none;}
                             //margin-right: auto;
                             margin: 0 auto;
                             width: 100%; //width: 100%;
-                            top: -10px;
+                            //top: -10px;
                             //height: 100%;
                             //background-color: #ff0000;
                             @include mq(phablet) {
@@ -384,7 +457,8 @@ select:focus {outline:none;}
                         @include f-headline;
                         font-size: 24px;
                         line-height: 26px;
-                        font-weight: 300;
+                        font-weight: 600;
+                        font-style: italic;
                         //position: absolute;
                             //width: 60%;
                             //width: calc(100% - 210px); //background-color: #fff;
@@ -406,7 +480,8 @@ select:focus {outline:none;}
                             //background-color: #fff;
                             height: 55px;
                             top: 10px;
-                            left: 195px;
+                            //left: 195px;
+                            left: 10px;
                             padding: 4px 0 0 0;
                             vertical-align: top;
                         }
@@ -421,7 +496,8 @@ select:focus {outline:none;}
                             width: calc(100% - 275px); //background-color: #fff;
                             height: 55px;
                             top: 10px;
-                            left: 260px;
+                            //left: 260px;
+                            left: 10px;
                             //padding: 0;
                             vertical-align: top;
                         }
@@ -430,7 +506,8 @@ select:focus {outline:none;}
                             width: 460px; //background-color: #fff;
                             height: 55px;
                             top: 10px;
-                            left: 260px;
+                            //left: 260px;
+                            left: 10px;
                             //padding: 0;
                             vertical-align: top;
                         }
@@ -511,31 +588,34 @@ select:focus {outline:none;}
                         //left: 10px;
                          //height: 120px;
                         @include fs-textSans(3);
-                        color: #636363;
+                        color: #fff;
                         @include mq(phablet) {
                             //position: absolute;
                             position: absolute;
                             margin: 0;
-                            height: 120px;
+                            //height: 120px;
                             width: 300px;
                             width: calc(100% - 210px);
                             top: 60px;
-                            left: 195px;
+                            //left: 195px;
+                            left: 10px;
                         }
 
                         @include mq(tablet) {
                             width: 300px;
                             width: calc(100% - 275px);
-                            left: 260px;
+                            //left: 260px;
+                            left: 10px;
                         }
 
                         @include mq(desktop) {
                             //position: absolute;
                             margin: 0;
-                            height: 120px;
+                            //height: 120px;
                             width: 345px;
                             top: 60px;
-                            left: 260px;
+                            //left: 260px;
+                            left: 10px;
                         }
 
                          @include mq(leftCol) {
@@ -549,11 +629,13 @@ select:focus {outline:none;}
                             display: table-row;
                             width: auto;
                             span {
-                                border-top: 1px solid #636363;
+                                border-top: 1px solid $accent-blue;
                                 display: table-cell;
                                 padding: 4px 0;
+                                font-weight: 300;
                                 &:nth-of-type(2) {
-                                    color: #999999;
+                                    color: #fff;
+                                    font-weight: 800;
                                 }
                             }
                             span.gv-details-change {
@@ -581,17 +663,18 @@ select:focus {outline:none;}
                             height: 70px;
                             width: 122px;
                             top: 60px;
-                            right: 20px;
+                            //right: 20px;
+                            left: 350px;
                         }
 
                         svg {
                             vector-effect: non-scaling-stroke;
                             #markers circle {
-                                fill: $accent-green;
+                                fill: #fff;
                                 visibility: hidden;
                             }
                             #pitch path {
-                                stroke: $accent-green;
+                                stroke: $accent-blue;
                             }
                         }
                     }
@@ -601,22 +684,24 @@ select:focus {outline:none;}
                     padding: 12px 10px;
                     @include mq(mobileLandscape) {
 
-                    padding: 12px 20px;
+                    padding: 12px 10px;
 
                 }
 
 
                     .gv-list-entry-description {
                         @include f-headline;
-                        color: #333;
+                        color: #121212;
                         font-size: 16px;
+                        font-weight: 300;
+                        line-height: 24px;
                         a {
-                            color: #999999;
+                            color: #121212!important;
                             font-weight: 500;
                             text-decoration: underline;
                         }
                         strong a {
-                            color: #333;
+                            color: #121212!important;
                             font-weight: 600;
                         }
                     }
@@ -636,6 +721,7 @@ select:focus {outline:none;}
     @include mq(desktop) {
         width: calc(100% - 50px);
         left: 50px;
+        border-left: 1px solid transparent;
     } //transform: translateX(100vw);
     z-index: 200;
     &.open {
@@ -687,9 +773,9 @@ select:focus {outline:none;}
     }
 
     .gv-grid-view-inner {
-        background-color: $background-grey; //margin: 20px 15px;
+        background-color: #efefef; //margin: 20px 15px;
         padding: 20px 15px;
-        border-top: 1px solid #555; //width: 500px;
+        //border-top: 1px solid #555; //width: 500px;
         min-height: 100vh;
         display: table-cell; //background-color: #ff0000;
         @include mq(desktop) {
@@ -765,7 +851,7 @@ img {
 
 
              .gv-grid-cell-inner {
-                border-top: 1px solid #767676;
+                //border-top: 1px solid #767676;
 
                 .gv-cell-number {
                     //display: none;
@@ -801,13 +887,18 @@ img {
             right: 5px;
             bottom: 0px; //background: #767676;
             cursor: pointer;
-            border-top: 1px solid $accent-green;
+            //border-top: 1px solid $accent-green;
             -webkit-transition: opacity 100ms ease-in-out;
             -moz-transition: opacity 100ms ease-in-out;
             -o-transition: opacity 100ms ease-in-out;
             transition: opacity 100ms ease-in-out;
             &:hover {
-                opacity: 0.8;
+                //opacity: 0.8;
+                 .gv-grid-cell-image-container .gv-grid-cell-image {
+                 mix-blend-mode: normal;
+                filter: none;
+                -webkit-filter: none; //background: #ff0000;
+                }
             }
             @include mq(phabletPlus) {
                 right: 20px;
@@ -816,15 +907,22 @@ img {
             .gv-grid-cell-image-container {
                 width: 100%;
                 position: relative;
-                background: #383838;
+                background: $accent-blue;
                 padding-bottom: 100%;
                 pointer-events: none;
                 overflow: hidden;
+                border-radius: 50%;
                 .gv-grid-cell-image {
                     position: absolute;
                     top: 0;
                     left: 0;
                     width: 100%;
+
+                     @include mq(desktop) {
+            mix-blend-mode: hard-light;
+            filter: contrast(1.25) grayscale(1) brightness(0.9);
+            -webkit-filter: contrast(1.25) grayscale(1) brightness(0.9); //background: #ff0000;
+            }
                 }
                 .gv-grid-cell-flag {
                     position: absolute;
@@ -855,7 +953,7 @@ img {
                 .gv-cell-title {
                     @include fs-headline(3);
                     //@include f-headlineSans;
-                    color: #ffffff;
+                    color: #121212;
                     font-size: 20px;
                     line-height: 22px;
                     @include mq(desktop) {
@@ -869,12 +967,14 @@ img {
                 }
                 .gv-cell-subtitle {
                     padding-top: 2px;
-                    @include f-headlineSans;
+                     @include fs-headline(3);
+                     font-weight: 300;
                     font-size: 16px;
                     line-height: 18px;
-                    color: #999;
+                    font-style: italic;
+                    color: #121212;
                     @include mq(desktop) {
-                        font-size: 18px;
+                        font-size: 20px;
                         line-height: 20px;
                     }
                 }
@@ -900,7 +1000,7 @@ img {
 }
 
 .gv-grid-view .gv-blazy.b-loaded {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .gv-list-view .gv-blazy.b-loaded {
