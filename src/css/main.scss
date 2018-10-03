@@ -145,7 +145,7 @@ article header {}
     //background: #ff0000;
     left: -200%;
     padding-top: 0; // STYLE FIX
-    height: 120px; // STYLE FIX
+    height: 94px; // STYLE FIX
 
     @include mq(leftCol) {
         //max-width:100%;
@@ -153,7 +153,7 @@ article header {}
         //padding-top: 0; // STYLE FIX
         //height: 124px; // STYLE FIX
         //margin-top: -118px;
-        height: 124px;
+        height: 98px;
     }
 }
 
@@ -330,12 +330,13 @@ select:focus {
         &:after {
             content: "";
             display: block;
-            width: auto;
+            width: 50px;
             height: 100%;
             background: #dcdcdc;
-            border-left: 1px solid $accent-blue-dark;
+            border-right: 1px solid $accent-blue-dark;
+            background-color: #fff;
             position: absolute;
-            left: 50px;
+            left: 0;
             top: 0;
             z-index: 2;
         }
