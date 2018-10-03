@@ -238,29 +238,19 @@ article header {}
     }
 }
 
-// .interactive-ad-banner {
-//     display: flex;
-//     justify-content: center; //margin-top: -20px!important;
-
-//     @include mq($from: tablet) {
-//         .ad-slot--rendered {
-//             margin: 0 0 80px 0;
-//         }
-//     }
-// }
-
-
 .interactive-ad-banner {
     display: flex;
-    justify-content: center;
-    background-color: white;
+    justify-content: center; //margin-top: -20px!important;
 
     @include mq($from: tablet) {
         .ad-slot--rendered {
-            margin: 20px 0 40px 0;
+            margin: 0 0 80px 0;
         }
     }
 }
+
+
+
 
 #gv-mobile-dummy {
     position: absolute;
