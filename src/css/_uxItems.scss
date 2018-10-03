@@ -154,16 +154,33 @@
 
 
 .toggle-view-overlay-btn {
-    width: 60px;
-    height: 60px;
+    width: 42px;
+    height: 42px;
     background: #121212;
     position: absolute;
     z-index: 950;
     // bottom: 10px;
     // left: 50%;
+     border: 3px solid #fff;
     top: 0;
     left: 0;
-    margin-left: -30px;
+    margin-left: -21px;
+
+    &:before {
+        content: "";
+        display: block;
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    z-index: 949;
+    position: absolute;
+    border: 1px solid #121212;
+    margin-top: -4px;
+    margin-left: -4px;
+    border-radius: 50%;
+    }
+
+
     @include mq(desktop){
     position: absolute;
     bottom: auto;
@@ -171,6 +188,11 @@
     left: auto;
     margin-left: 0;
     background: $accent-blue-dark;
+
+    &:before {
+    border: 1px solid $accent-blue-dark;
+    }
+
     }
     // top: 0%;
     // left: 50%;
@@ -186,12 +208,16 @@
 
     #gv-grid-icon-svg {
         display: none;
-        margin: -13px 0 0 -13px;
+        //margin: -13px auto 0 -10px;
+        margin: -10px auto auto -10px;
+        width: 20px;
     }
 
     #gv-list-icon-svg {
         display: block;
-        margin: -10px 0 0 -11.5px;
+        //margin: -10px 0 0 -10px;
+        margin: -8px auto auto -10px;
+        width: 20px;
     }
 
     &.grid-icon-show {
@@ -215,7 +241,7 @@
     @include mq(desktop){
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 27px;
     bottom: auto;
     }
 }
