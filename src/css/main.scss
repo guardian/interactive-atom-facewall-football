@@ -212,14 +212,17 @@ article header {}
 }
 
 .content--interactive .content__standfirst {
-    max-width: 320px;
+    max-width: 280px!important;
     font-weight: 300!important;
     a {
         font-weight: bold;
         border-bottom: none!important;
     }
      @include mq(desktop) {
-         max-width: 400px;
+         max-width: 320px!important;
+    }
+     @include mq(wide) {
+         max-width: 360px!important;
     }
 }
 
@@ -273,12 +276,12 @@ select:focus {
             display: block;
             position: absolute;
             top: -1px;
-            margin-top: -195px;
-            width: 99%;
-            height: 195px;
+            margin-top: -150px;
+            width: 99.5%;
+            height: 150px;
             pointer-events: none;
 
-            background-image: url('<%= path %>/assets/header-image-pl.png');
+            background-image: url('<%= path %>/assets/header-image-world.png');
             background-repeat: no-repeat;
             background-position: right bottom;
             background-size: auto 100%;
@@ -294,18 +297,18 @@ select:focus {
 
         &:before {
             top: -1px;
-            margin-top: -240px;
+            margin-top: -200px;
             width: 99%;
-            height: 240px;
+            height: 200px;
         }
     }
 
     @include mq(desktop) {
         &:before {
             top: -1px;
-            margin-top: -320px;
+            margin-top: -300px;
             width: 99%;
-            height: 320px;
+            height: 300px;
           
         }
     }
@@ -313,9 +316,9 @@ select:focus {
     @include mq(wide) {
         &:before {
             top: -1px;
-            margin-top: -360px;
+            margin-top: -320px;
             width: 99%;
-            height: 360px;
+            height: 320px;
           
         }
     }
