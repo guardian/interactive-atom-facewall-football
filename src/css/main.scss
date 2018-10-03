@@ -330,12 +330,13 @@ select:focus {
         &:after {
             content: "";
             display: block;
-            width: auto;
+            width: 50px;
             height: 100%;
             background: #dcdcdc;
-            border-left: 1px solid $accent-blue-dark;
+            border-right: 1px solid $accent-blue-dark;
+            background-color: #fff;
             position: absolute;
-            left: 50px;
+            left: 0;
             top: 0;
             z-index: 2;
         }
