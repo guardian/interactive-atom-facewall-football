@@ -282,7 +282,7 @@ select:focus {outline:none;}
 .gv-list-view {
     width: 100%; //height: 100%;
     min-height: 100vh;
-    background-color: #fafafa;
+    background-color: #fff;
     z-index: 1;
     padding-bottom: 20px;
     @include mq(desktop) {
@@ -311,13 +311,13 @@ select:focus {outline:none;}
         @include mq(desktop) {
             margin: 0 auto;
             width: 620px;
-            padding: 70px 0 0 0;
+            padding: 80px 0 0 0;
         }
 
         @include mq(leftCol) {
             margin: 0 auto;
             width: 740px;
-            padding: 70px 40px 0 0;
+            padding: 80px 40px 0 0;
         }
 
         .gv-list-entry {
@@ -773,7 +773,7 @@ select:focus {outline:none;}
     }
 
     .gv-grid-view-inner {
-        background-color: #efefef; //margin: 20px 15px;
+        background-color: #fff; //margin: 20px 15px;
         padding: 20px 15px;
         //border-top: 1px solid #555; //width: 500px;
         min-height: 100vh;
