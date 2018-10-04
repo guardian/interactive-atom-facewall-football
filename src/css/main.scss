@@ -144,8 +144,10 @@ article header {}
     background: #121212;
     //background: #ff0000;
     left: -200%;
+    bottom: 0;
     padding-top: 0; // STYLE FIX
     height: 94px; // STYLE FIX
+    height: 100px; // STYLE FIX
 
     @include mq(leftCol) {
         //max-width:100%;
@@ -153,7 +155,7 @@ article header {}
         //padding-top: 0; // STYLE FIX
         //height: 124px; // STYLE FIX
         //margin-top: -118px;
-        height: 98px;
+        //height: 98px;
     }
 }
 
