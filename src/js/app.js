@@ -402,6 +402,15 @@ function showGrid() {
     document.querySelector('.gv-list-view').classList.remove('open');
     document.querySelector('.gv-list-view').classList.add('close');
     document.querySelector('.toggle-view-overlay-btn').classList.remove('grid-icon-show');
+
+     var rect = getCoords(document.getElementById("gv-wrap-all"));
+
+    var h = rect.top;
+
+    if (lastScrollTop <= h) {
+        lastScrollTop = h;
+    }
+
     window.scrollTo(0, lastScrollTop);
     // window.setTimeout(function() {
     //     fixList(false);
