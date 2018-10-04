@@ -920,9 +920,9 @@ select:focus {
 
 
         width: 105%;
-        width: -webkit-calc(100% + 5px);
-        width: -moz-calc(100% + 5px);
-        width: calc(100% + 5px);
+        width: -webkit-calc(100% + 10px);
+        width: -moz-calc(100% + 10px);
+        width: calc(100% + 10px);
 
         @include mq(phabletPlus) {
             width: 108%;
@@ -1009,7 +1009,7 @@ select:focus {
             position: absolute;
             top: 0;
             left: 0;
-            right: 5px;
+            right: 10px;
             bottom: 0px; //background: #767676;
             cursor: pointer;
             //border-top: 1px solid $accent-green;
