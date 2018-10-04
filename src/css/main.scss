@@ -267,10 +267,10 @@ article header, .article__header {
 }
 
 .content--interactive .content__headline {
-    max-width: 540px!important;
-      @include mq(leftCol) {
-         max-width: 620px!important;
-    }
+    max-width: 600px!important;
+      //@include mq(leftCol) {
+         //max-width: 600px!important;
+    //}
 }
 
 .content--interactive .content__standfirst {
