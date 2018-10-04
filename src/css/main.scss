@@ -909,10 +909,6 @@ select:focus {
         max-width: inherit;
         pointer-events: none; //transform: translateX(100vw);
 
-        //transition: transform  0.15s linear;
-        @include mq(desktop) {
-            //display:block;
-        }
 
         .gv-grid-view-inner {
             transform: translateX(100vw);
@@ -1172,6 +1168,10 @@ select:focus {
 }
 
 .gv-hide {
+    display: none;
+}
+
+.gv-init-hide {
     display: none;
 }
 
