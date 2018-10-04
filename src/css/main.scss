@@ -1181,6 +1181,10 @@ select:focus {
     display: none;
 }
 
+.gv-init-hide {
+    display: none;
+}
+
 .gv-blazy {
     -webkit-transition: opacity 500ms ease-in-out;
     -moz-transition: opacity 500ms ease-in-out;

@@ -248,18 +248,20 @@ function addListeners() {
         updateLazyLoad();
     }, 200);
 
+    checkFixElements();
 
-    [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
-        var network = shareEl.getAttribute('data-network');
-        shareEl.addEventListener('click', () => shareFn(network));
-    });
 
-    var playerFilter = document.getElementById("gv-player-filter");
+    // [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
+    //     var network = shareEl.getAttribute('data-network');
+    //     shareEl.addEventListener('click', () => shareFn(network));
+    // });
 
-    playerFilter.addEventListener("change", function( e ) {
+//     var playerFilter = document.getElementById("gv-player-filter");
+
+//     playerFilter.addEventListener("change", function( e ) {
    
-    filterView( e.target.value );
-}, false );
+//     filterView( e.target.value );
+// }, false );
 
 }
 
@@ -566,9 +568,20 @@ function checkFixElements() {
             //console.log("fixed");
             document.querySelector('#toggle-view-overlay-btn').classList.add('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
+            //console.log("Add fix");
         } else if (pos_top < h) {
             document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
+            //console.log("Remove fix");
+        }
+
+         if ( pos_top < (h-300) && isMobile() ) {
+            //console.log("fixed");
+            document.querySelector('#toggle-view-overlay-btn').classList.add('gv-init-hide');
+            //document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
+        } else {
+            document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-init-hide');
+            //document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
         }
 
     if ( pos_top > b ) {
