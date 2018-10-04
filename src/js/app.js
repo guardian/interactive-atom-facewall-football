@@ -556,17 +556,20 @@ function checkFixElements() {
 
         var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-        //console.log("pos_top=" + pos_top);
-        //console.log("oh=" + h);
+        //console.log("pos_top=" + pos_top + "   gv-wrap-all:  h=" + h + "   b=" + b);
+        console.log(isMobile());
+    
 
 
         if ( pos_top > h && !isMobile() ) {
             //console.log("fixed");
             document.querySelector('#toggle-view-overlay-btn').classList.add('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = -h + "px";
+            console.log("Add fix");
         } else if (pos_top < h) {
             document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-fixed');
             document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
+            console.log("Remove fix");
         }
 
     if ( pos_top > b ) {

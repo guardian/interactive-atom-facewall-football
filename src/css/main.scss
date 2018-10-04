@@ -142,10 +142,11 @@ article header {}
     //padding-top: 51px; // STYLE FIX
     //background: rgba(255,0,0,0.5);
     background: #121212;
+    bottom: 0;
     //background: #ff0000;
     left: -200%;
     padding-top: 0; // STYLE FIX
-    height: 120px; // STYLE FIX
+    height: 125px; // STYLE FIX
 
     @include mq(leftCol) {
         //max-width:100%;
@@ -153,7 +154,7 @@ article header {}
         //padding-top: 0; // STYLE FIX
         //height: 124px; // STYLE FIX
         //margin-top: -118px;
-        height: 124px;
+        //height: 124px;
     }
 }
 
@@ -255,6 +256,19 @@ article header {}
 #gv-mobile-dummy {
     position: absolute;
     display: block;
+    @include mq(desktop) {
+        display: none;
+    }
+}
+
+.gv-no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 select:focus {
