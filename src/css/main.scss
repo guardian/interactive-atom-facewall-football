@@ -43,13 +43,15 @@ body {
     z-index: 2 !important;
 }
 
+
+
 article header,
 .content__main .gs-container:first-of-type {
     background-color: #121212 !important;
     position: relative !important;
 
     .content__section-label a {
-        color: $accent-blue-dark !important;
+        color: $accent-blue !important;
     }
 
     h1 {
@@ -79,7 +81,7 @@ article header,
 }
 
 .l-side-margins:after, .l-side-margins:before {
-//background: #fff!important;
+background: none;
 }
 
 .content__main {
@@ -87,7 +89,7 @@ article header,
 }
 
 .content__main .gs-container:nth-of-type(2) {
-    background-color: #fafafa !important;
+    background-color: #fff !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
 
@@ -101,26 +103,27 @@ article header,
 
 article header, .article__header {
 
-    background-image: url('<%= path %>/assets/header-image-world.png');
+    background-image: url('<%= path %>/assets/header-image-pl.png');
             background-repeat: no-repeat;
             background-position: 50% 40px;
             background-size: 400px;
             padding-top: 285px;
 
     @include mq(phablet) {
-       
+
             background-size: 500px;
             padding-top: 350px;
-            
+
     }
 
     @include mq(tablet) {
             padding-top: 0;
             background-image: none;
-            
+
     }
 
 }
+
 
 .ios, .android {
   .article__header .headline {
@@ -161,6 +164,7 @@ article header, .article__header {
 
 }
 
+
 .content--interactive .content__meta-container {
 
 
@@ -179,7 +183,7 @@ article header, .article__header {
 }
 
 .content--interactive a, .content__series-label__link {
-    color: #fff !important;
+    color: #00B2FF !important;
 }
 
 .gv-header-background {
@@ -198,12 +202,11 @@ article header, .article__header {
     //padding-top: 51px; // STYLE FIX
     //background: rgba(255,0,0,0.5);
     background: #121212;
+    bottom: 0;
     //background: #ff0000;
     left: -200%;
-    bottom: 0;
     padding-top: 0; // STYLE FIX
-    height: 94px; // STYLE FIX
-    height: 100px; // STYLE FIX
+    height: 130px; // STYLE FIX
 
     @include mq(leftCol) {
         //max-width:100%;
@@ -211,7 +214,7 @@ article header, .article__header {
         //padding-top: 0; // STYLE FIX
         //height: 124px; // STYLE FIX
         //margin-top: -118px;
-        //height: 98px;
+        //height: 124px;
     }
 }
 
@@ -237,7 +240,7 @@ article header, .article__header {
 
 .content--interactive a,
 .content__series-label__link {
-    color: #fff !important; // STYLE FIX
+    color: #00B2FF !important; // STYLE FIX
 }
 
 .content--interactive .bullet::before {
@@ -267,26 +270,28 @@ article header, .article__header {
 
 .content--interactive .content__headline {
     max-width: 600px!important;
+    font-weight: 600;
+    padding-bottom: 24px;
       //@include mq(leftCol) {
          //max-width: 600px!important;
     //}
 }
 
 .content--interactive .content__standfirst {
-    
+    max-width: 80%!important;
     font-weight: 300!important;
     a {
         font-weight: bold;
         border-bottom: none!important;
     }
-     @include mq(tablet) {
-         max-width: 280px!important;
+    @include mq(tablet) {
+      max-width: 390px!important;
     }
-     @include mq(desktop) {
-         max-width: 320px!important;
+    @include mq(desktop) {
+      max-width: 440px!important;
     }
      @include mq(wide) {
-         max-width: 360px!important;
+         max-width: 500px!important;
     }
 }
 
@@ -312,6 +317,9 @@ article header, .article__header {
         }
     }
 }
+
+
+
 
 #gv-mobile-dummy {
     position: absolute;
@@ -365,16 +373,13 @@ select:focus {
         }
     }
 
-
-
-
     @include mq(desktop) {
         &:before {
             top: -1px;
             margin-top: -300px;
             width: 99%;
             height: 300px;
-          
+
         }
     }
 
@@ -384,7 +389,7 @@ select:focus {
             margin-top: -320px;
             width: 99%;
             height: 320px;
-          
+
         }
     }
 }
@@ -393,8 +398,20 @@ select:focus {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    // border-right: 1px solid $accent-blue-dark;
 
     @include mq(desktop) {
+        &:before {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 100%;
+            border-right: 1px solid $accent-blue-dark;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 300;
+        }
         &:after {
             content: "";
             display: block;
@@ -402,6 +419,7 @@ select:focus {
             height: 100%;
             background: #dcdcdc;
             border-right: 1px solid $accent-blue-dark;
+
             background-color: #fff;
             position: absolute;
             left: 0;
@@ -622,7 +640,7 @@ select:focus {
                             width: calc(100% - 210px);
                             //background-color: #fff;
                             height: 55px;
-                            top: 10px;
+                            top: 0px;
                             //left: 195px;
                             left: 10px;
                             padding: 4px 0 0 0;
@@ -630,7 +648,7 @@ select:focus {
                         }
 
                         @include mq(phabletPlus) {
-                            font-size: 30px;
+                            font-size: 28px;
                             line-height: 32px;
                         }
 
@@ -638,7 +656,7 @@ select:focus {
                             width: 460px;
                             width: calc(100% - 275px); //background-color: #fff;
                             height: 55px;
-                            top: 10px;
+                            top: 0px;
                             //left: 260px;
                             left: 10px;
                             //padding: 0;
@@ -648,7 +666,7 @@ select:focus {
                         @include mq(desktop) {
                             width: 460px; //background-color: #fff;
                             height: 55px;
-                            top: 10px;
+                            top: 0px;
                             //left: 260px;
                             left: 10px;
                             //padding: 0;
@@ -781,10 +799,12 @@ select:focus {
                                 display: table-cell;
                                 padding: 4px 0;
                                 font-weight: 300;
+                                opacity: 0.9;
 
                                 &:nth-of-type(2) {
                                     color: #fff;
                                     font-weight: 800;
+                                    opacity: 1;
                                 }
                             }
 
@@ -847,20 +867,20 @@ select:focus {
 
 
                     .gv-list-entry-description {
-                        @include f-headline;
+                        @include f-bodyCopy;
                         color: #121212;
                         font-size: 16px;
                         font-weight: 300;
-                        line-height: 24px;
+                        line-height: 22px;
 
                         a {
-                            color: #121212 !important;
+                            color: #0084c6 !important;
                             font-weight: 500;
                             text-decoration: underline;
                         }
 
                         strong a {
-                            color: #121212 !important;
+                            color: #0084c6 !important;
                             font-weight: 600;
                         }
                     }
@@ -911,13 +931,8 @@ select:focus {
         max-width: inherit;
         pointer-events: none; //transform: translateX(100vw);
 
-        //transition: transform  0.15s linear;
-        @include mq(desktop) {
-            //display:block;
-        }
 
         .gv-grid-view-inner {
-
             transform: translateX(100vw);
             -webkit-transition: -webkit-transform 0.2s ease-in;
             -moz-transition: -moz-transform 0.2s ease-in;
@@ -1070,9 +1085,16 @@ select:focus {
 
                 //opacity: 0.8;
                 .gv-grid-cell-image-container .gv-grid-cell-image {
-                    mix-blend-mode: normal;
-                    filter: none;
-                    -webkit-filter: none; //background: #ff0000;
+                  @include mq(tablet) {
+                      mix-blend-mode: luminosity;
+                      filter: contrast(1.25) grayscale(1) brightness(0.9);
+                      -webkit-filter: contrast(1.25) grayscale(1) brightness(0.9); //background: #ff0000;
+                  }
+                }
+
+                .gv-cell-info .gv-cell-title,
+                .gv-cell-info .gv-cell-subtitle {
+                  color: #0084C6;
                 }
             }
 
@@ -1083,7 +1105,7 @@ select:focus {
             .gv-grid-cell-image-container {
                 width: 100%;
                 position: relative;
-                background: $accent-blue;
+                background: #00B2FF;
                 padding-bottom: 100%;
                 pointer-events: none;
                 overflow: hidden;
@@ -1095,18 +1117,18 @@ select:focus {
                     left: 0;
                     width: 100%;
 
-                    @include mq(desktop) {
-                        mix-blend-mode: hard-light;
-                        filter: contrast(1.25) grayscale(1) brightness(0.9);
-                        -webkit-filter: contrast(1.25) grayscale(1) brightness(0.9); //background: #ff0000;
-                    }
+                    // @include mq(desktop) {
+                    //     mix-blend-mode: luminosity;
+                    //     filter: contrast(1.25) grayscale(1) brightness(0.9);
+                    //     -webkit-filter: contrast(1.25) grayscale(1) brightness(0.9); //background: #ff0000;
+                    // }
                 }
 
                 
             }
 
             .gv-grid-cell-flag {
-                    position: absolute;
+                     position: absolute;
                     //bottom: 5px;
                     margin-top: -26%;
                     left: 5px;
@@ -1140,6 +1162,7 @@ select:focus {
                     color: #121212;
                     font-size: 20px;
                     line-height: 22px;
+                    font-weight: 600;
 
                     @include mq(desktop) {
                         font-size: 22px;
@@ -1162,8 +1185,8 @@ select:focus {
                     color: #121212;
 
                     @include mq(desktop) {
-                        font-size: 20px;
-                        line-height: 20px;
+                        font-size: 22px;
+                        line-height: 24px;
                     }
                 }
             }
