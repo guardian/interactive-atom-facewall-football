@@ -206,7 +206,7 @@ article header, .article__header {
     //background: #ff0000;
     left: -200%;
     padding-top: 0; // STYLE FIX
-    height: 125px; // STYLE FIX
+    height: 160px; // STYLE FIX
 
     @include mq(leftCol) {
         //max-width:100%;
@@ -285,6 +285,9 @@ article header, .article__header {
         border-bottom: none!important;
     }
     @include mq(tablet) {
+      max-width: 390px!important;
+    }
+    @include mq(desktop) {
       max-width: 440px!important;
     }
      @include mq(wide) {
@@ -796,10 +799,12 @@ select:focus {
                                 display: table-cell;
                                 padding: 4px 0;
                                 font-weight: 300;
+                                opacity: 0.9;
 
                                 &:nth-of-type(2) {
                                     color: #fff;
                                     font-weight: 800;
+                                    opacity: 1;
                                 }
                             }
 
