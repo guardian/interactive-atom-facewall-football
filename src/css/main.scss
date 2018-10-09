@@ -170,8 +170,9 @@ article header, .article__header {
 
 
     //width: 185px;
-    width: 265px;
+    //width: 265px;
     //opacity: 0.5;
+    width: 295px;
 
 }
 
@@ -206,7 +207,7 @@ article header, .article__header {
     //background: #ff0000;
     left: -200%;
     padding-top: 0; // STYLE FIX
-    height: 94px; // STYLE FIX
+    height: 140px; // STYLE FIX
 
     @include mq(leftCol) {
         //max-width:100%;
@@ -269,7 +270,7 @@ article header, .article__header {
 }
 
 .content--interactive .content__headline {
-    max-width: 600px!important;
+    max-width: 650px!important;
     font-weight: 600;
     padding-bottom: 24px;
       //@include mq(leftCol) {
@@ -376,9 +377,9 @@ select:focus {
     @include mq(desktop) {
         &:before {
             top: -1px;
-            margin-top: -300px;
+            margin-top: -280px;
             width: 99%;
-            height: 300px;
+            height: 280px;
 
         }
     }
@@ -386,9 +387,9 @@ select:focus {
     @include mq(wide) {
         &:before {
             top: -1px;
-            margin-top: -320px;
+            margin-top: -310px;
             width: 99%;
-            height: 320px;
+            height: 310px;
 
         }
     }
