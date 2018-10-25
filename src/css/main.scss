@@ -610,6 +610,8 @@ select:focus {
                                 display: none;
                             }
                         }
+
+
                     }
 
                     .gv-list-title {
@@ -1143,6 +1145,19 @@ select:focus {
                     z-index: 250;
                     border-radius: 50%;
                 }
+
+                 .gv-grid-cell-image-number {
+                     position: absolute;
+                    //bottom: 5px;
+                    margin-top: -26%;
+                    left: 5px;
+                    height: 30px;
+                    width: 30px;
+                    background-color: $accent-blue-dark;
+                    z-index: 250;
+                    border-radius: 50%;
+                    color: #fff;
+                 }
 
             .gv-cell-info {
                 // font-family: $f-serif-headline;

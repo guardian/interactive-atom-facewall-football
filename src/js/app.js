@@ -65,7 +65,8 @@ var url;
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
 //url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // Old 2017 top 100 Live
 
-url= 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json'; // New 2018 Next Gen World
+//url= 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json'; // New 2018 Next Gen World
+url= 'https://interactive.guim.co.uk/docsdata/1u0zTppHANGV8UhPsOgzO5xKXMBQCnPvMgTT6OArnGFE.json'; // New 2018 Top 100 Working version
 
 
 
@@ -117,7 +118,7 @@ function cleanData(dataIn) {
 
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
-            //obj["Club"] = dataIn[key][i]["Club on 20 Dec 2017"];
+            obj["Club"] = dataIn[key][i]["Club on 20 Dec 2017"];
             obj["Age"] = dataIn[key][i]["Age on 20 Dec 2017"];
 
 
@@ -136,8 +137,8 @@ function cleanData(dataIn) {
             obj["Grid_image_src"] = obj["Facewall cell image GRID src"] + "/" + gridViewImageWidth + ".jpg"; // Uncomment Football 100
             obj["List_image_src"] = obj["Facewall main image GRID src"] + "/" + listViewImageWidth + ".jpg"; // Uncomment Football 100
 
-            obj["Grid_image_src"] = obj["Grid view image"] + "/" + gridViewImageWidth + ".jpg";
-            obj["List_image_src"] = obj["List view image"] + "/" + listViewImageWidth + ".jpg";
+            //obj["Grid_image_src"] = obj["Grid view image"] + "/" + gridViewImageWidth + ".jpg";
+            //obj["List_image_src"] = obj["List view image"] + "/" + listViewImageWidth + ".jpg";
 
             obj["PublishClass"] = "gv-published";
 
