@@ -196,26 +196,46 @@ article header, .article__header {
 
 
 
-.content__main .gs-container:first-of-type::before {
-    position: absolute;
-    width: 500%;
-    //height: 59px!important;
-    //padding-top: 51px; // STYLE FIX
-    //background: rgba(255,0,0,0.5);
-    background: #121212;
-    bottom: 0;
-    //background: #ff0000;
-    left: -200%;
-    padding-top: 0; // STYLE FIX
-    height: 140px; // STYLE FIX
+// .content__main .gs-container:first-of-type::before {
+//     position: absolute;
+//     width: 500%;
+//     //height: 59px!important;
+//     //padding-top: 51px; // STYLE FIX
+//     //background: rgba(255,0,0,0.5);
+//     background: #ff0000;
+//     bottom: 0;
+//     //background: #ff0000;
+//     left: -200%;
+//     padding-top: 0; // STYLE FIX
+//     height: 140px; // STYLE FIX
 
-    @include mq(leftCol) {
-        //max-width:100%;
-        //height: 63px; // STYLE FIX
-        //padding-top: 0; // STYLE FIX
-        //height: 124px; // STYLE FIX
-        //margin-top: -118px;
-        //height: 124px;
+//     @include mq(leftCol) {
+//         //max-width:100%;
+//         //height: 63px; // STYLE FIX
+//         //padding-top: 0; // STYLE FIX
+//         //height: 124px; // STYLE FIX
+//         //margin-top: -118px;
+//         //height: 124px;
+//     }
+// }
+
+.content__main .gs-container:first-of-type {
+    background-color: #121212 !important;
+    //max-width: none!important;
+    //border-top: 1px solid #fff;
+    position: relative;
+    overflow: visible;
+    &:after {
+        position: absolute;
+        content: "";
+        //border-top: 1px solid #fff;
+        display: block;
+        background: #121212;
+        top: 0;
+        bottom: 0;
+        left: -1000px;
+        right: -1000px;
+        z-index: -1;
     }
 }
 
@@ -1144,6 +1164,7 @@ select:focus {
                     background-color: #fff;
                     z-index: 250;
                     border-radius: 50%;
+
                 }
 
                  .gv-grid-cell-image-number {
@@ -1151,12 +1172,28 @@ select:focus {
                     //bottom: 5px;
                     margin-top: -26%;
                     left: 5px;
-                    height: 30px;
-                    width: 30px;
+                    height: 32px;
+                    width: 32px;
                     background-color: $accent-blue-dark;
                     z-index: 250;
                     border-radius: 50%;
                     color: #fff;
+                     @include fs-headline(3);
+                      text-align: center;
+                      .gv-cell-number {
+                        display: inline-block;
+                        margin-top: 2px;
+                      }
+
+                       @include mq(leftCol) {
+                   @include fs-headline(5);
+                    height: 44px;
+                    width: 44px;
+                    .gv-cell-number {
+                        display: inline-block;
+                        margin-top: 4px;
+                      }
+                    }
                  }
 
             .gv-cell-info {
