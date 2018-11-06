@@ -29,6 +29,8 @@ $dark-grey: #505050;
 $text-grey: #676767;
 $background-grey: #333333;
 $background-lightgrey: #f4f4f4;
+$accent-magenta: #bb3b80;
+$inverted-pink: #ffabdb;
 
 @import "detailView";
 @import "uxItems";
@@ -37,6 +39,10 @@ $background-lightgrey: #f4f4f4;
 html,
 body {
     height: 100%; //overflow-x: hidden;
+}
+
+footer {
+    display: block!important;
 }
 
 .element-atom,
@@ -851,7 +857,7 @@ select:focus {
 }
 
 .gv-header .gv-strap {
-    color: $accent-gold;
+    color: $inverted-pink;
     @include fs-headline(8);
     font-size: 18px;
     line-height: 24px;
@@ -861,7 +867,7 @@ select:focus {
     }
 
     a {
-        color: $accent-gold;
+        color: $inverted-pink;
         text-decoration: none;
         &:hover {
             text-decoration: underline;
