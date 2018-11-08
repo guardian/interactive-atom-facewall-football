@@ -48,7 +48,7 @@ footer {
 .element-atom,
 .interactive-atom {
     margin: 0 !important; //background-color: $multimedia-support-4;
-    background-color: #ebebeb;
+    //background-color: #ebebeb;
     height: auto; //overflow:hidden;
     @include mq(desktop) {
         //overflow:visible;
@@ -94,9 +94,12 @@ select:focus {
     vertical-align: top;
     margin: 0 auto;
     min-height: 100vh;
+    //border-right: 1px solid $accent-magenta;
     @include mq(desktop) {
         //max-width:100%;
     }
+
+   
 }
 
 .gv-views-wrapper {
@@ -104,6 +107,33 @@ select:focus {
     overflow: hidden;
     z-index: 1;
     background: #fff;
+
+     @include mq(desktop) {
+
+     &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 100%;
+        //width: 10px;
+        z-index: 500;
+        top: 0;
+        left: 50px;
+        border-left: 1px solid $accent-magenta;
+    }
+     &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 100%;
+        //width: 10px;
+         z-index: 500;
+        top: 0;
+        right: 0;
+        border-left: 1px solid $accent-magenta;
+    }
+
+    }
 }
 
 .gv-list-view {
@@ -223,7 +253,7 @@ select:focus {
                     }
                     .gv-list-title {
                         //padding: 0 10px 5px 10px;
-                        color: #000;
+                        color: $accent-magenta;
                         @include f-headline;
                         font-size: 24px;
                         line-height: 24px;
@@ -292,14 +322,14 @@ select:focus {
 
                         .gv-list-number {
                             //display: none;
-                            color: $accent-gold;
+                            color: $accent-magenta;
                             padding-right: 5px;
 
 
                             &:after {
                                 display: inline-block;
                                 content: "";
-                                border-right: 1px solid $accent-gold;
+                                border-right: 1px solid $accent-magenta;
                                 height: 25px;
                                 width: 8px;
                                 opacity: 0.5;
@@ -373,7 +403,7 @@ select:focus {
                                 border-top: none;
                                 display: inline-block;
                                 padding: 0;
-                                color: $accent-gold;
+                                color: $accent-magenta;
                             }
                             span.gv-details-dim {
                                 border-top: none;
@@ -408,11 +438,11 @@ select:focus {
                         svg {
                             vector-effect: non-scaling-stroke;
                             #markers circle {
-                                fill: $accent-gold;
+                                fill: $accent-magenta;
                                 visibility: hidden;
                             }
                             #pitch path {
-                                stroke: $accent-gold;
+                                stroke: $accent-magenta;
                             }
                         }
                     }
@@ -500,9 +530,12 @@ select:focus {
     }
 
     .gv-grid-view-inner {
-        background-color: $background-grey; //margin: 20px 15px;
+        //background-color: $background-grey; //margin: 20px 15px;
+         background-color: #fff;
         padding: 20px 15px;
-        border-top: 1px solid #555; //width: 500px;
+        //border-top: 1px solid #555; //width: 500px;
+        //border-left: 1px solid $accent-magenta;
+        //border-right: 1px solid $accent-magenta; 
         min-height: 100vh;
         display: table-cell; //background-color: #ff0000;
         @include mq(desktop) {
@@ -569,15 +602,15 @@ select:focus {
         }
 
         &.gv-cell-gold .gv-grid-cell-inner {
-            border-top: 1px solid $accent-gold;
+            border-top: 1px solid $accent-magenta;
         }
 
         &.gv-cell-silver .gv-grid-cell-inner {
-            border-top: 1px solid $accent-silver;
+            border-top: 1px solid $accent-magenta;
         }
 
         &.gv-cell-bronze .gv-grid-cell-inner {
-            border-top: 1px solid $accent-bronze;
+            border-top: 1px solid $accent-magenta;
         }
 
 
@@ -607,7 +640,7 @@ select:focus {
             right: 5px;
             bottom: 0px; //background: #767676;
             cursor: pointer;
-            border-top: 1px solid $accent-gold;
+            border-top: 1px solid $accent-magenta;
             -webkit-transition: opacity 100ms ease-in-out;
             -moz-transition: opacity 100ms ease-in-out;
             -o-transition: opacity 100ms ease-in-out;
@@ -659,8 +692,9 @@ select:focus {
                     padding-right: 5px;
                 }
                 .gv-cell-title {
-                    @include fs-headline(3);
-                    color: #ffffff;
+                    //@include fs-headline(3);
+                    font-family: "Guardian Egyptian Web", Georgia, serif;
+                    color: $accent-magenta;
                     font-size: 18px;
                     line-height: 20px;
                     @include mq(phabletPlus) {
@@ -888,10 +922,13 @@ select:focus {
 }
 
 .gv-header h1 {
-    @include fs-headline(8);
+    //@include fs-headline(8);
+    //@include f-serif-headline;
+    //font-family: $f-serif-headline;
+    font-family: $f-titlepiece;
     font-size: 36px;
     line-height: 40px;
-    font-weight: 100;
+    //font-weight: 100;
     @include mq($from: desktop) {
         font-size: 54px;
         line-height: 58px;
