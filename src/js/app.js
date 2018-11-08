@@ -64,7 +64,7 @@ var url;
 //url= 'https://interactive.guim.co.uk/docsdata/1mIpLr09lxHSG6JkQ3K-P3fkFsx7-wpOARxnuWzlo2kk.json'; // New 2017 top 100
 //url= 'https://interactive.guim.co.uk/docsdata/10yzxnL1IoWxXZJ0T0uaMlVW6ID8pUqlA9SD-KYR4j1g.json'; // Old 2016 OFM gift guide
 //url='https://interactive.guim.co.uk/docsdata/1qqKjxG3WrxKI_uuYIeobLFk4k2nl2kjqHyvnv0Al6kM.json'; // Old 2017 OFM Gift guide
-url='https://interactive.guim.co.uk/docsdata/1bZ6IV4fkTiRdyHJF2oNuzexkEtgFjuNftg9Wdekaf7A.json'; // Old 2017 OFM Gift guide
+url='https://interactive.guim.co.uk/docsdata/1bZ6IV4fkTiRdyHJF2oNuzexkEtgFjuNftg9Wdekaf7A.json'; // 2018 OFM Gift guide
 
 
 xr.get(url).then((resp) => {
