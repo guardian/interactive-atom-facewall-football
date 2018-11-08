@@ -58,12 +58,14 @@ footer {
 .interactive-ad-banner {
     display: flex;
     justify-content: center; //margin-top: -20px!important;
+    background-color: white;
     @include mq($from: tablet) {
         .ad-slot--rendered {
-            margin: 0 0 50px 0;
+            margin: 20px 0 50px 0;
         }
     }
 }
+
 
 #gv-mobile-dummy {
     position: absolute;
@@ -256,7 +258,7 @@ select:focus {
                         color: $accent-magenta;
                         @include f-headline;
                         font-size: 24px;
-                        line-height: 24px;
+                        line-height: 26px;
                         font-weight: 300;
                         position: relative; //background: #0000ff;
                         width: 100%; //width: calc(100% - 210px); //background-color: #fff;
@@ -275,8 +277,8 @@ select:focus {
                         }
 
                         @include mq(phabletPlus) {
-                            font-size: 28px;
-                            line-height: 32px;
+                            font-size: 26px;
+                            line-height: 30px;
                         }
 
                         @include mq(tablet) {
