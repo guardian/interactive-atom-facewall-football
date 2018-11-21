@@ -154,6 +154,16 @@ function cleanData(dataIn) {
         if (key == "players") {
 
         var newArr = [].concat(arr);
+
+
+        // Test remove elements
+
+            for (var ii=0; ii < 40; ii++) {
+                newArr.shift();
+            }
+
+
+
             //Add inactive cells
         var populated = newArr.length;
 
@@ -176,7 +186,7 @@ function cleanData(dataIn) {
             obj["Club"] = "";
             obj["PublishClass"] = "gv-unpublished";
             obj["Filters"] = "";
-            //newArr.push(obj); Uncomment for silhouettes in Football 100
+            newArr.push(obj); //Uncomment for silhouettes in Football 100
 
         }
 
