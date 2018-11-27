@@ -66,7 +66,9 @@ var url;
 //url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // Old 2017 top 100 Live
 
 //url= 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json'; // New 2018 Next Gen World
-url= 'https://interactive.guim.co.uk/docsdata/1u0zTppHANGV8UhPsOgzO5xKXMBQCnPvMgTT6OArnGFE.json'; // New 2018 Top 100 Working version
+//url= 'https://interactive.guim.co.uk/docsdata/1u0zTppHANGV8UhPsOgzO5xKXMBQCnPvMgTT6OArnGFE.json'; // New 2018 Top 100 Working version
+
+url= 'https://interactive.guim.co.uk/docsdata/1LNXZCuQ87vwaye5ML9IF7oDcOJmR8aWeV0GqQ7cu3lQ.json'; // womens 2018
 
 
 
@@ -158,9 +160,9 @@ function cleanData(dataIn) {
 
         // Test remove elements
 
-            for (var ii=0; ii < 40; ii++) {
-                newArr.shift();
-            }
+            // for (var ii=0; ii < 40; ii++) {
+            //     newArr.shift();
+            // }
 
 
 
