@@ -205,7 +205,7 @@ function cleanData(dataIn) {
         for ( var ii = 0; ii < remainderTotal; ii ++ ) {
 
             obj = {};
-            obj["Grid_image_src"] = "<%= path %>/assets/silhouette.png";
+            obj["Grid_image_src"] = "<%= path %>/assets/silhouette3.png";
             obj["List_image_src"] = "";
             obj["Rank"] = ii + 1;
 
