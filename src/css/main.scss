@@ -107,12 +107,12 @@ article header, .article__header {
             background-repeat: no-repeat;
             background-position: 50% 40px;
             background-size: 400px;
-padding-top: 285px;
+padding-top: 295px;
 
     @include mq(phablet) {
 
             background-size: 500px;
-            padding-top: 350px;
+            padding-top: 370px;
 
     }
 
@@ -232,10 +232,14 @@ padding-top: 285px;
         display: block;
         background: #121212;
         top: 0;
-        bottom: 0;
+        bottom: -12px;
         left: -1000px;
         right: -1000px;
         z-index: -1;
+
+         @include mq(leftCol) {
+          bottom: -16px;
+        }
     }
 }
 

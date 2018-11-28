@@ -45,6 +45,10 @@ var lastScrollTop = 0;
 var gridViewImageWidth = 500;
 var listViewImageWidth = 500;
 
+var path = document.getElementById("gv-wrap-all").getAttribute("data-path");
+
+//alert(path);
+
 
 function isMobile() {
     var dummy = document.getElementById("gv-mobile-dummy");
@@ -100,7 +104,9 @@ xr.get(url).then((resp) => {
 
     //var picUrl = "url('/assets/" + data.furniture[0].header_image + "')";
 
-    var picUrl = "url('/assets/" + data.furniture[0].header_image + "')";
+    var picUrl = "url('" + path + "/assets/" + data.furniture[0].header_image + "')";
+
+//console.log(picUrl);
 
 
         addRule(".gv-wrap-all:before", {
