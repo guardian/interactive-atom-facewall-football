@@ -60,6 +60,17 @@ function getStyle(element) {
         getComputedStyle(element, null).display;
 }
 
+
+var addRule = (function (style) {
+    var sheet = document.head.appendChild(style).sheet;
+    return function (selector, css) {
+        var propText = typeof css === "string" ? css : Object.keys(css).map(function (p) {
+            return p + ":" + (p === "content" ? "'" + css[p] + "'" : css[p]);
+        }).join(";");
+        sheet.insertRule(selector + "{" + propText + "}", sheet.cssRules.length);
+    };
+})(document.createElement("style"));
+
 var url;
 
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
@@ -85,6 +96,24 @@ xr.get(url).then((resp) => {
 
     data = resp.data.sheets;
     data = cleanData(data);
+    console.log(data);
+
+    //var picUrl = "url('/assets/" + data.furniture[0].header_image + "')";
+
+    var picUrl = "url('/assets/" + data.furniture[0].header_image + "')";
+
+
+        addRule(".gv-wrap-all:before", {
+   "background-image": picUrl
+});
+
+            addRule("article header, .article__header", {
+   "background-image": picUrl
+});
+
+
+//article header, .article__header {
+
 
     //console.log(data.english[0]);
     var compiledHTML = compileHTML(data);
@@ -113,15 +142,15 @@ function cleanData(dataIn) {
             obj["Rank"] = dataIn[key][i].Rank || i + 1;
 
             if ( obj["Rank"] <= 9) {
-                obj["Rank"] = "0" + obj["Rank"];
+                //obj["Rank"] = "0" + obj["Rank"];
             }
 
 
 
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
-            obj["Club"] = dataIn[key][i]["Club on 20 Dec 2017"];
-            obj["Age"] = dataIn[key][i]["Age on 20 Dec 2017"];
+            obj["Club"] = dataIn[key][i]["Club on 1 Dec 2018"];
+            obj["Age"] = dataIn[key][i]["Age on 1 Dec 2018"];
 
 
             obj["Change"] =  getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]), dataIn[key][i]["Up or down"]);
@@ -269,12 +298,12 @@ function addListeners() {
     //     shareEl.addEventListener('click', () => shareFn(network));
     // });
 
-//     var playerFilter = document.getElementById("gv-player-filter");
+    var playerFilter = document.getElementById("gv-player-filter");
 
-//     playerFilter.addEventListener("change", function( e ) {
+    playerFilter.addEventListener("change", function( e ) {
    
-//     filterView( e.target.value );
-// }, false );
+    filterView( e.target.value );
+}, false );
 
 }
 
@@ -719,7 +748,7 @@ function drawPositions(data) {
 
 function getMovementText( oldRank, change, changeTxt ){
    
-    var strOut = oldRank + " <span class='gv-details-dim'>2016</span> ";
+    var strOut = oldRank + " <span class='gv-details-dim'>2017</span> ";
  
         if ( changeTxt == "New entry" ){
           strOut = "<span class='gv-details-change'>New</span>";

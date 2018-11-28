@@ -251,7 +251,7 @@
 
 
 .gv-filter-block {
-    background: #333;
+    background: #fff;
     height: 55px;
 
 .hidden {
@@ -273,18 +273,18 @@ select {
 
 select {
     cursor: pointer;
-    color: $accent-green;
+    color: $accent-blue-dark;
     border-radius: 30px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: #333333 url("<%= path %>/assets/down-arrow.png") no-repeat 93% 50%;
+    background: #ffffff url("<%= path %>/assets/down-arrow-blue-dark.png") no-repeat 93% 50%;
         background-size: auto auto;
     background-size: 16px auto;
     padding: 5px 10px;
     font-family: "Guardian Sans Headline",Helvetica,Arial,sans-serif;
     cursor: pointer;
-    border: 1px solid $accent-green;
+    border: 1px solid $accent-blue-dark;
     width: 250px;
     
 }

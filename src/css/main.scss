@@ -104,11 +104,10 @@ background: none;
 article header, .article__header {
 
     //background-image: url('<%= path %>/assets/header-image-world.png');
-    background-image: url('<%= path %>/assets/onehundred.svg');
             background-repeat: no-repeat;
-            background-position: 50% 80px;
-            background-size: 90%;
-            padding-top: 285px;
+            background-position: 50% 40px;
+            background-size: 400px;
+padding-top: 285px;
 
     @include mq(phablet) {
 
@@ -389,11 +388,11 @@ select:focus {
             width: 99%;
             height: 220px;
             pointer-events: none;
-            background-image: url('<%= path %>/assets/onehundred.svg');
-            //background-image: url('<%= path %>/assets/header-image-world.png');
+            //background-image: url('<%= path %>/assets/onehundred.svg');
+            //background-image: url('<%= path %>/assets/header-image-1_albatross.png');
             background-repeat: no-repeat;
             background-position: right bottom;
-            background-size: auto 80%;
+            background-size: auto 100%;
         }
     }
 
