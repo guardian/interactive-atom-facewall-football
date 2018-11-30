@@ -1,4 +1,4 @@
-    <div class="gv-list" id="gv-list">    
+    <div class="gv-list" id="gv-list">
             {{#each players}}
             <div class="gv-list-entry {{PublishClass}}" id="list-entry_{{Index}}" data-index="{{Index}}">
 
@@ -11,7 +11,7 @@
                                             <!-- <div class="gv-flag gv-list-image-flag gv-blazy" data-src="<%= path %>/assets/flags/pngs/{{Iso}}.png"></div> -->
                                     </div>
 
-                                    <div class="gv-list-title"><span class="gv-list-number">{{Rank}}</span><span class="gv-list-title-name">{{Name}}</span></div>
+                                    <div class="gv-list-title"><span class="gv-list-number">{{Rank}}</span><span class="gv-divider"></span><span class="gv-list-title-name">{{Name}}</span></div>
                                     <div class="gv-list-entry-info">
                                             <div class="gv-list-country gv-list-info-row"><span>Age</span><span>{{Age}}</span></div>
                                             <div class="gv-list-club gv-list-info-row"><span>Team</span><span>{{Club}} / {{Nationality}}</span></div>
@@ -61,9 +61,9 @@
                                 <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_M4" class="st1" cx="67.7" cy="60.3" r="4"/>
                                 <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_F1" class="st1" cx="94.7" cy="28.3" r="4"/>
                                 <circle class="gv-position-marker" id="gv-pitch_{{Index}}_marker_F2" class="st1" cx="94.7" cy="44.3" r="4"/>
-                                
+
                         </g>
-                        
+
                                </svg>
                                     </div>
                             </div>
@@ -72,12 +72,12 @@
                                     <!-- <strong>{{{Writer}}}</strong> -->
                                 </div>
                             </div>
-    
+
                     </div>
             </div>
 
             {{#ifvalue Index 6}}
-                       
+
           <!--   <div class="interactive-ad-banner">
                         <div class="ad-wrapper--desktop hide-until-tablet">
                             <div id="dfp-ad--inline{{Index}}"
@@ -87,7 +87,7 @@
                                  data-tablet="1,1|2,2|728,90"
                                  data-desktop="1,1|2,2|88,70|728,90|940,230|900,250"></div>
                         </div>
-                    
+
                         <div class="ad-wrapper--mobile mobile-only">
                             <div id="dfp-ad--inline{{Index}}Mobile"
                                  class="js-ad-slot ad-slot ad-slot--inline ad-slot--inline{{Index}}"
@@ -103,7 +103,7 @@
     <div class="ad-wrapper--desktop hide-until-tablet">
         <div id="dfp-ad--{{Index}}" class="js-ad-slot ad-slot ad-slot--banner-ad ad-slot--banner-ad-desktop ad-slot--rendered" data-link-name="ad slot banner" data-name="banner" data-tablet="1,1|2,2|728,90" data-desktop="1,1|2,2|88,70|728,90|940,230|900,250|970,250"></div>
     </div>
-    
+
     <div class="ad-wrapper--mobile mobile-only">
         <div id="dfp-ad--inline{{Index}}Mobile" class="js-ad-slot ad-slot ad-slot--inline ad-slot--inline{{Index}}" data-link-name="ad slot inline{{Index}}Mobile" data-name="inline{{Index}}Mobile" data-mobile="1,1|2,2|300,250|fluid"></div>
     </div>
