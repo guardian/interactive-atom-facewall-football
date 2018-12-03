@@ -100,22 +100,22 @@ xr.get(url).then((resp) => {
 
     data = resp.data.sheets;
     data = cleanData(data);
-    console.log(data);
+    //console.log(data);
 
     //var picUrl = "url('/assets/" + data.furniture[0].header_image + "')";
 
-    var picUrl = "url('" + path + "/assets/" + data.furniture[0].header_image + "')";
+//     var picUrl = "url('" + path + "/assets/" + data.furniture[0].header_image + "')";
 
-//console.log(picUrl);
+// //console.log(picUrl);
 
 
-        addRule(".gv-wrap-all:before", {
-   "background-image": picUrl
-});
+//         addRule(".gv-wrap-all:before", {
+//    "background-image": picUrl
+// });
 
-            addRule("article header, .article__header", {
-   "background-image": picUrl
-});
+//             addRule("article header, .article__header", {
+//    "background-image": picUrl
+// });
 
 
 //article header, .article__header {

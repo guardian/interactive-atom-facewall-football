@@ -112,6 +112,8 @@ article header, .article__header {
   }
 
     //background-image: url('<%= path %>/assets/header-image-world.png');
+
+    background-image: url('<%= path %>/assets/header-image-5.png');
             background-repeat: no-repeat;
             background-position: 50% 74px;
             background-size: 400px;
@@ -403,7 +405,12 @@ select:focus {
             width: 99%;
             height: 220px;
             pointer-events: none;
+<<<<<<< HEAD
             //background-image: url('<%= path %>/assets/header-image-world.png');
+=======
+            //background-image: url('<%= path %>/assets/onehundred.svg');
+            background-image: url('<%= path %>/assets/header-image-5.png');
+>>>>>>> 0391eeb079033b01bbe6126d48d1ecd310a006a5
             background-repeat: no-repeat;
             background-position: right bottom;
             background-size: auto 100%;
