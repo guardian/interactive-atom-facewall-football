@@ -1212,21 +1212,22 @@ select:focus {
                     z-index: 250;
                     border-radius: 50%;
                     color: #fff;
-                       @include fs-GuardianHeadlineFull(3, true)
-                     font-weight: 200;
+                    @include fs-GuardianHeadlineFull(3, true)
+                    font-weight: 200;
                       text-align: center;
                       .gv-cell-number {
                         display: inline-block;
-                        margin-top: 2px;
+                        margin-top: 4px;
                       }
 
                        @include mq(leftCol) {
                     @include fs-GuardianHeadlineFull(5, true)
+                    font-weight: 200;
                     height: 44px;
                     width: 44px;
                     .gv-cell-number {
                         display: inline-block;
-                        margin-top: 4px;
+                        margin-top: 7px;
                       }
                     }
                  }
