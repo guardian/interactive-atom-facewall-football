@@ -662,7 +662,7 @@ select:focus {
                     .gv-list-title {
                         padding: 4px 10px 5px 10px;
                         //padding: 4px 10px;
-                        @include f-headline;
+                        @include f-headerFull;
                         font-size: 24px;
                         line-height: 26px;
                         font-weight: 600;
@@ -721,17 +721,17 @@ select:focus {
                         }
 
                         span {
-                            padding-top: 5px;
+                            padding-top: 7px;
                             display: inline-block;
                             vertical-align: top;
 
                             @include mq(phablet) {
-                                padding-top: 12px;
+                                padding-top: 2px;
                             }
 
-                            @include mq(phabletPlus) {
-                                padding-top: 6px;
-                            }
+                            // @include mq(phabletPlus) {
+                            //     padding-top: 6px;
+                            // }
                         }
 
                         span:nth-of-type(2) {
