@@ -386,14 +386,12 @@ select:focus {
             display: block;
             position: absolute;
             color: #fff;
-            //font-size: 100px;
             top: -1px;
             margin-top: -220px;
             width: 99%;
             height: 220px;
             pointer-events: none;
-            //background-image: url('<%= path %>/assets/onehundred.svg');
-            //background-image: url('<%= path %>/assets/header-image-1_albatross.png');
+            //background-image: url('<%= path %>/assets/header-image-world.png');
             background-repeat: no-repeat;
             background-position: right bottom;
             background-size: auto 100%;
