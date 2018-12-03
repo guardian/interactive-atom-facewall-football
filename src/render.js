@@ -16,7 +16,7 @@ import mainTemplate from './src/templates/main.html!text'
 
 export function render() {
     return rp({
-        uri: 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json',
+        uri: 'https://interactive.guim.co.uk/docsdata/1z83ACM3aUr_toXtNlhYPh394Wn9LaGt2_M5Lifgjgrc.json',
         json: true
     }).then((data) => {
         var sheets = data.sheets;        
