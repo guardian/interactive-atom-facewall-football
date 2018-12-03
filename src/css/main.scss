@@ -324,7 +324,6 @@ article header, .article__header {
     max-width: 80%!important;
     font-weight: 300!important;
     a {
-        font-weight: bold;
         border-bottom: none!important;
     }
     @include mq(tablet) {
