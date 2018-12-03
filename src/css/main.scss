@@ -103,11 +103,23 @@ background: none;
 
 article header, .article__header {
 
+  .gs-container {
+    border-top: 1px solid $neutral-3;
+
+    @include mq(tablet) {
+      border-top: none;
+    }
+  }
+
     //background-image: url('<%= path %>/assets/header-image-world.png');
             background-repeat: no-repeat;
-            background-position: 50% 40px;
+            background-position: 50% 74px;
             background-size: 400px;
-padding-top: 295px;
+            padding-top: 295px;
+
+    @include mq(mobileMedium) {
+            background-position: 50% 40px;
+    }
 
     @include mq(phablet) {
 
