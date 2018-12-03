@@ -82,6 +82,9 @@ article header,
 
 .l-side-margins:after, .l-side-margins:before {
 background: none;
+border-left: none;
+border-right: none;
+
 }
 
 .content__main {
@@ -418,19 +421,17 @@ select:focus {
     @include mq(desktop) {
         &:before {
             top: -1px;
-            margin-top: -280px;
+            margin-top: -319px;
             width: 99%;
-            height: 280px;
+            height: 320px;
 
         }
     }
 
     @include mq(wide) {
         &:before {
-            top: -1px;
-            margin-top: -310px;
-            width: 99%;
-            height: 310px;
+            margin-top: -339px;
+            height: 340px;
 
         }
     }
