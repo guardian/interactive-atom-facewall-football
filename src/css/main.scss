@@ -103,7 +103,7 @@ background: none;
 
 article header, .article__header {
 
-    //background-image: url('<%= path %>/assets/header-image-world.png');
+    background-image: url('<%= path %>/assets/header-image-5.png');
             background-repeat: no-repeat;
             background-position: 50% 40px;
             background-size: 400px;
@@ -393,7 +393,7 @@ select:focus {
             height: 220px;
             pointer-events: none;
             //background-image: url('<%= path %>/assets/onehundred.svg');
-            //background-image: url('<%= path %>/assets/header-image-1_albatross.png');
+            background-image: url('<%= path %>/assets/header-image-5.png');
             background-repeat: no-repeat;
             background-position: right bottom;
             background-size: auto 100%;
