@@ -116,16 +116,17 @@ article header, .article__header {
     background-image: url('<%= path %>/assets/header-image-5.png');
             background-repeat: no-repeat;
             background-position: 50% 74px;
-            background-size: 400px;
+            background-size: 310px;
             padding-top: 295px;
 
     @include mq(mobileMedium) {
             background-position: 50% 40px;
+            background-size: 358px;
     }
 
     @include mq(phablet) {
 
-            background-size: 500px;
+            background-size: 462px;
             padding-top: 370px;
 
     }
@@ -308,7 +309,7 @@ article header, .article__header {
 }
 
 .content--interactive .content__headline {
-    max-width: 650px!important;
+    max-width: 600px!important;
     font-weight: 600;
     padding-bottom: 24px;
       //@include mq(leftCol) {
