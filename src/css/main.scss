@@ -323,6 +323,10 @@ article header, .article__header {
 .content--interactive .content__standfirst {
     max-width: 80%!important;
     font-weight: 300!important;
+
+    ul>li {
+      overflow: inherit;
+    }
     a {
         border-bottom: none!important;
     }
