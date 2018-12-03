@@ -662,7 +662,7 @@ select:focus {
                     .gv-list-title {
                         padding: 4px 10px 5px 10px;
                         //padding: 4px 10px;
-                        @include f-headerFull;
+                        @include fs-GuardianHeadlineFull(1, true)
                         font-size: 24px;
                         line-height: 26px;
                         font-weight: 600;
@@ -1212,7 +1212,7 @@ select:focus {
                     z-index: 250;
                     border-radius: 50%;
                     color: #fff;
-                     @include fs-GuardianHeadlineFull(3);
+                       @include fs-GuardianHeadlineFull(3, true)
                      font-weight: 200;
                       text-align: center;
                       .gv-cell-number {
@@ -1221,7 +1221,7 @@ select:focus {
                       }
 
                        @include mq(leftCol) {
-                   @include fs-headline(5);
+                    @include fs-GuardianHeadlineFull(5, true)
                     height: 44px;
                     width: 44px;
                     .gv-cell-number {
