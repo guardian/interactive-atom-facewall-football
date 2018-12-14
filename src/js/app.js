@@ -17,7 +17,7 @@ import listTemplate from '../templates/list-ng.html' // Use for Next Gen Young F
 
 import shares from './share'
 
-let shareFn = shares('Next Generation 2017: 60 of the best young talents in world football', 'https://gu.com/p/793ff', '');
+//let shareFn = shares('Next Generation 2017: 60 of the best young talents in world football', 'https://gu.com/p/793ff', '');
 
 
 //import gridPicTemplate from '../templates/gridPic.html'
