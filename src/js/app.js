@@ -85,7 +85,7 @@ var url;
 
 //url= 'https://interactive.guim.co.uk/docsdata/1z83ACM3aUr_toXtNlhYPh394Wn9LaGt2_M5Lifgjgrc.json'; // womens 2018
 
-url= 'https://interactive.guim.co.uk/docsdata/1u0zTppHANGV8UhPsOgzO5xKXMBQCnPvMgTT6OArnGFE.json'; // mens 2018
+url= 'https://interactive.guim.co.uk/docsdata/1AKBcrwqtP7K4Gd9WPRrlDXFVpI2eVEa60IOhyHA66Tk.json'; // mens 2018
 
 
 
@@ -218,7 +218,7 @@ function cleanData(dataIn) {
             obj["Rank"] = ii + 1;
 
             if ( obj["Rank"] <= 9) {
-                obj["Rank"] = "0" + obj["Rank"];
+                //obj["Rank"] = "0" + obj["Rank"];
             }
             obj["Index"] = populated + ii;
             obj["Name"] = "";
