@@ -61,8 +61,8 @@ article header,
         font-weight: 100;
 
         @include mq(desktop) {
-            font-size: 54px !important;
-            line-height: 58px !important;
+            font-size: 52px !important;
+            line-height: 56px !important;
         }
     }
 
@@ -312,7 +312,7 @@ article header, .article__header {
 }
 
 .content--interactive .content__headline {
-    max-width: 600px!important;
+    max-width: 570px!important;
     font-weight: 600;
     padding-bottom: 24px;
       //@include mq(leftCol) {
