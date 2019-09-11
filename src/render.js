@@ -13,6 +13,9 @@ import mainTemplate from './src/templates/main.html!text'
 
 // old 2017 F100 url https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json
 
+// 2018 url world: https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json
+// 2019 url world: https://interactive.guim.co.uk/docsdata/1k7JYcPUbTM-KU8T0g75NLAecFCO5M5NToIU4UxHGD1A.json
+
 
 export function render() {
     return rp({
