@@ -13,6 +13,10 @@ import mainTemplate from './src/templates/main.html!text'
 
 // old 2017 F100 url https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json
 
+// old premiership 2018 https://interactive.guim.co.uk/docsdata/15oX1N8uGCfeljcVD-1o1BXYju0_V7YDi6WwpjjWN4XQ.json
+
+// new premiership 2019 https://interactive.guim.co.uk/docsdata/1HDhilyyWKPxxNUsUzEsB1vtihj0VuKaBn5WhYJTLgdA.json
+
 
 export function render() {
     return rp({

@@ -65,7 +65,8 @@ var url;
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
 //url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // Old 2017 top 100 Live
 
-url= 'https://interactive.guim.co.uk/docsdata/15oX1N8uGCfeljcVD-1o1BXYju0_V7YDi6WwpjjWN4XQ.json'; // New 2018 Next Gen Premiership
+url= 'https://interactive.guim.co.uk/docsdata/15oX1N8uGCfeljcVD-1o1BXYju0_V7YDi6WwpjjWN4XQ.json'; // Old 2018 Next Gen Premiership
+//url= 'https://interactive.guim.co.uk/docsdata/1HDhilyyWKPxxNUsUzEsB1vtihj0VuKaBn5WhYJTLgdA.json'; // New 2019 Next Gen Premiership
 
 
 
