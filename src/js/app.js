@@ -65,7 +65,8 @@ var url;
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
 //url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // Old 2017 top 100 Live
 
-url= 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json'; // New 2018 Next Gen World
+//url= 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json'; // New 2018 Next Gen World
+url= 'https://interactive.guim.co.uk/docsdata/1k7JYcPUbTM-KU8T0g75NLAecFCO5M5NToIU4UxHGD1A.json'; // New 2019 Next Gen World
 
 
 
