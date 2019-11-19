@@ -85,7 +85,9 @@ var url;
 
 //url= 'https://interactive.guim.co.uk/docsdata/1z83ACM3aUr_toXtNlhYPh394Wn9LaGt2_M5Lifgjgrc.json'; // womens 2018
 
-url= 'https://interactive.guim.co.uk/docsdata/1AKBcrwqtP7K4Gd9WPRrlDXFVpI2eVEa60IOhyHA66Tk.json'; // mens 2018
+//url= 'https://interactive.guim.co.uk/docsdata/1AKBcrwqtP7K4Gd9WPRrlDXFVpI2eVEa60IOhyHA66Tk.json'; // mens 2018
+
+url= 'https://interactive.guim.co.uk/docsdata/1L8GJESKHfcRK7MqIlF8qcoYHkgUO3TqZkl1FhjNc3co.json'; // mens 2019 working version
 
 
 
