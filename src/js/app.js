@@ -83,7 +83,9 @@ var url;
 //url= 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json'; // New 2018 Next Gen World
 //url= 'https://interactive.guim.co.uk/docsdata/1u0zTppHANGV8UhPsOgzO5xKXMBQCnPvMgTT6OArnGFE.json'; // New 2018 Top 100 Working version
 
-url= 'https://interactive.guim.co.uk/docsdata/1z83ACM3aUr_toXtNlhYPh394Wn9LaGt2_M5Lifgjgrc.json'; // womens 2018
+//url= 'https://interactive.guim.co.uk/docsdata/1z83ACM3aUr_toXtNlhYPh394Wn9LaGt2_M5Lifgjgrc.json'; // womens 2018
+
+url= 'https://interactive.guim.co.uk/docsdata/1p7NrRqLBxwAYUChO34nthTTtWVfMiUQ5ygJ1RtUfYM4.json'; // womens 2019 working version
 
 
 
