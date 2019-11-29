@@ -101,7 +101,19 @@ xr.get(url).then((resp) => {
     // !!!!!!!!!!! ALERT SHEET NAME HERE IS "english" !!!!!!!!!!!!!
 
     data = resp.data.sheets;
+
+    //var picUrl = data.furniture[0].header_image;
+
+
+
+
     data = cleanData(data);
+
+    
+
+
+
+
     //console.log(data);
 
     //var picUrl = "url('/assets/" + data.furniture[0].header_image + "')";
