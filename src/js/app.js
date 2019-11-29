@@ -85,12 +85,7 @@ var url;
 
 //url= 'https://interactive.guim.co.uk/docsdata/1z83ACM3aUr_toXtNlhYPh394Wn9LaGt2_M5Lifgjgrc.json'; // womens 2018
 
-url= 'https://interactive.guim.co.uk/docsdata/1p7NrRqLBxwAYUChO34nthTTtWVfMiUQ5ygJ1RtUfYM4.json'; // womens 2019 working version
-
-
-
-
-
+url= 'https://interactive.guim.co.uk/docsdata/1AH6d9-VMIGN9ya326QnbOqpW2yT-RnGJ9vSDN7sNsj8.json'; // womens 2019 live version
 
 
 
