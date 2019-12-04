@@ -763,7 +763,7 @@ function drawPositions(data) {
 
 function getMovementText( oldRank, change, changeTxt ){
    
-    var strOut = oldRank + " <span class='gv-details-dim'>2017</span> ";
+    var strOut = oldRank + " <span class='gv-details-dim'>2018</span> ";
  
         if ( changeTxt == "New entry" ){
           strOut = "<span class='gv-details-change'>New</span>";
