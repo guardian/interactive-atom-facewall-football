@@ -1278,6 +1278,11 @@ select:focus {
                     color: #121212;
 
                     @include mq(desktop) {
+                        font-size: 20px;
+                        line-height: 22px;
+                    }
+
+                    @include mq(leftCol) {
                         font-size: 22px;
                         line-height: 24px;
                     }
