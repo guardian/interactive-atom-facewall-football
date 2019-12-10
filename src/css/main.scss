@@ -419,6 +419,14 @@ select:focus {
             background-repeat: no-repeat;
             background-position: right bottom;
             background-size: auto 100%;
+
+            .ios & {
+                display:none;
+            }
+
+            .android & {
+                display: none;
+            }
         }
     }
 
@@ -1122,11 +1130,31 @@ select:focus {
         @include mq(tablet) {
             width: $four-in-row; // 3 in row phablet default
             padding-bottom: $four-in-row;
+
+            .ios & {
+                width: $three-in-row; // 3 in row phablet default
+                padding-bottom: $three-in-row;
+            }
+
+            .android & {
+                width: $three-in-row; // 3 in row phablet default
+                padding-bottom: $three-in-row;
+            }
         }
 
         @include mq(desktop) {
             width: 20%; // 5 in row desktop default
             padding-bottom: 20%;
+
+            .ios & {
+                width: $three-in-row; // 3 in row phablet default
+                padding-bottom: $three-in-row;
+            }
+
+            .android & {
+                width: $three-in-row; // 3 in row phablet default
+                padding-bottom: $three-in-row;
+            }
         }
 
         .gv-grid-cell-inner {
