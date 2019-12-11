@@ -680,17 +680,29 @@ function getPositionIdArray(positions, modifier) {
 
                 if (modifier == "" || modifier == "LEFT") {
 
-                arr.push("F1");
+                    if (modifier == "" || modifier == "LEFT") {
 
-                } else {
-                arr.push("F2");
-                }
+                        arr.push("F1");
+        
+                        } else if (modifier == "CENTRE") {
+                        arr.push("F2");
+                        } else {
+                            arr.push("F3");
+                        }
 
                 break;
 
             case "attacking midfielder":
 
-                arr.push("M2");
+                    if (modifier == "" || modifier == "CENTRE") {
+
+                        arr.push("M2");
+        
+                        } else if (modifier == "LEFT") {
+                        arr.push("M1");
+                        } else {
+                            arr.push("M3");
+                        }
 
                 break;
 
@@ -710,12 +722,14 @@ function getPositionIdArray(positions, modifier) {
 
             case "striker":
 
-                    if (modifier == "" || modifier == "LEFT") {
+                    if (modifier == "" || modifier == "CENTRE") {
 
-                        arr.push("F1");
-        
-                        } else {
                         arr.push("F2");
+        
+                        } else if (modifier == "LEFT") {
+                        arr.push("F1");
+                        } else {
+                            arr.push("F3");
                         }
 
                 break;
