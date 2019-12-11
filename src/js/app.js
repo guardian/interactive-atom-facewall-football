@@ -658,7 +658,7 @@ function checkFixElements() {
 
 }
 
-function getPositionIdArray(positions) {
+function getPositionIdArray(positions, modifier) {
 
     var i, position, arr = [];
 
@@ -678,7 +678,13 @@ function getPositionIdArray(positions) {
 
             case "forward":
 
+                if (modifier == "" || modifier == "LEFT") {
+
                 arr.push("F1");
+
+                } else {
+                arr.push("F2");
+                }
 
                 break;
 
@@ -690,31 +696,69 @@ function getPositionIdArray(positions) {
 
             case "midfielder":
 
-                arr.push("M3");
+                    if (modifier == "" || modifier == "LEFT") {
+
+                        arr.push("M1");
+        
+                        } else if (modifier == "CENTRE") {
+                        arr.push("M2");
+                        } else {
+                            arr.push("M3");
+                        }
 
                 break;
 
             case "striker":
 
-                arr.push("F2");
+                    if (modifier == "" || modifier == "LEFT") {
+
+                        arr.push("F1");
+        
+                        } else {
+                        arr.push("F2");
+                        }
 
                 break;
 
             case "defensive midfielder":
 
-                arr.push("M3");
+                    if (modifier == "" || modifier == "LEFT") {
+
+                        arr.push("M1");
+        
+                        } else if (modifier == "CENTRE") {
+                        arr.push("M2");
+                        } else {
+                            arr.push("M3");
+                        }
 
                 break;
 
             case "defender":
 
-                arr.push("D2");
+                    if (modifier == "" || modifier == "LEFT") {
+
+                        arr.push("D1");
+        
+                        } else if (modifier == "CENTRE") {
+                        arr.push("D2");
+                        } else {
+                            arr.push("D3");
+                        }
 
                 break;
 
             case "winger":
 
-                arr.push("M1");
+                    if (modifier == "" || modifier == "LEFT") {
+
+                        arr.push("M1");
+        
+                        } else if (modifier == "CENTRE") {
+                        arr.push("M2");
+                        } else {
+                            arr.push("M3");
+                        }
 
                 break;
 
@@ -734,8 +778,7 @@ function drawPositions(data) {
 
     for (i = 0; i < data.length; i++) {
 
-        arr = getPositionIdArray(data[i].Position);
-
+        arr = getPositionIdArray(data[i].Position, data[i]["Position modifier"]);
 
         for (ii = 0; ii < arr.length; ii++) {
 
