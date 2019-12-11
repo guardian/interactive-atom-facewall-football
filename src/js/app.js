@@ -680,12 +680,12 @@ function getPositionIdArray(positions, modifier) {
 
             case "forward":
 
-                    if (modifier == "" || modifier == "LEFT") {
+                    if (modifier == "" || modifier == "CENTRE") {
 
-                        arr.push("F1");
-        
-                        } else if (modifier == "CENTRE") {
                         arr.push("F2");
+        
+                        } else if (modifier == "LEFT") {
+                        arr.push("F1");
                         } else {
                             arr.push("F3");
                         }
@@ -708,12 +708,12 @@ function getPositionIdArray(positions, modifier) {
 
             case "midfielder":
 
-                    if (modifier == "" || modifier == "LEFT") {
+                    if (modifier == "" || modifier == "CENTRE") {
 
-                        arr.push("M1");
-        
-                        } else if (modifier == "CENTRE") {
                         arr.push("M2");
+        
+                        } else if (modifier == "LEFT") {
+                        arr.push("M1");
                         } else {
                             arr.push("M3");
                         }
@@ -736,12 +736,12 @@ function getPositionIdArray(positions, modifier) {
 
             case "defensive midfielder":
 
-                    if (modifier == "" || modifier == "LEFT") {
+                    if (modifier == "" || modifier == "CENTRE") {
 
-                        arr.push("M1");
-        
-                        } else if (modifier == "CENTRE") {
                         arr.push("M2");
+        
+                        } else if (modifier == "LEFT") {
+                        arr.push("M1");
                         } else {
                             arr.push("M3");
                         }
@@ -750,12 +750,12 @@ function getPositionIdArray(positions, modifier) {
 
             case "defender":
 
-                    if (modifier == "" || modifier == "LEFT") {
+                    if (modifier == "" || modifier == "CENTRE") {
 
-                        arr.push("D1");
-        
-                        } else if (modifier == "CENTRE") {
                         arr.push("D2");
+        
+                        } else if (modifier == "LEFT") {
+                        arr.push("D1");
                         } else {
                             arr.push("D3");
                         }
