@@ -106,6 +106,8 @@ xr.get(url).then((resp) => {
 
     data = resp.data.sheets;
     data = cleanData(data);
+
+    //alert("loaded");
     //console.log(data);
 
     //var picUrl = "url('/assets/" + data.furniture[0].header_image + "')";
@@ -677,8 +679,6 @@ function getPositionIdArray(positions, modifier) {
                 break;
 
             case "forward":
-
-                if (modifier == "" || modifier == "LEFT") {
 
                     if (modifier == "" || modifier == "LEFT") {
 
