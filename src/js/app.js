@@ -87,7 +87,7 @@ var url;
 
 //url= 'https://interactive.guim.co.uk/docsdata/1AKBcrwqtP7K4Gd9WPRrlDXFVpI2eVEa60IOhyHA66Tk.json'; // mens 2018
 
-url= 'https://interactive.guim.co.uk/docsdata/1L8GJESKHfcRK7MqIlF8qcoYHkgUO3TqZkl1FhjNc3co.json'; // mens 2019 working version
+url= 'https://interactive.guim.co.uk/docsdata/1L1AndH6CdEoXW_2Sjqcwr9EWdh_xmxTVqE4Dslc6vFQ.json'; // mens 2019 live version
 
 
 
