@@ -520,12 +520,28 @@ select:focus {
             margin: 0 auto;
             width: 620px;
             padding: 80px 0 0 0;
+
+            .ios & {
+                width: 590px;
+            }
+
+            .android & {
+                width: 590px;
+            }
         }
 
         @include mq(leftCol) {
             margin: 0 auto;
             width: 740px;
             padding: 80px 40px 0 0;
+
+            .ios & {
+                width: 710px;
+            }
+
+            .android & {
+                width: 710px;
+            }
         }
 
         .gv-list-entry {
