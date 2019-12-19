@@ -61,8 +61,8 @@ article header,
         font-weight: 100;
 
         @include mq(desktop) {
-            font-size: 54px !important;
-            line-height: 58px !important;
+            font-size: 52px !important;
+            line-height: 56px !important;
         }
     }
 
@@ -312,7 +312,7 @@ article header, .article__header {
 }
 
 .content--interactive .content__headline {
-    max-width: 600px!important;
+    max-width: 570px!important;
     font-weight: 600;
     padding-bottom: 24px;
       //@include mq(leftCol) {
@@ -326,6 +326,7 @@ article header, .article__header {
 
     ul>li {
       overflow: inherit;
+      color: #00b2ff!important;
     }
     a {
         border-bottom: none!important;
@@ -420,7 +421,7 @@ select:focus {
             background-size: auto 100%;
 
             .ios & {
-                display: none;
+                display:none;
             }
 
             .android & {
@@ -519,12 +520,34 @@ select:focus {
             margin: 0 auto;
             width: 620px;
             padding: 80px 0 0 0;
+
+            .ios & {
+                width: calc(100% - 20px);
+                margin-left: 50px;
+            }
+
+            .android & {
+                //width: 590px;
+                width: calc(100% - 20px);
+                margin-left: 50px;
+            }
         }
 
         @include mq(leftCol) {
             margin: 0 auto;
             width: 740px;
             padding: 80px 40px 0 0;
+
+            .ios & {
+                width: calc(100% - 20px);
+                margin-left: 50px;
+            }
+
+            .android & {
+                //width: 710px;
+                width: calc(100% - 20px);
+                margin-left: 50px;
+            }
         }
 
         .gv-list-entry {
@@ -907,6 +930,19 @@ select:focus {
                             top: 60px;
                             //right: 20px;
                             left: 350px;
+
+                        
+
+                                .ios & {
+                                    display: none;
+                                }
+                    
+                                .android & {
+                                    //width: 590px;
+                                    display: none;
+                                }
+        
+                                
                         }
 
                         svg {
@@ -951,6 +987,19 @@ select:focus {
                         strong a {
                             color: #0084c6 !important;
                             font-weight: 600;
+                        }
+
+                        @include mq(desktop) {
+
+                        .ios & {
+                            margin-right: 40px;
+                        }
+            
+                        .android & {
+                            //width: 590px;
+                            margin-right: 40px;
+                        }
+
                         }
                     }
                 }
@@ -1129,6 +1178,7 @@ select:focus {
         @include mq(tablet) {
             width: $four-in-row; // 3 in row phablet default
             padding-bottom: $four-in-row;
+
             .ios & {
                 width: $three-in-row; // 3 in row phablet default
                 padding-bottom: $three-in-row;
@@ -1143,6 +1193,7 @@ select:focus {
         @include mq(desktop) {
             width: 20%; // 5 in row desktop default
             padding-bottom: 20%;
+
             .ios & {
                 width: $three-in-row; // 3 in row phablet default
                 padding-bottom: $three-in-row;
@@ -1304,11 +1355,6 @@ select:focus {
                     color: #121212;
 
                     @include mq(desktop) {
-                        font-size: 20px;
-                        line-height: 22px;
-                    }
-
-                    @include mq(leftCol) {
                         font-size: 22px;
                         line-height: 24px;
                     }
