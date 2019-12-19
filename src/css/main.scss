@@ -154,6 +154,9 @@ article header, .article__header {
   }
   .article__header {
     background-color: #121212 !important;
+    .section {
+        background-color: transparent !important;
+    }
     h1 {
         color: #fff!important;
     }
