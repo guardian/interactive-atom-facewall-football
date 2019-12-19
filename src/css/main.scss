@@ -522,11 +522,14 @@ select:focus {
             padding: 80px 0 0 0;
 
             .ios & {
-                width: 590px;
+                width: calc(100% - 20px);
+                margin-left: 50px;
             }
 
             .android & {
-                width: 590px;
+                //width: 590px;
+                width: calc(100% - 20px);
+                margin-left: 50px;
             }
         }
 
@@ -536,11 +539,14 @@ select:focus {
             padding: 80px 40px 0 0;
 
             .ios & {
-                width: 710px;
+                width: calc(100% - 20px);
+                margin-left: 50px;
             }
 
             .android & {
-                width: 710px;
+                //width: 710px;
+                width: calc(100% - 20px);
+                margin-left: 50px;
             }
         }
 
@@ -924,6 +930,19 @@ select:focus {
                             top: 60px;
                             //right: 20px;
                             left: 350px;
+
+                        
+
+                                .ios & {
+                                    display: none;
+                                }
+                    
+                                .android & {
+                                    //width: 590px;
+                                    display: none;
+                                }
+        
+                                
                         }
 
                         svg {
@@ -968,6 +987,19 @@ select:focus {
                         strong a {
                             color: #0084c6 !important;
                             font-weight: 600;
+                        }
+
+                        @include mq(desktop) {
+
+                        .ios & {
+                            margin-right: 40px;
+                        }
+            
+                        .android & {
+                            //width: 590px;
+                            margin-right: 40px;
+                        }
+
                         }
                     }
                 }
