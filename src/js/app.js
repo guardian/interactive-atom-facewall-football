@@ -65,8 +65,11 @@ var url;
 //url = 'https://interactive.guim.co.uk/docsdata/1yKh0V2u8VnW1B_MYCHG1ggcTN6a0bl8gDuXmY8LEAtY.json'; // New 2017 Next Gen world
 //url= 'https://interactive.guim.co.uk/docsdata/1ijYpfwo56EuZuE98Qj1k11WMJC-SRTKj_12kw-Pcrvs.json'; // Old 2017 top 100 Live
 
-//url= 'https://interactive.guim.co.uk/docsdata/15oX1N8uGCfeljcVD-1o1BXYju0_V7YDi6WwpjjWN4XQ.json'; // Old 2018 Next Gen Premiership
-url= 'https://interactive.guim.co.uk/docsdata/1HDhilyyWKPxxNUsUzEsB1vtihj0VuKaBn5WhYJTLgdA.json'; // New 2019 Next Gen Premiership
+//url= 'https://interactive.guim.co.uk/docsdata/1VvsnoYg773fCuzLvLcidtqO7XJdnX5H7a7AW3PPBiuY.json'; // New 2018 Next Gen World
+//url= 'https://interactive.guim.co.uk/docsdata/1k7JYcPUbTM-KU8T0g75NLAecFCO5M5NToIU4UxHGD1A.json'; // New 2019 Next Gen World
+url= 'https://interactive.guim.co.uk/docsdata/1bala2s-aEGvKXm-h5fPAKyPgxX9Q0eIRghl3jv6Z8ns.json'; // New 2020 Next Gen Premier league
+
+
 
 
 
@@ -247,11 +250,13 @@ function addListeners() {
         updateLazyLoad();
     }, 200);
 
+    checkFixElements();
 
-//     [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
-//         var network = shareEl.getAttribute('data-network');
-//         shareEl.addEventListener('click', () => shareFn(network));
-//     });
+
+    // [].slice.apply(document.querySelectorAll('.interactive-share')).forEach(shareEl => {
+    //     var network = shareEl.getAttribute('data-network');
+    //     shareEl.addEventListener('click', () => shareFn(network));
+    // });
 
 //     var playerFilter = document.getElementById("gv-player-filter");
 
@@ -259,8 +264,6 @@ function addListeners() {
    
 //     filterView( e.target.value );
 // }, false );
-
-checkFixElements();
 
 }
 
@@ -404,14 +407,11 @@ function showGrid() {
 
      var rect = getCoords(document.getElementById("gv-wrap-all"));
 
-        var h = rect.top;
+    var h = rect.top;
 
-        if (lastScrollTop <= h) {
-            lastScrollTop = h;
-        }
-
-
-
+    if (lastScrollTop <= h) {
+        lastScrollTop = h;
+    }
 
     window.scrollTo(0, lastScrollTop);
     // window.setTimeout(function() {
@@ -571,9 +571,8 @@ function checkFixElements() {
 
         var pos_top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-        //console.log("pos_top=" + pos_top + "   gv-wrap-all:  h=" + h + "   b=" + b);
-        //console.log(isMobile());
-    
+        //console.log("pos_top=" + pos_top);
+        //console.log("oh=" + h);
 
 
         if ( pos_top > h && !isMobile() ) {
@@ -604,8 +603,6 @@ function checkFixElements() {
             document.querySelector('#toggle-view-overlay-btn').classList.remove('gv-hide');
             //document.querySelector('#toggle-view-overlay-btn').style.marginTop = "0";
         }
-
-
 
 }
 
