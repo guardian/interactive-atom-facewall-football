@@ -409,6 +409,7 @@ select:focus {
             position: absolute;
             top: -1px;
             margin-top: -220px;
+            right: -30px;
             width: 99%;
             height: 220px;
             pointer-events: none;
@@ -422,6 +423,7 @@ select:focus {
 
     @include mq(desktop) {
         &:before {
+            right: auto;
             top: -1px;
             margin-top: -280px;
             width: 99%;
