@@ -1517,17 +1517,18 @@ select:focus {
     width: 100%;
     //background-color: #ffffff;
     z-index: 900;
-    display: none;
+    //display: none;
 
     .gv-footer-photo-credit {
-        padding: 10px 5px 100px 5px;
+        padding: 20px 5px 10px 5px;
         @include f-headlineSans;
         font-size: 13px;
         line-height: 1.2em;
         color: #767676;
 
         @include mq($from: desktop) {
-            padding: 10px 5px 100px 50px;
+            padding: 20px 5px 10px 50px;
         }
     }
 }
+
