@@ -85,7 +85,9 @@ var url;
 
 //url= 'https://interactive.guim.co.uk/docsdata/1z83ACM3aUr_toXtNlhYPh394Wn9LaGt2_M5Lifgjgrc.json'; // womens 2018
 
-url= 'https://interactive.guim.co.uk/docsdata/1AH6d9-VMIGN9ya326QnbOqpW2yT-RnGJ9vSDN7sNsj8.json'; // womens 2019 live version
+//url= 'https://interactive.guim.co.uk/docsdata/1AH6d9-VMIGN9ya326QnbOqpW2yT-RnGJ9vSDN7sNsj8.json'; // womens 2019 live version
+
+url= 'https://interactive.guim.co.uk/docsdata/1TyOnnnSWwjDV2t1PjgktkyZD6mVu5rQidUg4ljC5Dmw.json'; // womens 2020 live version
 
 
 
@@ -164,8 +166,8 @@ function cleanData(dataIn) {
 
             obj["DOB_text"] = dataIn[key][i]["DOB text"];
             obj["Iso"] = String(dataIn[key][i]["ISO code"]).toLowerCase() || "_";
-            obj["Club"] = dataIn[key][i]["Club on 1 Dec 2019"];
-            obj["Age"] = dataIn[key][i]["Age on 1 Dec 2019"];
+            obj["Club"] = dataIn[key][i]["Club on 1 Dec 2020"];
+            obj["Age"] = dataIn[key][i]["Age on 1 Dec 2020"];
 
 
             obj["Change"] =  getMovementText( dataIn[key][i]["Last year"], Number(dataIn[key][i]["Up or down"]), dataIn[key][i]["Up or down"]);
