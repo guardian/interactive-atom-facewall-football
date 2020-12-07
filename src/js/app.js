@@ -87,7 +87,7 @@ var url;
 
 //url= 'https://interactive.guim.co.uk/docsdata/1AH6d9-VMIGN9ya326QnbOqpW2yT-RnGJ9vSDN7sNsj8.json'; // womens 2019 live version
 
-url= 'https://interactive.guim.co.uk/docsdata/1TyOnnnSWwjDV2t1PjgktkyZD6mVu5rQidUg4ljC5Dmw.json'; // womens 2020 live version
+url= 'https://interactive.guim.co.uk/docsdata/1zWOS3gGwb4sYnyL-FEKysvtgAb3E1R_KolnT0pDIbAQ.json'; // womens 2020 live version
 
 
 
@@ -765,7 +765,7 @@ function drawPositions(data) {
 
 function getMovementText( oldRank, change, changeTxt ){
    
-    var strOut = oldRank + " <span class='gv-details-dim'>2018</span> ";
+    var strOut = oldRank + " <span class='gv-details-dim'>2019</span> ";
  
         if ( changeTxt == "New entry" ){
           strOut = "<span class='gv-details-change'>New</span>";
