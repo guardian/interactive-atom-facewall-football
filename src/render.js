@@ -19,7 +19,7 @@ import mainTemplate from './src/templates/main.html!text'
 
 export function render() {
     return rp({
-        uri: 'https://interactive.guim.co.uk/docsdata/1TyOnnnSWwjDV2t1PjgktkyZD6mVu5rQidUg4ljC5Dmw.json',
+        uri: 'https://interactive.guim.co.uk/docsdata/1zWOS3gGwb4sYnyL-FEKysvtgAb3E1R_KolnT0pDIbAQ.json',
         json: true
     }).then((data) => {
         var sheets = data.sheets;        
