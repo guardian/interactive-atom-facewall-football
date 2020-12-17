@@ -89,7 +89,7 @@ var url;
 
 //url= 'https://interactive.guim.co.uk/docsdata/1L1AndH6CdEoXW_2Sjqcwr9EWdh_xmxTVqE4Dslc6vFQ.json'; // mens 2019 live version
 
-url= 'https://interactive.guim.co.uk/docsdata/1f1vSQDSMpxDdD4ITD0NvSnbS7BPRQZpaRPQucHagjKQ.json'; // mens 2020 working version
+url= 'https://interactive.guim.co.uk/docsdata/1vK8-O66EQDxE6yyQM0NEt530ZuADIIAabGur5Ee9_Rs.json'; // mens 2020 live version
 
 
 
@@ -766,12 +766,12 @@ function getPositionIdArray(positions, modifier) {
 
                     if (modifier == "" || modifier == "LEFT") {
 
-                        arr.push("M1");
+                        arr.push("MF1");
         
                         } else if (modifier == "CENTRE") {
-                        arr.push("M2");
+                        arr.push("MF2");
                         } else {
-                            arr.push("M3");
+                            arr.push("MF3");
                         }
 
                 break;
@@ -817,9 +817,9 @@ function drawPositions(data) {
 
 function getMovementText( oldRank, change, changeTxt ){
    
-    var strOut = oldRank + " <span class='gv-details-dim'>2018</span> ";
+    var strOut = oldRank + " <span class='gv-details-dim'>2019</span> ";
  
-        if ( changeTxt == "New entry" ){
+        if ( changeTxt == "New" ){
           strOut = "<span class='gv-details-change'>New</span>";
         
         } else if ( changeTxt == "Re-entry" ){
