@@ -51,7 +51,7 @@
     "blazy": "^1.8.2",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
-    "handlebars": "^4.0.10",
+    "handlebars": "^4.7.7",
     "install": "^0.10.1",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
